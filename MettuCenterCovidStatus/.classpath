@@ -16,5 +16,11 @@
 	<classpathentry kind="lib" path="E:/Programming/Java/Jar files/ux/jstl-1.2.jar"/>
 	<classpathentry kind="lib" path="E:/Programming/Java/Jar files/ux/mysql-connector-java-5.1.27.jar"/>
 	<classpathentry kind="lib" path="E:/Programming/Java/Jar files/ux/servlet-api-3.0.jar"/>
+	<classpathentry kind="lib" path="E:/Programming/Java/Jar files/ux/commons-lang3-3.5.jar"/>
+	<classpathentry kind="lib" path="E:/Programming/Java/Jar files/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="E:/Programming/Java/Jar files/jar file for java application/Report Builder/itextpdf-5.3.4.jar"/>
+	<classpathentry kind="lib" path="E:/Programming/Java/Jar files/jar file for java application/Report Builder/dynamicreports-core-3.1.3.jar"/>
+	<classpathentry kind="lib" path="E:/Programming/Java/Jar files/jar file for java application/Report Builder/itext-2.1.7.jar"/>
+	<classpathentry kind="lib" path="E:/Programming/Java/Jar files/jar file for java application/Report Builder/jasperreports-5.0.4.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

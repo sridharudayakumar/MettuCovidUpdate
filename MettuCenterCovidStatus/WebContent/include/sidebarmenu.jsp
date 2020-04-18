@@ -55,7 +55,7 @@
 						<h6 class="collapse-header">Admin Control:</h6>
 						<a class="collapse-item" href="Registerpatients.jsp">Register Patients</a>
 						<a class="collapse-item" href="ViewPatientController">View Patients</a>
-						<a class="collapse-item" href="">Reports</a>
+						<a class="collapse-item" href="ReportGenerator">Reports</a>
 						<a class="collapse-item" href="">Logout</a>
 						<div class="collapse-divider"></div>
 					</div>
