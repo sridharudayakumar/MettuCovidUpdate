@@ -20,6 +20,7 @@ import net.sf.dynamicreports.report.builder.component.Components;
 import net.sf.dynamicreports.report.builder.datatype.DataTypes;
 import net.sf.dynamicreports.report.constant.HorizontalAlignment;
 import net.sf.dynamicreports.report.exception.DRException;
+import net.sf.jasperreports.engine.JasperExportManager;
 
 /**
  * Servlet implementation class ReportGenerator
@@ -58,7 +59,9 @@ public class ReportGenerator extends HttpServlet {
 		try {
 	                //show the report
 			report.show();
-			report.toPdf(new FileOutputStream("report.pdf"));
+			
+			report.toPdf(new FileOutputStream("c://report.pdf"));
+			//report.print();
 			request.getRequestDispatcher("AdminHome").forward(request, response);
 	                //export the report to a pdf file
 			
