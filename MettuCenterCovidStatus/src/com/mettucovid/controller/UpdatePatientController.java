@@ -42,7 +42,13 @@ public class UpdatePatientController extends HttpServlet {
 			request.setAttribute("patient", patient);
 			request.setAttribute("id", patientId);
 
-			request.getRequestDispatcher("UpdatePatient.jsp").forward(request, response);
+			HttpSession session = request.getSession();
+			
+			String role=(String) session.getAttribute("role");
+			if(role.equals("Administrator"))
+				request.getRequestDispatcher("UpdatePatient.jsp").forward(request, response);
+			else
+				request.getRequestDispatcher("StaffUpdatePatient.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -83,7 +89,12 @@ public class UpdatePatientController extends HttpServlet {
 				HttpSession session = request.getSession();
 				String SuccessText = "Record Updated";
 				session.setAttribute("SuccessText", SuccessText);
+				String role=(String) session.getAttribute("role");
+				System.out.println(role);
+				if(role.equals("Administrator"))
 				request.getRequestDispatcher("ViewPatientController").forward(request, response);
+				else
+				request.getRequestDispatcher("ShowPatientsInDetail").forward(request, response);
 
 			} else {
 				request.getRequestDispatcher("UpdatePatient.jsp").forward(request, response);

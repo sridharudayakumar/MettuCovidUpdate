@@ -64,11 +64,9 @@
 				<div class="row">
 
 					<div class="col-lg-12 mb-4">
-						<form class="needs-validation" method="post"
-							action="AddPatientController">
+						<form class="needs-validation" method="post" action="AddUser">
 							<div class="row">
-							<div class="col-md-3 mb-3">
-							</div>
+								<div class="col-md-3 mb-3"></div>
 								<div class="col-md-6 mb-3">
 									<label for="firstName">First name</label> <input type="text"
 										class="form-control" id="firstName" name="firstName"
@@ -76,10 +74,8 @@
 									<div class="invalid-feedback">Valid first name is
 										required.</div>
 								</div>
-								<div class="col-md-3 mb-3">
-							</div>
-								<div class="col-md-3 mb-3">
-							</div>
+								<div class="col-md-3 mb-3"></div>
+								<div class="col-md-3 mb-3"></div>
 								<div class="col-md-6 mb-3">
 									<label for="lastName">Last name</label> <input type="text"
 										class="form-control" id="lastName" name="lastName"
@@ -90,8 +86,7 @@
 							</div>
 
 							<div class="row">
-								<div class="col-md-3 mb-3">
-							</div>
+								<div class="col-md-3 mb-3"></div>
 								<div class="col-md-6 mb-3">
 									<label for="age">Email</label> <input type=email
 										"
@@ -99,21 +94,18 @@
 										placeholder="" value="" required="">
 									<div class="invalid-feedback">Valid email required.</div>
 								</div>
-								<div class="col-md-3 mb-3">
-							</div>
-								<div class="col-md-3 mb-3">
-							</div>
+								<div class="col-md-3 mb-3"></div>
+								<div class="col-md-3 mb-3"></div>
 								<div class="col-md-6 mb-3">
 									<label for="age">password</label> <input type=password
 										"
 										class="form-control" id="password"
-										name="password" placeholder="" value="" min="6" required="">
+										name="password" placeholder="" value="" minlength="6"
+										required="">
 									<div class="invalid-feedback">Valid password is required.</div>
 								</div>
-								<div class="col-md-3 mb-3">
-							</div>
-								<div class="col-md-3 mb-3">
-							</div>
+								<div class="col-md-3 mb-3"></div>
+								<div class="col-md-3 mb-3"></div>
 								<div class="col-md-6 mb-3">
 									<label for="role">Role</label> <select
 										class="custom-select d-block w-100" id="role" name="role"

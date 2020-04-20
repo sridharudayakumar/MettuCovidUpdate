@@ -74,8 +74,12 @@ public class AddPatientController extends HttpServlet {
 
 				String SuccessText = "Record Inserted";
 				session.setAttribute("SuccessText", SuccessText);
-				out.print("<script language='JavaScript'>alert('Data Inserted ');</script>");
+				
+				String role= (String) session.getAttribute("role");
+				if(role.equals("Administrator"))
 				request.getRequestDispatcher("Registerpatients.jsp").forward(request, response);
+				else
+					request.getRequestDispatcher("StaffRegisterpatients.jsp").forward(request, response);
 
 			} else {
 				out.print("<script language='JavaScript'>alert('Data Inserted Failed ');</script>");

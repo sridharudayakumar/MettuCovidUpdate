@@ -42,27 +42,66 @@
 
 			<!-- Heading -->
 
+				<div class="sidebar-heading">
+        Patient
+      </div>
 
 			<!-- Nav Item - Pages Collapse Menu -->
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
 				data-toggle="collapse" data-target="#collapsePages"
 				aria-expanded="true" aria-controls="collapsePages"> <i
-					class="fas fa-fw fa-folder"></i> <span>Admin</span>
+					class="fas fa-users"></i> <span>Patient</span>
 			</a>
 				<div id="collapsePages" class="collapse"
 					aria-labelledby="headingPages" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<h6 class="collapse-header">Admin Control:</h6>
+						<h6 class="collapse-header">Patient Control:</h6>
 						<a class="collapse-item" href="Registerpatients.jsp">Register Patients</a>
-						<a class="collapse-item" href="RegisterUser.jsp">Register User</a>
-						<a class="collapse-item" href="ViewPatientController">View Patients</a>
-						<a class="collapse-item" href="ReportGenerator">Reports</a>
-						<a class="collapse-item" href="">Logout</a>
+						<a class="collapse-item" href="ViewPatientController">Show Patients</a>
+						
 						<div class="collapse-divider"></div>
 					</div>
 				</div></li>
 
+<hr class="sidebar-divider">
+				<div class="sidebar-heading">
+        User
+      </div>
 
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-user-plus"></i>
+          <span>User</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">User Control:</h6>
+						<a class="collapse-item" href="RegisterUser.jsp">Register User</a>
+						<a class="collapse-item" href="ShowUsers">Show Users</a>
+					
+          </div>
+        </div>
+      </li>
+
+<hr class="sidebar-divider">
+				<div class="sidebar-heading">
+        Others
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link" href="AdminReports.jsp">
+          <i class="fas fa-download"></i>
+          <span>Reports</span></a>
+      </li>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="LogoutController">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Logout</span></a>
+      </li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider d-none d-md-block">

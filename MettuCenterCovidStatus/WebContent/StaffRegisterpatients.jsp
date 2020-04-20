@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +12,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Mettu Center - Update Patient</title>
+<title>Mettu Center - Dashboard</title>
 
 <!-- Custom fonts for this template-->
 
@@ -43,7 +42,7 @@
 	<div id="wrapper">
 
 		<!-- Sidebar -->
-		<jsp:include page="include/sidebarmenu.jsp"></jsp:include>
+		<jsp:include page="include/staffsidemenu.jsp"></jsp:include>
 		<!-- End of Sidebar -->
 
 		<!-- Content Wrapper -->
@@ -56,7 +55,7 @@
 				<div class="row no-gutters align-items-center">
 					<div class="col-md-12 ">
 
-						<h2>Update Patient</h2>
+						<h2>Patient Registration</h2>
 						<hr>
 					</div>
 					<hr>
@@ -65,23 +64,19 @@
 				<div class="row">
 
 					<div class="col-lg-12 mb-4">
-						<form class="needs-validation" method="post"
-							action="UpdatePatientController">
-							<input type="text"
-										class="form-control" id="patientId" name="patientId"
-										placeholder=""  value='<c:out value="${id}"></c:out>' hidden="true">
+						<form class="needs-validation"  method="post" action="AddPatientController">
 							<div class="row">
 								<div class="col-md-6 mb-3">
 									<label for="firstName">First name</label> <input type="text"
-										class="form-control" id="firstName" name="firstName"
-										placeholder=""  value='<c:out value="${patient.firstName}"></c:out>'> 
+										class="form-control" id="firstName" name="firstName" placeholder="" value=""
+										required="">
 									<div class="invalid-feedback">Valid first name is
 										required.</div>
 								</div>
 								<div class="col-md-6 mb-3">
 									<label for="lastName">Last name</label> <input type="text"
-										class="form-control" id="lastName" name="lastName"
-										placeholder="" required="" value='<c:out value="${patient.lastName}"></c:out>'> 
+										class="form-control" id="lastName" name="lastName" placeholder="" value=""
+										required="">
 									<div class="invalid-feedback">Valid last name is
 										required.</div>
 								</div>
@@ -90,17 +85,13 @@
 							<div class="row">
 								<div class="col-md-6 mb-3">
 									<label for="age">Age</label> <input type="number"
-										class="form-control" id="age" name="age" placeholder=""
-										max="130" required=""
-										value='<c:out value="${patient.age}"></c:out>'>
+										class="form-control" id="age" name="age" placeholder="" value=""
+										max="130" required="">
 									<div class="invalid-feedback">Valid age is required.</div>
 								</div>
 								<div class="col-md-6 mb-3">
 									<label for="state">Gender</label> <select
-										class="custom-select d-block w-100" id="gender" name="gender"
-										required="">
-										<option value="${patient.gender}" selected="selected"><c:out
-												value="${patient.gender}"></c:out></option>
+										class="custom-select d-block w-100" id="gender" name="gender" required="">
 										<option value="">Choose...</option>
 										<option>Male</option>
 										<option>Female</option>
@@ -116,18 +107,13 @@
 
 							<div class="mb-3">
 								<label for="address">Address</label> <input type="text"
-									class="form-control" id="address" name="address" placeholder=""
-									required="" value='<c:out value="${patient.address}"></c:out>'>
-								
+									class="form-control" id="address"  name="address"  placeholder="" required="">
 								<div class="invalid-feedback">Please enter address.</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6 mb-3">
 									<label for="region">Region</label> <select
-										class="custom-select d-block w-100" id="region" name="region"
-										required="">
-										<option value="${patient.region}" selected="selected"><c:out
-												value="${patient.region}"></c:out></option>
+										class="custom-select d-block w-100" id="region" name="region" required="">
 										<option value="">Choose...</option>
 										<option>Addis Ababa</option>
 										<option>Afar</option>
@@ -145,69 +131,59 @@
 										Region.</div>
 								</div>
 
-
+					
 
 								<div class="col-md-6 mb-3">
 									<label for="country">Country</label> <input type="text"
-										class="form-control" id="country" name="country"
-										value='<c:out value="${patient.country}"></c:out>'
-									placeholder="" required="">
+										class="form-control" id="country" name="country" placeholder="" required="">
 									<div class="invalid-feedback">Please enter address.</div>
 								</div>
 							</div>
-
+							
 							<div class="row">
 								<div class="col-md-6 mb-3">
 									<label for="phoneNo">Phone Number</label> <input type="tel"
-										class="form-control" id="phoneNo" name="phoneNo"
-										value='<c:out value="${patient.phoneNo}"></c:out>'
-									placeholder="" value="" maxlength="10" required="">
+										class="form-control" id="phoneNo" name="phoneNo" placeholder="" value=""
+										maxlength="10" required="">
 									<div class="invalid-feedback">Valid phone no is required.</div>
 								</div>
 								<div class="col-md-6 mb-3">
-									<label for="relativPhoneNo">Relative Phone Number</label> <input
-										type="tel" class="form-control" id="relativePhoneNo"
-										name="relativePhoneNo" placeholder="" maxlength="10"
-										value='<c:out value="${patient.relativePhoneNo}"></c:out>'
-									required="">
+									<label for="relativPhoneNo">Relative Phone Number</label> <input type="tel"
+										class="form-control" id="relativePhoneNo" name="relativePhoneNo" placeholder="" value=""
+										maxlength="10" required="">
 									<div class="invalid-feedback">Valid Phone no is required.</div>
 								</div>
-
+								
 							</div>
-
+							
 							<div class="row">
 								<div class="col-md-6 mb-3">
-									<label for="natureOfJob">Nature of Job</label> <input
-										type="text" class="form-control" id="natureOfJob"
-										name="natureOfJob" placeholder=""
-										value='<c:out value="${patient.natureOfJob}"></c:out>'
-									required="">
+									<label for="natureOfJob">Nature of Job</label> <input type="text"
+										class="form-control" id="natureOfJob" name="natureOfJob" placeholder="" value=""
+										required="">
 									<div class="invalid-feedback">Valid Nature of job is
 										required.</div>
 								</div>
 								<div class="col-md-6 mb-3">
-									<label for="preDisease">Previous History of Disease </label> <input
-										type="text" class="form-control" id="preDisease"
-										name="preDisease" placeholder=""
-										value='<c:out value="${patient.preDisease}"></c:out>'
-									required="">
-									<div class="invalid-feedback">Valid disease is required.</div>
+									<label for="preDisease">Previous History of Disease </label> <input type="text"
+										class="form-control" id="preDisease" name="preDisease" placeholder="" value=""
+										required="">
+									<div class="invalid-feedback">Valid disease is
+										required.</div>
 								</div>
 							</div>
-
+							
 							<div class="row">
 								<div class="col-md-6 mb-3">
-									<label for="admittedOn">Admitted On</label> <input type="date"
-										 class="form-control"
-										id="admittedOn" name="admittedOn" 
-										value='<c:out value="${patient.admittedOn}"></c:out>' required="">
+									<label for="admittedOn">Admitted On</label> <input type="date" data-date-format="dd-mm-yyyy"
+										class="form-control" id="admittedOn" name="admittedOn" placeholder="" value=""
+										required="">
 									<div class="invalid-feedback">Valid Date.</div>
 								</div>
 								<div class="col-md-6 mb-3">
 									<label for="travelHistory">Travel History from Abroad</label> <input
-										type="text" class="form-control" id="travelHistory"
-										name="travelHistory" placeholder="" 
-										value='<c:out value="${patient.travelHistory}"></c:out>' required="">
+										type="text" class="form-control" id="travelHistory" name="travelHistory"
+										placeholder="" value="" required="">
 									<div class="invalid-feedback">Valid Travel History is
 										required.</div>
 								</div>
@@ -217,9 +193,7 @@
 								<div class="col-md-6 mb-3">
 									<label for="contactwithcase">Contact with confirmed
 										cases</label> <select class="custom-select d-block w-100"
-										id="contactWithCases" name="contactWithCases" required="">
-										<option value="${patient.contactWithCases}" selected="selected"><c:out
-												value="${patient.contactWithCases}"></c:out></option>
+										id="contactWithCases"  name="contactWithCases" required="">
 										<option value="">Choose...</option>
 										<option>Yes</option>
 										<option>No</option>
@@ -231,16 +205,15 @@
 									<label for="presentStatus">Present Status of Patient
 										cases</label> <select class="custom-select d-block w-100"
 										id="presentStatus" name="presentStatus" required="">
-										<option value="${patient.presentStatus}" selected="selected"><c:out
-												value="${patient.presentStatus}"></c:out></option>
 										<option value="">Choose...</option>
 										<option>Critical</option>
 										<option>Died</option>
 										<option>Normal</option>
+										<option>Quarantined</option>
 										<option>Recovered</option>
 										<option>Returned to their country</option>
-
-
+										
+										
 									</select>
 									<div class="invalid-feedback">Please provide a valid
 										Reason.</div>
@@ -259,7 +232,7 @@
 								<div class="col-md-6 mb-3">
 
 
-									<button class="btn btn-warning btn-lg btn-block" type="reset"  >Cancel</button>
+									<button class="btn btn-warning btn-lg btn-block" type="reset">Cancel</button>
 								</div>
 							</div>
 						</form>
@@ -299,29 +272,29 @@
 			</a>
 
 			<!-- <!-- Logout Modal-->
-			 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+			<!-- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
 				aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
-						<!-- <div class="modal-header">
+						<div class="modal-header">
 							<h5 class="modal-title" id="exampleModalLabel">Ready to
 								Leave?</h5>
 							<button class="close" type="button" data-dismiss="modal"
 								aria-label="Close">
 								<span aria-hidden="true">×</span>
 							</button>
-						</div> -->
+						</div>
 						<div class="modal-body">Select "Logout" below if you are
 							ready to end your current session.</div>
 						<div class="modal-footer">
 							<button class="btn btn-secondary" type="button"
 								data-dismiss="modal">Cancel</button>
-							<a class="btn btn-primary" href="ViewPatientController">Logout</a>
+							<a class="btn btn-primary" href="login.html">Logout</a>
 						</div>
 					</div>
 				</div>
 			</div>
-
+  -->
 			<!-- Bootstrap core JavaScript-->
 			<script src="vendor/jquery/jquery.min.js"></script>
 			<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -394,16 +367,16 @@
 										})();
 			</script>
 			<script>
-				/* $("#datepicker").datepicker(); */
+		/* $("#datepicker").datepicker(); */
 
-				$(document).ready(function() {
-					$('#datepicker').datepicker({
-						autoclose : true
-					});
+		$(document).ready(function() {
+			$('#datepicker').datepicker({
+				autoclose : true
+			});
 
-				});
-			</script>
-			
+		});
+	</script>
+	
 </body>
 
 </html>

@@ -1,6 +1,8 @@
 package com.mettucovid.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,17 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.mettucovid.dao.PatientDao;
+import com.mettucovid.dto.Patient;
+
 /**
- * Servlet implementation class LogoutController
+ * Servlet implementation class PatientInfo
  */
-@WebServlet("/LogoutController")
-public class LogoutController extends HttpServlet {
+@WebServlet("/PatientInfo")
+public class PatientInfo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LogoutController() {
+    public PatientInfo() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,11 +32,25 @@ public class LogoutController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		session.removeAttribute("email");
-		session.removeAttribute("passWord");
-		session.invalidate();
-		response.sendRedirect("index.jsp");
+		Patient patient = new Patient();
+		int patientId = Integer.parseInt(request.getParameter("id"));
+
+		try {
+			patient = PatientDao.findOne(patientId);
+			request.setAttribute("patient", patient);
+			request.setAttribute("id", patientId);
+			HttpSession session = request.getSession();
+			String role= (String) session.getAttribute("role");
+			if(role.equals("Police"))
+				request.getRequestDispatcher("PolicePatientInfo.jsp").forward(request, response);
+			else if(role.equals("Administrator"))
+			request.getRequestDispatcher("AdminPatientInfo.jsp").forward(request, response);
+			else
+				request.getRequestDispatcher("PatientInfo.jsp").forward(request, response);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**

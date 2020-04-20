@@ -44,7 +44,7 @@
 	<div id="wrapper">
 
 		<!-- Sidebar -->
-		<jsp:include page="include/sidebarmenu.jsp"></jsp:include>
+		<jsp:include page="include/policesidemenu.jsp"></jsp:include>
 		<!-- End of Sidebar -->
 
 		<!-- Content Wrapper -->
@@ -108,13 +108,13 @@
 											class="btn btn-xs btn-real tooltips" style="size: 10px;"
 											data-original-title="Profile"><i class="fa fa-user-check"></i> </a> 
 											
-											<a href="UpdatePatientController?id=<c:out value="${patient.patientId}"/>"
+											<%-- <a href="UpdatePatientController?id=<c:out value="${patient.patientId}"/>"
 											class="btn btn-xs btn-real tooltips" style="size: 10px;"
 											data-original-title="Edit"><i class="fa fa-edit"></i> </a> <a
 											href="DeletePatientController?id=<c:out value="${patient.patientId}"/>"
 											class="btn btn-xs btn-real tooltips" style="size: 10px;"
 											data-original-title="Delete"><i
-												class="fa fa-times fa fa-white"></i></a></td>
+												class="fa fa-times fa fa-white"></i></a> --%></td>
 									</tr>
 
 								</c:forEach>
@@ -137,14 +137,14 @@
 
 	<!-- End of Main Content -->
 	<div class="row"></div>
-	 <!-- Footer -->
+	<!-- Footer -->
 	<footer class="sticky-footer bg-white">
 		<div class="container my-auto">
 			<div class="copyright text-center my-auto">
 				<span>Developed and maintained by Mettu University, Ethiopia</span>
 			</div>
 		</div>
-	</footer> 
+	</footer>
 	<!-- End of Footer -->
 
 

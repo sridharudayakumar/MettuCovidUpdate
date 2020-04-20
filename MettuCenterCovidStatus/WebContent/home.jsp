@@ -215,7 +215,7 @@
 								<div class="card  border-bottom-info">
 									<div class="card-body text-center">
 										Total Cases
-										<div class="text-gray-900 text-center">105</div>
+										<div class="text-gray-900 text-center">111</div>
 									</div>
 								</div>
 
@@ -225,7 +225,7 @@
 								<div class="card  border-bottom-primary">
 									<div class="card-body text-center">
 										Active Cases
-										<div class="text-gray-900 text-center">84</div>
+										<div class="text-gray-900 text-center">90</div>
 									</div>
 								</div>
 							</div>

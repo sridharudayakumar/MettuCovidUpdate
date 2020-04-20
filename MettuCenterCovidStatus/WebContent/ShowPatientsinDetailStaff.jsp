@@ -44,7 +44,7 @@
 	<div id="wrapper">
 
 		<!-- Sidebar -->
-		<jsp:include page="include/sidebarmenu.jsp"></jsp:include>
+		<jsp:include page="include/staffsidemenu.jsp"></jsp:include>
 		<!-- End of Sidebar -->
 
 		<!-- Content Wrapper -->
@@ -137,14 +137,14 @@
 
 	<!-- End of Main Content -->
 	<div class="row"></div>
-	 <!-- Footer -->
+	<!-- Footer -->
 	<footer class="sticky-footer bg-white">
 		<div class="container my-auto">
 			<div class="copyright text-center my-auto">
 				<span>Developed and maintained by Mettu University, Ethiopia</span>
 			</div>
 		</div>
-	</footer> 
+	</footer>
 	<!-- End of Footer -->
 
 

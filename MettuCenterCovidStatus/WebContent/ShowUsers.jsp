@@ -14,7 +14,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Mettu Center - Dashboard</title>
+<title>Mettu Center Users</title>
 
 <!-- Custom fonts for this template-->
 
@@ -58,12 +58,12 @@
 		<div class="container-fluid">
 
 			<!-- Page Heading -->
-			<h1 class="h3 mb-2 text-gray-800">Patient Details</h1>
+			<h1 class="h3 mb-2 text-gray-800">User Details</h1>
 
 			<!-- DataTales Example -->
 			<div class="card shadow mb-4">
 				<div class="card-header py-3">
-					<h6 class="m-0 font-weight-bold text-primary">Patients List</h6>
+					<h6 class="m-0 font-weight-bold text-primary">Users List</h6>
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
@@ -73,45 +73,33 @@
 							<thead>
 								<tr>
 									<th>S.No</th>
-									<!-- <th>Patient ID</th> -->
+									<!-- <th>user ID</th> -->
 									<th>First Name</th>
 									<th>Last Name</th>
-									<th>Age</th>
-									<th>Gender</th>
-									<th>Region</th>
-									<th>Country</th>
-									<th>Health Status</th>
-									<th>Admitted On</th>
+									<th>EMAIL</th>
+									<th>ROLE</th>
 									<th height="30px">Action</th>
 								</tr>
 							</thead>
-
+							
 							<tbody>
-								<c:forEach var="patient" items="${patientList}"
+								<c:forEach var="user" items="${userList}"
 									varStatus="status">
 
 									<tr>
 										<td>${status.index + 1}</td>
-										<%-- <td>${patient.patientId}</td> --%>
-										<td style="text-transform: capitalize">${patient.firstName}</td>
-										<td style="text-transform: capitalize">${patient.lastName}</td>
-										<td>${patient.age}</td>
-										<td>${patient.gender}</td>
-										<td>${patient.region}</td>
-										<td>${patient.country}</td>
-										<td>${patient.presentStatus}</td>
-										<td>${patient.admittedOn}</td>
-
+										<%-- <td>${user.userId}</td> --%>
+										<td style="text-transform: capitalize">${user.firstName}</td>
+										<td style="text-transform: capitalize">${user.lastName}</td>
+										<td>${user.email}</td>
+										<td>${user.role}</td>
+										
 
 										<td><a
-											href="PatientInfo?id=<c:out value="${patient.patientId}"/>"
-											class="btn btn-xs btn-real tooltips" style="size: 10px;"
-											data-original-title="Profile"><i class="fa fa-user-check"></i> </a> 
-											
-											<a href="UpdatePatientController?id=<c:out value="${patient.patientId}"/>"
+											href="UpdateUser?id=<c:out value="${user.userId}"/>"
 											class="btn btn-xs btn-real tooltips" style="size: 10px;"
 											data-original-title="Edit"><i class="fa fa-edit"></i> </a> <a
-											href="DeletePatientController?id=<c:out value="${patient.patientId}"/>"
+											href="DeleteUser?id=<c:out value="${user.userId}"/>"
 											class="btn btn-xs btn-real tooltips" style="size: 10px;"
 											data-original-title="Delete"><i
 												class="fa fa-times fa fa-white"></i></a></td>
@@ -137,14 +125,14 @@
 
 	<!-- End of Main Content -->
 	<div class="row"></div>
-	 <!-- Footer -->
+	<!-- Footer -->
 	<footer class="sticky-footer bg-white">
 		<div class="container my-auto">
 			<div class="copyright text-center my-auto">
 				<span>Developed and maintained by Mettu University, Ethiopia</span>
 			</div>
 		</div>
-	</footer> 
+	</footer>
 	<!-- End of Footer -->
 
 

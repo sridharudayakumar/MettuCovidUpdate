@@ -19,7 +19,7 @@ public class PatientDao {
 		Connection conn = ConnectionUtil.getConnection();
 
 		PreparedStatement ps = null;
-		// Employee employee = new Employee();
+		
 
 		String sql = "INSERT INTO patients(firstName,lastName,age,gender,address,region,country,phoneNo,relativePhoneNo,natureOfJob,preDisease,admittedOn,travelHistory,contactWithCases,presentStatus,status) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		ps = conn.prepareStatement(sql);
@@ -72,7 +72,7 @@ public class PatientDao {
 			patient.setRelativePhoneNo(rs.getLong(10));
 			patient.setNatureOfJob(rs.getString(11));
 			patient.setPreDisease(rs.getString(12));
-			//patient.setAdmittedOn(rs.getString(5));
+			patient.setAdmittedOn(rs.getString(13));
 			patient.setTravelHistory(rs.getString(14));
 			patient.setContactWithCases(rs.getString(15));
 			patient.setPresentStatus(rs.getString(16));
