@@ -20,8 +20,8 @@ public class ConnectionUtil {
 
 				// configure to my database using driver manager
 				Class.forName("com.mysql.jdbc.Driver");
-				conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mettucenter", "root", "");
-				//conn = DriverManager.getConnection("jdbc:mysql://node1286-mettucentercovid19update.gpuoncloud.in/mettucenter", "root", "ASVgiq33391");
+				//conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mettucenter", "root", "");
+				conn = DriverManager.getConnection("jdbc:mysql://node1286-mettucentercovid19update.gpuoncloud.in/mettucenter", "root", "ASVgiq33391");
 				//conn = DriverManager.getConnection("jdbc:mysql://node1311-env-5662773.gpuoncloud.in/mettucenter", "root", "QGHgog56825");
 				
 				

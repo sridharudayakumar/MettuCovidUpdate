@@ -91,7 +91,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link" href="AdminReports.jsp">
+        <a class="nav-link" href="GenerateReport">
           <i class="fas fa-download"></i>
           <span>Reports</span></a>
       </li>
