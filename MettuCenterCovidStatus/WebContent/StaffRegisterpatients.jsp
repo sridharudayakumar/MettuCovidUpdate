@@ -64,19 +64,20 @@
 				<div class="row">
 
 					<div class="col-lg-12 mb-4">
-						<form class="needs-validation"  method="post" action="AddPatientController">
+						<form class="needs-validation" method="post"
+							action="AddPatientInfoController">
 							<div class="row">
 								<div class="col-md-6 mb-3">
 									<label for="firstName">First name</label> <input type="text"
-										class="form-control" id="firstName" name="firstName" placeholder="" value=""
-										required="">
+										class="form-control" id="firstName" name="firstName"
+										placeholder="" value="" required="">
 									<div class="invalid-feedback">Valid first name is
 										required.</div>
 								</div>
 								<div class="col-md-6 mb-3">
-									<label for="lastName">Last name</label> <input type="text"
-										class="form-control" id="lastName" name="lastName" placeholder="" value=""
-										required="">
+									<label for="middleName">Middle name</label> <input type="text"
+										class="form-control" id="middileName" name="middleName"
+										placeholder="" value="" >
 									<div class="invalid-feedback">Valid last name is
 										required.</div>
 								</div>
@@ -84,36 +85,71 @@
 
 							<div class="row">
 								<div class="col-md-6 mb-3">
-									<label for="age">Age</label> <input type="number"
-										class="form-control" id="age" name="age" placeholder="" value=""
-										max="130" required="">
-									<div class="invalid-feedback">Valid age is required.</div>
+									<label for="lastName">Last name</label> <input type="text"
+										class="form-control" id="lastName" name="lastName"
+										placeholder="" value="" required="">
+									<div class="invalid-feedback">Valid last name is
+										required.</div>
 								</div>
-								<div class="col-md-6 mb-3">
+								<div class="col-md-3 mb-3">
+									<label for="DOB">Date of Birth</label> <input type="date"
+										data-date-format="dd-mm-yyyy" class="form-control" id="dob"
+										name="dob" placeholder="" value="" required="">
+									<div class="invalid-feedback">Valid Date.</div>
+								</div>
+								<div class="col-md-3 mb-3">
 									<label for="state">Gender</label> <select
-										class="custom-select d-block w-100" id="gender" name="gender" required="">
+										class="custom-select d-block w-100" id="gender" name="gender"
+										required="">
 										<option value="">Choose...</option>
 										<option>Male</option>
 										<option>Female</option>
-										<option>Transgender</option>
+										
 
 									</select>
 									<div class="invalid-feedback">Please provide a valid
 										Gender.</div>
 								</div>
+								<div class="col-md-6 mb-3">
+									<label for="email">Email</label> <input type="email"
+										class="form-control" id="email" name="email" placeholder="">
+									<div class="invalid-feedback">Please enter email .</div>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="phoneNo">Phone Number</label> <input type="tel"
+										class="form-control" id="phoneNo" name="phoneNo"
+										placeholder="" value="" maxlength="10" required="">
+									<div class="invalid-feedback">Valid phone no is required.</div>
+								</div>
+
 							</div>
 
+							<div class="row">
+								<div class="col-md-6 mb-3">
+									<label for="address">Address</label> <input type="text"
+										class="form-control" id="address" name="address"
+										placeholder="" required="">
+									<div class="invalid-feedback">Please enter address.</div>
+								</div>
 
-
-							<div class="mb-3">
-								<label for="address">Address</label> <input type="text"
-									class="form-control" id="address"  name="address"  placeholder="" required="">
-								<div class="invalid-feedback">Please enter address.</div>
+								<div class="col-md-3 mb-3">
+									<label for="zone">Zone</label> <input type="text"
+										class="form-control" id="zone" name="zone"
+										placeholder="" required="">
+									<div class="invalid-feedback">Please enter address.</div>
+								</div>
+								<div class="col-md-3 mb-3">
+									<label for="woreda">Woreda</label> <input type="text"
+										class="form-control" id="woreda" name="woreda"
+										placeholder="" required="">
+									<div class="invalid-feedback">Please enter address.</div>
+								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6 mb-3">
 									<label for="region">Region</label> <select
-										class="custom-select d-block w-100" id="region" name="region" required="">
+										class="custom-select d-block w-100" id="region" name="region"
+										required="">
 										<option value="">Choose...</option>
 										<option>Addis Ababa</option>
 										<option>Afar</option>
@@ -131,59 +167,46 @@
 										Region.</div>
 								</div>
 
-					
+
 
 								<div class="col-md-6 mb-3">
 									<label for="country">Country</label> <input type="text"
-										class="form-control" id="country" name="country" placeholder="" required="">
+										class="form-control" id="country" name="country"
+										placeholder="" required="">
 									<div class="invalid-feedback">Please enter address.</div>
 								</div>
 							</div>
-							
+
+
+
 							<div class="row">
 								<div class="col-md-6 mb-3">
-									<label for="phoneNo">Phone Number</label> <input type="tel"
-										class="form-control" id="phoneNo" name="phoneNo" placeholder="" value=""
-										maxlength="10" required="">
-									<div class="invalid-feedback">Valid phone no is required.</div>
-								</div>
-								<div class="col-md-6 mb-3">
-									<label for="relativPhoneNo">Relative Phone Number</label> <input type="tel"
-										class="form-control" id="relativePhoneNo" name="relativePhoneNo" placeholder="" value=""
-										maxlength="10" required="">
-									<div class="invalid-feedback">Valid Phone no is required.</div>
-								</div>
-								
-							</div>
-							
-							<div class="row">
-								<div class="col-md-6 mb-3">
-									<label for="natureOfJob">Nature of Job</label> <input type="text"
-										class="form-control" id="natureOfJob" name="natureOfJob" placeholder="" value=""
-										required="">
+									<label for="natureOfJob">Nature of Job</label> <input
+										type="text" class="form-control" id="natureOfJob"
+										name="natureOfJob" placeholder="" value="" required="">
 									<div class="invalid-feedback">Valid Nature of job is
 										required.</div>
 								</div>
 								<div class="col-md-6 mb-3">
-									<label for="preDisease">Previous History of Disease </label> <input type="text"
-										class="form-control" id="preDisease" name="preDisease" placeholder="" value=""
-										required="">
-									<div class="invalid-feedback">Valid disease is
-										required.</div>
+									<label for="preDisease">Previous History of Disease </label> <input
+										type="text" class="form-control" id="preDisease"
+										name="preDisease" placeholder="" value="" required="">
+									<div class="invalid-feedback">Valid disease is required.</div>
 								</div>
 							</div>
-							
+
 							<div class="row">
 								<div class="col-md-6 mb-3">
-									<label for="admittedOn">Admitted On</label> <input type="date" data-date-format="dd-mm-yyyy"
-										class="form-control" id="admittedOn" name="admittedOn" placeholder="" value=""
+									<label for="admittedOn">Admitted On</label> <input type="date"
+										data-date-format="dd-mm-yyyy" class="form-control"
+										id="admittedOn" name="admittedOn" placeholder="" value=""
 										required="">
 									<div class="invalid-feedback">Valid Date.</div>
 								</div>
 								<div class="col-md-6 mb-3">
 									<label for="travelHistory">Travel History from Abroad</label> <input
-										type="text" class="form-control" id="travelHistory" name="travelHistory"
-										placeholder="" value="" required="">
+										type="text" class="form-control" id="travelHistory"
+										name="travelHistory" placeholder="" value="" required="">
 									<div class="invalid-feedback">Valid Travel History is
 										required.</div>
 								</div>
@@ -193,7 +216,7 @@
 								<div class="col-md-6 mb-3">
 									<label for="contactwithcase">Contact with confirmed
 										cases</label> <select class="custom-select d-block w-100"
-										id="contactWithCases"  name="contactWithCases" required="">
+										id="contactWithCases" name="contactWithCases" required="">
 										<option value="">Choose...</option>
 										<option>Yes</option>
 										<option>No</option>
@@ -212,16 +235,202 @@
 										<option>Quarantined</option>
 										<option>Recovered</option>
 										<option>Returned to their country</option>
+
+
+									</select>
+									<div class="invalid-feedback">Please provide a valid
+										Reason.</div>
+								</div>
+							</div>
+							<hr class="mb-4">
+							<div class="row">Emergency Contact</div>
+							<div class="row">
+								<div class="col-md-6 mb-3">
+									<label for="emergencyName">Name</label> <input type="text"
+										class="form-control" id="ecfirstName" name="ecfirstName"
+										placeholder="" value="" required="">
+									<div class="invalid-feedback">Valid name is required.</div>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="relationShip">Relationship</label> <select
+										class="custom-select d-block w-100" id="relationShip"
+										name="relationShip" required="">
+										<option value="">Choose...</option>
+										<option>Brother</option>
+										<option>Colleague</option>
+										<option>Father</option>
+										<option>Friend</option>
+										<option>Mother</option>
+										<option>Neighborhood</option>
+										<option>Sister</option>
+														
 										
-										
+
+
+									</select>
+									<div class="invalid-feedback">Valid relationship is
+										required.</div>
+								</div>
+
+							</div>
+
+							<div class="mb-3">
+								<label for="ecAddress">Address</label> <input type="text"
+									class="form-control" id="ecAddress" name="ecAddress"
+									placeholder="" required="">
+								<div class="invalid-feedback">Please enter address.</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-6 mb-3">
+									<label for="ecPhoneNo">Phone Number</label> <input type="tel"
+										class="form-control" id="ecPhoneNo" name="ecPhoneNo"
+										placeholder="" value="" maxlength="10" required="">
+									<div class="invalid-feedback">Valid phone no is required.</div>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="ecEmail">Email</label> <input type="email"
+										class="form-control" id="ecEmail" name="ecEmail"
+										placeholder="">
+									<div class="invalid-feedback">Please enter valid email.</div>
+								</div>
+
+
+							</div>
+
+							<hr class="mb-4">
+
+							<div class="row">
+								<div class="col-md-6 mb-3">
+									<label for="allergies">List of Allergies </label> <input
+										type="text" class="form-control" id="allergies"
+										name="allergies" placeholder="" value="" required="">
+									<div class="invalid-feedback">Enter list of allergies.</div>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="medications">List current medications</label> <input
+										type="text" class="form-control" id="medications"
+										name="medications" placeholder="">
+									<div class="invalid-feedback">Please enter medications
+										list.</div>
+								</div>
+
+
+							</div>
+							List any Operations and date of each
+							<div class="row">
+								<div class="col-md-6 mb-3">
+									<label for="operation1">Operation 1</label> <input type="text"
+										class="form-control" id="operation1" name="operation1"
+										placeholder="" value="">
+									<div class="invalid-feedback">Enter operation name.</div>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="medications">Date of Operation</label> <input
+										type="date" class="form-control" id="doo" name="doo1"
+										placeholder="">
+									<div class="invalid-feedback">Please enter Valid date.</div>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="operation2">Operation 2</label> <input type="text"
+										class="form-control" id="operation2" name="operation2"
+										placeholder="" value="">
+									<div class="invalid-feedback">Enter operation name.</div>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="Date of operation">Date of Operation</label> <input
+										type="date" class="form-control" id="doo" name="doo2"
+										placeholder="">
+									<div class="invalid-feedback">Please enter Valid date.</div>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="operation3">Operations 3</label> <input type="text"
+										class="form-control" id="operation3" name="operation3"
+										placeholder="" value="">
+									<div class="invalid-feedback">Enter operation name.</div>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="doo">Date of Operation</label> <input type="date"
+										class="form-control" id="doo" name="doo3" placeholder="">
+									<div class="invalid-feedback">Please enter Valid date.</div>
+								</div>
+
+
+							</div>
+
+							<hr class="mb-4">
+
+							<div class="mb-3">
+								<label for="familyMedical">Family Medical History</label> <input
+									type="text" class="form-control" id="familyHistory"
+									name="familyHistory" placeholder="" required="">
+								<div class="invalid-feedback">Please enter medical history.</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6 mb-3">
+									<label for="smoke">Do you smoke </label> <select
+										class="custom-select d-block w-100" id="smoke" name="smoke"
+										required="">
+										<option value="">Choose...</option>
+										<option>Yes</option>
+										<option>No</option>
+									</select>
+									<div class="invalid-feedback">Please provide a valid
+										Reason.</div>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="smoke">Any risk of being pregnant cases</label> <select
+										class="custom-select d-block w-100" id="pregnantRisk"
+										name="pregnantRisk" required="">
+										<option value="">Choose...</option>
+										<option>Yes</option>
+										<option>No</option>
 									</select>
 									<div class="invalid-feedback">Please provide a valid
 										Reason.</div>
 								</div>
 							</div>
 
+							<div class="row">
+								<div class="col-md-6 mb-3">
 
+									<label for="symptoms">Symptoms cases</label>
 
+									<div class="checkbox">
+										<label><input type="checkbox" name="symptoms" value="High Fever">High
+											Fever </label>
+									</div>
+									<div class="checkbox">
+										<label><input type="checkbox" name="symptoms" value="Cough">Cough
+										</label>
+									</div>
+									<div class="checkbox">
+										<label><input type="checkbox" name="symptoms" value="Difficulty in breathing">Difficulty
+											in breathing </label>
+									</div>
+									<div class="checkbox">
+										<label><input type="checkbox" name="symptoms" value="Pressure in the chest">Pressure
+											in the chest </label>
+									</div>
+									<div class="checkbox">
+										<label><input type="checkbox" name="symptoms" value="Body aches">Body
+											aches </label>
+									</div>
+									<div class="checkbox">
+										<label><input type="checkbox" name="symptoms" value="Nasal Congestion">Nasal Congestion </label>
+									</div>
+									<div class="checkbox">
+										<label><input type="checkbox" name="symptoms" value="Running nose">Running nose </label>
+									</div>
+									<div class="checkbox">
+										<label><input type="checkbox" name="symptoms" value="Sore throat">Sore throat </label>
+									</div>
+									<div class="checkbox">
+										<label><input type="checkbox" name="symptoms" value="Diarrhea">Diarrhea
+										</label>
+									</div>
+								</div>
+							</div>
 							<hr class="mb-4">
 							<div class="row">
 								<div class="col-md-6 mb-3">
@@ -367,16 +576,15 @@
 										})();
 			</script>
 			<script>
-		/* $("#datepicker").datepicker(); */
+				/* $("#datepicker").datepicker(); */
 
-		$(document).ready(function() {
-			$('#datepicker').datepicker({
-				autoclose : true
-			});
+				$(document).ready(function() {
+					$('#datepicker').datepicker({
+						autoclose : true
+					});
 
-		});
-	</script>
-	
+				});
+			</script>
 </body>
 
 </html>

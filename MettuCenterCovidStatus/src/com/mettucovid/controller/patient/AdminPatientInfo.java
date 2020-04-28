@@ -1,4 +1,4 @@
-package com.mettucovid.controller;
+package com.mettucovid.controller.patient;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -14,16 +14,16 @@ import com.mettucovid.dao.PatientDao;
 import com.mettucovid.dto.Patient;
 
 /**
- * Servlet implementation class PatientInfo
+ * Servlet implementation class AdminPatientInfo
  */
-@WebServlet("/PatientInfo")
-public class PatientInfo extends HttpServlet {
+@WebServlet("/AdminPatientInfo")
+public class AdminPatientInfo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PatientInfo() {
+    public AdminPatientInfo() {
         super();
         // TODO Auto-generated constructor stub
     }

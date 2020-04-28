@@ -75,8 +75,8 @@
 									<th>S.No</th>
 									<!-- <th>Patient ID</th> -->
 									<th>First Name</th>
+									<th>Middle Name</th>
 									<th>Last Name</th>
-									<th>Age</th>
 									<th>Gender</th>
 									<th>Region</th>
 									<th>Country</th>
@@ -94,8 +94,8 @@
 										<td>${status.index + 1}</td>
 										<%-- <td>${patient.patientId}</td> --%>
 										<td style="text-transform: capitalize">${patient.firstName}</td>
+										<td style="text-transform: capitalize">${patient.middleName}</td>
 										<td style="text-transform: capitalize">${patient.lastName}</td>
-										<td>${patient.age}</td>
 										<td>${patient.gender}</td>
 										<td>${patient.region}</td>
 										<td>${patient.country}</td>
@@ -104,11 +104,11 @@
 
 
 										<td><a
-											href="PatientInfo?id=<c:out value="${patient.patientId}"/>"
+											href="AdminPatientInfo?id=<c:out value="${patient.patientId}"/>"
 											class="btn btn-xs btn-real tooltips" style="size: 10px;"
 											data-original-title="Profile"><i class="fa fa-user-check"></i> </a> 
 											
-											<a href="UpdatePatientController?id=<c:out value="${patient.patientId}"/>"
+											<a href="UpdatePatientInfoController?id=<c:out value="${patient.patientId}"/>"
 											class="btn btn-xs btn-real tooltips" style="size: 10px;"
 											data-original-title="Edit"><i class="fa fa-edit"></i> </a> <a
 											href="DeletePatientController?id=<c:out value="${patient.patientId}"/>"

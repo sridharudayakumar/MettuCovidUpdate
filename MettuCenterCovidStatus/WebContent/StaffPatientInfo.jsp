@@ -43,7 +43,7 @@
 	<div id="wrapper">
 
 		<!-- Sidebar -->
-		<jsp:include page="include/sidebarmenu.jsp"></jsp:include>
+		<jsp:include page="include/staffsidemenu.jsp"></jsp:include>
 		<!-- End of Sidebar -->
 
 		<!-- Content Wrapper -->

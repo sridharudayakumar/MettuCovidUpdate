@@ -62,18 +62,19 @@ public class AddUser extends HttpServlet {
 			System.out.println(result);
 			if (result > 0) {
 
-				String SuccessText = "Record Inserted";
+				String SuccessText = "User Registered";
 				session.setAttribute("SuccessText", SuccessText);
-				out.print("<script language='JavaScript'>alert('Data Inserted ');</script>");
+				
 				request.getRequestDispatcher("RegisterUser.jsp").forward(request, response);
 
 			} else {
-				out.print("<script language='JavaScript'>alert('Data Inserted Failed ');</script>");
+				session.setAttribute("FailureText", "Registration Failed");
 				request.getRequestDispatcher("RegisterUser.jsp").forward(request, response);
 			}
 		}catch (Exception  e) {
 			System.out.println(e);
-			request.getRequestDispatcher("404.html").forward(request, response);
+			session.setAttribute("FailureText", "Registration Failed due to duplicate email id");
+			request.getRequestDispatcher("ErrorPage.jsp").forward(request, response);
 		}
 
 

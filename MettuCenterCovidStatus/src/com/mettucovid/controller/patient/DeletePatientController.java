@@ -1,4 +1,4 @@
-package com.mettucovid.controller;
+package com.mettucovid.controller.patient;
 
 import java.io.IOException;
 import java.io.PrintWriter;

@@ -21,24 +21,46 @@ public class PatientDao {
 		PreparedStatement ps = null;
 		
 
-		String sql = "INSERT INTO patients(firstName,lastName,age,gender,address,region,country,phoneNo,relativePhoneNo,natureOfJob,preDisease,admittedOn,travelHistory,contactWithCases,presentStatus,status) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO patientinfo(firstName,middleName,lastName,dob,gender,email,phoneNo,address,zone,woreda,region,country,natureOfJob,preDisease,admittedOn,travelHistory,contactWithCases,presentStatus,ecfirstName,relationShip,ecAddress,ecPhoneNo,ecEmail,allergies,medications,operation1,doo1,operation2,doo2,operation3,doo3,familyHistory,smoke,pregnantRisk,symptoms,status) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		ps = conn.prepareStatement(sql);
 		ps.setString(1, patient.getFirstName());
-		ps.setString(2,patient.getLastName());
-		ps.setInt(3,patient.getAge());
-		ps.setString(4,patient.getGender());
-		ps.setString(5,patient.getAddress());
-		ps.setString(6,patient.getRegion());
-		ps.setString(7,patient.getCountry());
-		ps.setLong(8,patient.getPhoneNo());
-		ps.setLong(9,patient.getRelativePhoneNo());
-		ps.setString(10,patient.getNatureOfJob());
-		ps.setString(11,patient.getPreDisease());
-		ps.setString(12,patient.getAdmittedOn());
-		ps.setString(13,patient.getTravelHistory());
-		ps.setString(14,patient.getContactWithCases());
-		ps.setString(15,patient.getPresentStatus());
-		ps.setString(16,patient.getStatus());
+		ps.setString(2, patient.getMiddleName());
+		ps.setString(3,patient.getLastName());
+		ps.setString(4, patient.getDob());
+		ps.setString(5,patient.getGender());
+		ps.setString(6, patient.getEmail());
+		ps.setLong(7, patient.getPhoneNo());
+		ps.setString(8,patient.getAddress());
+		ps.setString(9,patient.getZone());
+		ps.setString(10,patient.getWoreda());
+		ps.setString(11,patient.getRegion());
+		ps.setString(12,patient.getCountry());
+		ps.setString(13,patient.getNatureOfJob());
+		ps.setString(14,patient.getPreDisease());
+		ps.setString(15,patient.getAdmittedOn());
+		ps.setString(16,patient.getTravelHistory());
+		ps.setString(17,patient.getContactWithCases());
+		ps.setString(18,patient.getPresentStatus());
+		ps.setString(19, patient.getEcfirstName());
+		ps.setString(20, patient.getRelationShip());
+		ps.setString(21, patient.getEcAddress());
+		ps.setLong(22,patient.getEcPhoneNo());
+		ps.setString(23, patient.getEcEmail());
+		ps.setString(24, patient.getAllergies());
+		ps.setString(25, patient.getMedications());
+		ps.setString(26, patient.getOperation1());
+		ps.setString(27, patient.getDoo1());
+		ps.setString(28, patient.getOperation2());
+		ps.setString(29, patient.getDoo2());
+		ps.setString(30, patient.getOperation3());
+		ps.setString(31, patient.getDoo3());
+		ps.setString(32, patient.getFamilyHistory());
+		ps.setString(33, patient.getSmoke());
+		ps.setString(34, patient.getPregnantRisk());
+		ps.setString(35, patient.getSymptoms());
+		ps.setString(36,patient.getStatus());
+		
+		
 		int result = ps.executeUpdate();
 		System.out.println("new patient");
 		ConnectionUtil.closeConnection(ps, conn);
@@ -51,7 +73,7 @@ public class PatientDao {
 		ResultSet rs = null;
 		String status = "active";
 
-		String sql = "SELECT * FROM patients where status=?";
+		String sql = "SELECT * FROM patientinfo where status=?";
 
 		ps = conn.prepareStatement(sql);
 		ps.setString(1, status);
@@ -62,21 +84,43 @@ public class PatientDao {
 			Patient patient = new Patient();
 			patient.setPatientId(rs.getInt(1));
 			patient.setFirstName(rs.getString(2));
-			patient.setLastName(rs.getString(3));
-			patient.setAge(rs.getInt(4));
-			patient.setGender(rs.getString(5));
-			patient.setAddress(rs.getString(6));
-			patient.setRegion(rs.getString(7));
-			patient.setCountry(rs.getString(8));
-			patient.setPhoneNo(rs.getLong(9));
-			patient.setRelativePhoneNo(rs.getLong(10));
-			patient.setNatureOfJob(rs.getString(11));
-			patient.setPreDisease(rs.getString(12));
-			patient.setAdmittedOn(rs.getString(13));
-			patient.setTravelHistory(rs.getString(14));
-			patient.setContactWithCases(rs.getString(15));
-			patient.setPresentStatus(rs.getString(16));
-
+			patient.setMiddleName(rs.getString(3));
+			patient.setLastName(rs.getString(4));
+			patient.setDob(rs.getString(5));
+			patient.setGender(rs.getString(6));
+			patient.setEmail(rs.getString(7));
+			patient.setPhoneNo(rs.getLong(8));
+			patient.setAddress(rs.getString(9));
+			patient.setZone(rs.getString(10));
+			patient.setWoreda(rs.getString(11));
+			patient.setRegion(rs.getString(12));
+			patient.setCountry(rs.getString(13));
+			patient.setNatureOfJob(rs.getString(14));
+			patient.setPreDisease(rs.getString(15));
+			patient.setAdmittedOn(rs.getString(16));
+			patient.setTravelHistory(rs.getString(17));
+			patient.setContactWithCases(rs.getString(18));
+			patient.setPresentStatus(rs.getString(19));
+			patient.setEcfirstName(rs.getString(20));
+			patient.setRelationShip(rs.getString(21));
+			patient.setEcAddress(rs.getString(22));
+			patient.setEcPhoneNo(rs.getLong(23));
+			patient.setEcEmail(rs.getString(24));
+			patient.setAllergies(rs.getString(25));
+			patient.setMedications(rs.getString(26));
+			patient.setOperation1(rs.getString(27));
+			patient.setDoo1(rs.getString(28));
+			patient.setOperation2(rs.getString(29));
+			patient.setDoo2(rs.getString(30));
+			patient.setOperation3(rs.getString(31));
+			patient.setDoo3(rs.getString(32));
+			patient.setFamilyHistory(rs.getString(33));
+			patient.setSmoke(rs.getString(34));
+			patient.setPregnantRisk(rs.getString(35));
+			patient.setSymptoms(rs.getString(36));
+		
+			
+			
 			patientList.add(patient);
 			
 		}
@@ -94,7 +138,7 @@ public class PatientDao {
 		ResultSet rs;
 		ArrayList<CaseNumbers> tempCaseList = new ArrayList<CaseNumbers>();
 		//Critical
-		sql = "select count(*) from patients where presentStatus='Critical' and status='Active'";
+		sql = "select count(*) from patientinfo where presentStatus='Critical' and status='Active'";
 		ps = conn.prepareStatement(sql);
 		rs=ps.executeQuery();
 		if(rs.next())
@@ -103,7 +147,7 @@ public class PatientDao {
 			caseNumbers.setCritical(0);
 
 		//Cured
-		sql = "select count(*) from patients where presentStatus='Recovered'and status='Active'";
+		sql = "select count(*) from patientinfo where presentStatus='Recovered'and status='Active'";
 		ps = conn.prepareStatement(sql);
 		rs=ps.executeQuery();
 		if(rs.next())
@@ -112,7 +156,7 @@ public class PatientDao {
 			caseNumbers.setCured(0);
 
 		//deaths
-		sql = "select count(*) from patients where presentStatus='Died' and status='Active'";
+		sql = "select count(*) from patientinfo where presentStatus='Died' and status='Active'";
 		ps = conn.prepareStatement(sql);
 		rs=ps.executeQuery();
 		if(rs.next())
@@ -121,7 +165,7 @@ public class PatientDao {
 			caseNumbers.setDeath(0);
 
 		//Quarantined
-		sql = "select count(*) from patients where presentStatus='Quarantined' and status='Active'";
+		sql = "select count(*) from patientinfo where presentStatus='Quarantined' and status='Active'";
 		ps = conn.prepareStatement(sql);
 		rs=ps.executeQuery();
 		if(rs.next())
@@ -131,7 +175,7 @@ public class PatientDao {
 
 		//normal
 		
-		sql = "select count(*) from patients where presentStatus='Normal' and status='Active'";
+		sql = "select count(*) from patientinfo where presentStatus='Normal' and status='Active'";
 		ps = conn.prepareStatement(sql);
 		rs=ps.executeQuery();
 		if(rs.next())
@@ -155,7 +199,7 @@ public class PatientDao {
 	public static int deletePatient(int id) throws SQLException {
 		Connection conn = ConnectionUtil.getConnection();
 		PreparedStatement ps = null;
-		String sql = "UPDATE patients SET STATUS=? WHERE PATIENTID=?";
+		String sql = "UPDATE patientinfo SET STATUS=? WHERE PATIENTID=?";
 		ps = conn.prepareStatement(sql);
 
 		String status = "InActive";
@@ -171,7 +215,7 @@ public class PatientDao {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		// int status = 1;
-		String sql = "SELECT * FROM patients WHERE patientId=?";
+		String sql = "SELECT * FROM patientinfo WHERE patientId=?";
 		ps = conn.prepareStatement(sql);
 		ps.setInt(1, patientId);
 
@@ -181,21 +225,40 @@ public class PatientDao {
 
 			patient.setPatientId(rs.getInt(1));
 			patient.setFirstName(rs.getString(2));
-			patient.setLastName(rs.getString(3));
-			patient.setAge(rs.getInt(4));
-			patient.setGender(rs.getString(5));
-			patient.setAddress(rs.getString(6));
-			patient.setRegion(rs.getString(7));
-			patient.setCountry(rs.getString(8));
-			patient.setPhoneNo(rs.getLong(9));
-			patient.setRelativePhoneNo(rs.getLong(10));
-			patient.setNatureOfJob(rs.getString(11));
-			patient.setPreDisease(rs.getString(12));
-			patient.setAdmittedOn(rs.getString(13));
-			patient.setTravelHistory(rs.getString(14));
-			patient.setContactWithCases(rs.getString(15));
-			patient.setPresentStatus(rs.getString(16));
-			System.out.println(patient.getAdmittedOn());
+			patient.setMiddleName(rs.getString(3));
+			patient.setLastName(rs.getString(4));
+			patient.setDob(rs.getString(5));
+			patient.setGender(rs.getString(6));
+			patient.setEmail(rs.getString(7));
+			patient.setPhoneNo(rs.getLong(8));
+			patient.setAddress(rs.getString(9));
+			patient.setZone(rs.getString(10));
+			patient.setWoreda(rs.getString(11));
+			patient.setRegion(rs.getString(12));
+			patient.setCountry(rs.getString(13));
+			patient.setNatureOfJob(rs.getString(14));
+			patient.setPreDisease(rs.getString(15));
+			patient.setAdmittedOn(rs.getString(16));
+			patient.setTravelHistory(rs.getString(17));
+			patient.setContactWithCases(rs.getString(18));
+			patient.setPresentStatus(rs.getString(19));
+			patient.setEcfirstName(rs.getString(20));
+			patient.setRelationShip(rs.getString(21));
+			patient.setEcAddress(rs.getString(22));
+			patient.setEcPhoneNo(rs.getLong(23));
+			patient.setEcEmail(rs.getString(24));
+			patient.setAllergies(rs.getString(25));
+			patient.setMedications(rs.getString(26));
+			patient.setOperation1(rs.getString(27));
+			patient.setDoo1(rs.getString(28));
+			patient.setOperation2(rs.getString(29));
+			patient.setDoo2(rs.getString(30));
+			patient.setOperation3(rs.getString(31));
+			patient.setDoo3(rs.getString(32));
+			patient.setFamilyHistory(rs.getString(33));
+			patient.setSmoke(rs.getString(34));
+			patient.setPregnantRisk(rs.getString(35));
+			patient.setSymptoms(rs.getString(36));
 
 		}
 
@@ -205,24 +268,44 @@ public class PatientDao {
 	public static int updatePatient(Patient patient, int id) throws SQLException {
 		Connection conn = ConnectionUtil.getConnection();
 		PreparedStatement ps = null;
-		String sql = "UPDATE patients SET firstName=?,lastName=?,age=?,gender=?,address=?,region=?,country=?,phoneNo=?,relativePhoneNo=?,natureOfJob=?,preDisease=?,admittedOn=?,travelHistory=?,contactWithCases=?,presentStatus=? WHERE patientId=?";
+		String sql = "UPDATE patientinfo SET firstName=?,middleName=?,lastName=?,dob=?,gender=?,email=?,phoneNo=?,address=?,zone=?,woreda=?,region=?,country=?,natureOfJob=?,preDisease=?,admittedOn=?,travelHistory=?,contactWithCases=?,presentStatus=?,ecfirstName=?,relationShip=?,ecAddress=?,ecPhoneNo=?,ecEmail=?,allergies=?,medications=?,operation1=?,doo1=?,operation2=?,doo2=?,operation3=?,doo3=?,familyHistory=?,smoke=?,pregnantRisk=?,symptoms=? WHERE patientId=?";
 		ps = conn.prepareStatement(sql);
 		ps.setString(1, patient.getFirstName());
-		ps.setString(2, patient.getLastName());
-		ps.setInt(3, patient.getAge());
-		ps.setString(4, patient.getGender());
-		ps.setString(5, patient.getAddress());
-		ps.setString(6, patient.getRegion());
-		ps.setString(7, patient.getCountry());
-		ps.setLong(8,patient.getPhoneNo());
-		ps.setLong(9, patient.getRelativePhoneNo());
-		ps.setString(10, patient.getNatureOfJob());
-		ps.setString(11,patient.getPreDisease());
-		ps.setString(12,patient.getAdmittedOn() );
-		ps.setString(13, patient.getTravelHistory());
-		ps.setString(14,patient.getContactWithCases() );
-		ps.setString(15,patient.getPresentStatus());
-		ps.setInt(16, id);
+		ps.setString(2, patient.getMiddleName());
+		ps.setString(3,patient.getLastName());
+		ps.setString(4, patient.getDob());
+		ps.setString(5,patient.getGender());
+		ps.setString(6, patient.getEmail());
+		ps.setLong(7, patient.getPhoneNo());
+		ps.setString(8,patient.getAddress());
+		ps.setString(9,patient.getZone());
+		ps.setString(10,patient.getWoreda());
+		ps.setString(11,patient.getRegion());
+		ps.setString(12,patient.getCountry());
+		ps.setString(13,patient.getNatureOfJob());
+		ps.setString(14,patient.getPreDisease());
+		ps.setString(15,patient.getAdmittedOn());
+		ps.setString(16,patient.getTravelHistory());
+		ps.setString(17,patient.getContactWithCases());
+		ps.setString(18,patient.getPresentStatus());
+		ps.setString(19, patient.getEcfirstName());
+		ps.setString(20, patient.getRelationShip());
+		ps.setString(21, patient.getEcAddress());
+		ps.setLong(22,patient.getEcPhoneNo());
+		ps.setString(23, patient.getEcEmail());
+		ps.setString(24, patient.getAllergies());
+		ps.setString(25, patient.getMedications());
+		ps.setString(26, patient.getOperation1());
+		ps.setString(27, patient.getDoo1());
+		ps.setString(28, patient.getOperation2());
+		ps.setString(29, patient.getDoo2());
+		ps.setString(30, patient.getOperation3());
+		ps.setString(31, patient.getDoo3());
+		ps.setString(32, patient.getFamilyHistory());
+		ps.setString(33, patient.getSmoke());
+		ps.setString(34, patient.getPregnantRisk());
+		ps.setString(35, patient.getSymptoms());
+		ps.setInt(36, id);
 		int result = ps.executeUpdate();
 		return result;
 	}

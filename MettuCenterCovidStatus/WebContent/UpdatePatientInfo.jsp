@@ -66,22 +66,26 @@
 
 					<div class="col-lg-12 mb-4">
 						<form class="needs-validation" method="post"
-							action="UpdatePatientController">
-							<input type="text"
-										class="form-control" id="patientId" name="patientId"
-										placeholder=""  value='<c:out value="${id}"></c:out>' hidden="true">
+							action="UpdatePatientInfoController">
+							<input type="text" class="form-control" id="patientId"
+								name="patientId" placeholder=""
+								value='<c:out value="${id}"></c:out>' hidden="true">
+
 							<div class="row">
 								<div class="col-md-6 mb-3">
 									<label for="firstName">First name</label> <input type="text"
 										class="form-control" id="firstName" name="firstName"
-										placeholder=""  value='<c:out value="${patient.firstName}"></c:out>'> 
+										placeholder=""
+										value='<c:out value="${patient.firstName}"></c:out>'
+										required="">
 									<div class="invalid-feedback">Valid first name is
 										required.</div>
 								</div>
 								<div class="col-md-6 mb-3">
-									<label for="lastName">Last name</label> <input type="text"
-										class="form-control" id="lastName" name="lastName"
-										placeholder="" required="" value='<c:out value="${patient.lastName}"></c:out>'> 
+									<label for="middleName">Middle name</label> <input type="text"
+										class="form-control" id="middileName" name="middleName"
+										placeholder=""
+										value='<c:out value="${patient.middleName}"></c:out>' required="">
 									<div class="invalid-feedback">Valid last name is
 										required.</div>
 								</div>
@@ -89,13 +93,22 @@
 
 							<div class="row">
 								<div class="col-md-6 mb-3">
-									<label for="age">Age</label> <input type="number"
-										class="form-control" id="age" name="age" placeholder=""
-										max="130" required=""
-										value='<c:out value="${patient.age}"></c:out>'>
-									<div class="invalid-feedback">Valid age is required.</div>
+									<label for="lastName">Last name</label> <input type="text"
+										class="form-control" id="lastName" name="lastName"
+										placeholder=""
+										value='<c:out value="${patient.lastName}"></c:out>'
+										required="">
+									<div class="invalid-feedback">Valid last name is
+										required.</div>
 								</div>
-								<div class="col-md-6 mb-3">
+								<div class="col-md-3 mb-3">
+									<label for="DOB">Date of Birth</label> <input type="date"
+										data-date-format="dd-mm-yyyy" class="form-control" id="dob"
+										name="dob" placeholder=""
+										value='<c:out value="${patient.dob}"></c:out>' required="">
+									<div class="invalid-feedback">Valid Date.</div>
+								</div>
+								<div class="col-md-3 mb-3">
 									<label for="state">Gender</label> <select
 										class="custom-select d-block w-100" id="gender" name="gender"
 										required="">
@@ -104,22 +117,50 @@
 										<option value="">Choose...</option>
 										<option>Male</option>
 										<option>Female</option>
-										<option>Transgender</option>
+
 
 									</select>
 									<div class="invalid-feedback">Please provide a valid
 										Gender.</div>
 								</div>
+								<div class="col-md-6 mb-3">
+									<label for="email">Email</label> <input type="email"
+										class="form-control" id="email" name="email"
+										value='<c:out value="${patient.email}"></c:out>'>
+									<div class="invalid-feedback">Please enter email .</div>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="phoneNo">Phone Number</label> <input type="tel"
+										class="form-control" id="phoneNo" name="phoneNo"
+										placeholder=""
+										value='<c:out value="${patient.phoneNo}"></c:out>'
+										maxlength="10" required="">
+									<div class="invalid-feedback">Valid phone no is required.</div>
+								</div>
+
 							</div>
 
+							<div class="row">
+								<div class="col-md-6 mb-3">
+									<label for="address">Address</label> <input type="text"
+										class="form-control" id="address" name="address"
+										placeholder=""
+										value='<c:out value="${patient.address}"></c:out>' required="">
+									<div class="invalid-feedback">Please enter address.</div>
+								</div>
 
-
-							<div class="mb-3">
-								<label for="address">Address</label> <input type="text"
-									class="form-control" id="address" name="address" placeholder=""
-									required="" value='<c:out value="${patient.address}"></c:out>'>
-								
-								<div class="invalid-feedback">Please enter address.</div>
+								<div class="col-md-3 mb-3">
+									<label for="zone">Zone</label> <input type="text"
+										class="form-control" id="zone" name="zone" placeholder=""
+										value='<c:out value="${patient.zone}"></c:out>' required="">
+									<div class="invalid-feedback">Please enter address.</div>
+								</div>
+								<div class="col-md-3 mb-3">
+									<label for="woreda">Woreda</label> <input type="text"
+										class="form-control" id="woreda" name="woreda" placeholder=""
+										value='<c:out value="${patient.woreda}"></c:out>' required="">
+									<div class="invalid-feedback">Please enter address.</div>
+								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6 mb-3">
@@ -150,30 +191,13 @@
 								<div class="col-md-6 mb-3">
 									<label for="country">Country</label> <input type="text"
 										class="form-control" id="country" name="country"
-										value='<c:out value="${patient.country}"></c:out>'
-									placeholder="" required="">
+										placeholder=""
+										value='<c:out value="${patient.country}"></c:out>' required="">
 									<div class="invalid-feedback">Please enter address.</div>
 								</div>
 							</div>
 
-							<div class="row">
-								<div class="col-md-6 mb-3">
-									<label for="phoneNo">Phone Number</label> <input type="tel"
-										class="form-control" id="phoneNo" name="phoneNo"
-										value='<c:out value="${patient.phoneNo}"></c:out>'
-									placeholder="" value="" maxlength="10" required="">
-									<div class="invalid-feedback">Valid phone no is required.</div>
-								</div>
-								<div class="col-md-6 mb-3">
-									<label for="relativPhoneNo">Relative Phone Number</label> <input
-										type="tel" class="form-control" id="relativePhoneNo"
-										name="relativePhoneNo" placeholder="" maxlength="10"
-										value='<c:out value="${patient.relativePhoneNo}"></c:out>'
-									required="">
-									<div class="invalid-feedback">Valid Phone no is required.</div>
-								</div>
 
-							</div>
 
 							<div class="row">
 								<div class="col-md-6 mb-3">
@@ -181,7 +205,7 @@
 										type="text" class="form-control" id="natureOfJob"
 										name="natureOfJob" placeholder=""
 										value='<c:out value="${patient.natureOfJob}"></c:out>'
-									required="">
+										required="">
 									<div class="invalid-feedback">Valid Nature of job is
 										required.</div>
 								</div>
@@ -190,7 +214,7 @@
 										type="text" class="form-control" id="preDisease"
 										name="preDisease" placeholder=""
 										value='<c:out value="${patient.preDisease}"></c:out>'
-									required="">
+										required="">
 									<div class="invalid-feedback">Valid disease is required.</div>
 								</div>
 							</div>
@@ -198,16 +222,18 @@
 							<div class="row">
 								<div class="col-md-6 mb-3">
 									<label for="admittedOn">Admitted On</label> <input type="date"
-										 class="form-control"
-										id="admittedOn" name="admittedOn" 
-										value='<c:out value="${patient.admittedOn}"></c:out>' required="">
+										data-date-format="dd-mm-yyyy" class="form-control"
+										id="admittedOn" name="admittedOn" placeholder=""
+										value='<c:out value="${patient.admittedOn}"></c:out>'
+										required="">
 									<div class="invalid-feedback">Valid Date.</div>
 								</div>
 								<div class="col-md-6 mb-3">
 									<label for="travelHistory">Travel History from Abroad</label> <input
 										type="text" class="form-control" id="travelHistory"
-										name="travelHistory" placeholder="" 
-										value='<c:out value="${patient.travelHistory}"></c:out>' required="">
+										name="travelHistory" placeholder=""
+										value='<c:out value="${patient.travelHistory}"></c:out>'
+										required="">
 									<div class="invalid-feedback">Valid Travel History is
 										required.</div>
 								</div>
@@ -217,7 +243,8 @@
 								<div class="col-md-6 mb-3">
 									<label for="contactwithcase">Contact with confirmed
 										cases</label> <select class="custom-select d-block w-100"
-										id="contactWithCases" name="contactWithCases" required="">
+										id="contactWithCases" name="contactWithCases"
+										>
 										<option value="${patient.contactWithCases}" selected="selected"><c:out
 												value="${patient.contactWithCases}"></c:out></option>
 										<option value="">Choose...</option>
@@ -237,6 +264,7 @@
 										<option>Critical</option>
 										<option>Died</option>
 										<option>Normal</option>
+										<option>Quarantined</option>
 										<option>Recovered</option>
 										<option>Returned to their country</option>
 
@@ -246,7 +274,188 @@
 										Reason.</div>
 								</div>
 							</div>
+							<hr class="mb-4">
+							<div class="row">Emergency Contact</div>
+							<div class="row">
+								<div class="col-md-6 mb-3">
+									<label for="emergencyName">Name</label> <input type="text"
+										class="form-control" id="ecfirstName" name="ecfirstName"
+										placeholder=""
+										value='<c:out value="${patient.ecfirstName}"></c:out>'
+										required="">
+									<div class="invalid-feedback">Valid name is required.</div>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="relationShip">Relationship</label> <select
+										class="custom-select d-block w-100" id="relationShip"
+										name="relationShip" required="">
+										<option value="${patient.relationShip}" selected="selected"><c:out
+												value="${patient.relationShip}"></c:out></option>
+										<option value="">Choose...</option>
+										<option>Brother</option>
+										<option>Colleague</option>
+										<option>Father</option>
+										<option>Friend</option>
+										<option>Mother</option>
+										<option>Neighborhood</option>
+										<option>Sister</option>
 
+
+
+
+									</select>
+									<div class="invalid-feedback">Valid relationship is
+										required.</div>
+								</div>
+
+							</div>
+
+							<div class="mb-3">
+								<label for="ecAddress">Address</label> <input type="text"
+									class="form-control" id="ecAddress" name="ecAddress"
+									placeholder=""
+									value='<c:out value="${patient.ecAddress}"></c:out>'
+									required="">
+								<div class="invalid-feedback">Please enter address.</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-6 mb-3">
+									<label for="ecPhoneNo">Phone Number</label> <input type="tel"
+										class="form-control" id="ecPhoneNo" name="ecPhoneNo"
+										placeholder=""
+										value='<c:out value="${patient.ecPhoneNo}"></c:out>'
+										maxlength="10" required="">
+									<div class="invalid-feedback">Valid phone no is required.</div>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="ecEmail">Email</label> <input type="email"
+										class="form-control" id="ecEmail" name="ecEmail"
+										value='<c:out value="${patient.ecEmail}"></c:out>'
+										placeholder="">
+									<div class="invalid-feedback">Please enter valid email.</div>
+								</div>
+
+
+							</div>
+
+							<hr class="mb-4">
+
+							<div class="row">
+								<div class="col-md-6 mb-3">
+									<label for="allergies">List of Allergies </label> <input
+										type="text" class="form-control" id="allergies"
+										name="allergies" placeholder=""
+										value='<c:out value="${patient.allergies}"></c:out>'
+										required="">
+									<div class="invalid-feedback">Enter list of allergies.</div>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="medications">List current medications</label> <input
+										type="text" class="form-control" id="medications"
+										name="medications"
+										value='<c:out value="${patient.medications}"></c:out>'>
+									<div class="invalid-feedback">Please enter medications
+										list.</div>
+								</div>
+
+
+							</div>
+							List any Operations and date of each
+							<div class="row">
+								<div class="col-md-6 mb-3">
+									<label for="operation1">Operation 1</label> <input type="text"
+										class="form-control" id="operation1" name="operation1"
+										placeholder=""
+										value='<c:out value="${patient.operation1}"></c:out>'>
+									<div class="invalid-feedback">Enter operation name.</div>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="medications">Date of Operation</label> <input
+										type="date" class="form-control" id="doo" name="doo1"
+										value='<c:out value="${patient.doo1}"></c:out>'>
+									<div class="invalid-feedback">Please enter Valid date.</div>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="operation2">Operation 2</label> <input type="text"
+										class="form-control" id="operation2" name="operation2"
+										placeholder=""
+										value='<c:out value="${patient.operation2}"></c:out>'>
+									<div class="invalid-feedback">Enter operation name.</div>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="Date of operation">Date of Operation</label> <input
+										type="date" class="form-control" id="doo" name="doo2"
+										value='<c:out value="${patient.doo2}"></c:out>'>
+									<div class="invalid-feedback">Please enter Valid date.</div>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="operation3">Operations 3</label> <input type="text"
+										class="form-control" id="operation3" name="operation3"
+										placeholder=""
+										value='<c:out value="${patient.operation3}"></c:out>'>
+									<div class="invalid-feedback">Enter operation name.</div>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="doo">Date of Operation</label> <input type="date"
+										class="form-control" id="doo" name="doo3"
+										value='<c:out value="${patient.doo3}"></c:out>'>
+									<div class="invalid-feedback">Please enter Valid date.</div>
+								</div>
+
+
+							</div>
+
+							<hr class="mb-4">
+
+							<div class="mb-3">
+								<label for="familyMedical">Family Medical History</label> <input
+									type="text" class="form-control" id="familyHistory"
+									name="familyHistory" placeholder=""
+									value='<c:out value="${patient.familyHistory}"></c:out>'
+									required="">
+								<div class="invalid-feedback">Please enter medical
+									history.</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3 mb-3">
+									<label for="smoke">Do you smoke </label> <select
+										class="custom-select d-block w-100" id="smoke" name="smoke"
+										required="">
+										<option value="${patient.smoke}" selected="selected"><c:out
+												value="${patient.smoke}"></c:out></option>
+										<option value="">Choose...</option>
+										<option>Yes</option>
+										<option>No</option>
+									</select>
+									<div class="invalid-feedback">Please provide a valid
+										Reason.</div>
+								</div>
+								<div class="col-md-3 mb-3">
+									<label for="smoke">Any risk of being pregnant cases</label> <select
+										class="custom-select d-block w-100" id="pregnantRisk"
+										name="pregnantRisk" required="">
+										<option value="${patient.pregnantRisk}" selected="selected"><c:out
+												value="${patient.pregnantRisk}"></c:out></option>
+										<option value="">Choose...</option>
+										<option>Yes</option>
+										<option>No</option>
+									</select>
+									<div class="invalid-feedback">Please provide a valid
+										Reason.</div>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="familyMedical">Symptoms</label> <input
+										type="text" class="form-control" id="symptoms"
+										name="symptoms" placeholder=""
+										value='<c:out value="${patient.symptoms}"></c:out>'
+										required="">
+									<div class="invalid-feedback">Please enter Symptoms.</div>
+
+								</div>
+							</div>
+
+							
 
 
 							<hr class="mb-4">
@@ -259,7 +468,7 @@
 								<div class="col-md-6 mb-3">
 
 
-									<button class="btn btn-warning btn-lg btn-block" type="reset"  >Cancel</button>
+									<button class="btn btn-warning btn-lg btn-block" type="reset">Cancel</button>
 								</div>
 							</div>
 						</form>
@@ -299,7 +508,7 @@
 			</a>
 
 			<!-- <!-- Logout Modal-->
-			 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+			<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
 				aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
@@ -403,7 +612,6 @@
 
 				});
 			</script>
-			
 </body>
 
 </html>

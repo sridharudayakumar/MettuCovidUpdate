@@ -56,7 +56,7 @@
 					aria-labelledby="headingPages" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">Patient Control:</h6>
-						<a class="collapse-item" href="Registerpatients.jsp">Register Patients</a>
+						<a class="collapse-item" href="PatientInfoRegistration.jsp">Register Patients</a>
 						<a class="collapse-item" href="ViewPatientController">Show Patients</a>
 						
 						<div class="collapse-divider"></div>
