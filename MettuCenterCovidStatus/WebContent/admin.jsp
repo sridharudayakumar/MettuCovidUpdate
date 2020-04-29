@@ -33,7 +33,7 @@
 	<div id="wrapper">
 
 		<!-- Sidebar -->
-			<jsp:include page="include/sidebarmenu.jsp"></jsp:include>
+		<jsp:include page="include/sidebarmenu.jsp"></jsp:include>
 		<!-- End of Sidebar -->
 
 		<!-- Content Wrapper -->
@@ -64,7 +64,7 @@
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
 						<h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-						
+
 					</div>
 
 					<!-- Content Row -->
@@ -128,49 +128,77 @@
 
 
 
-					<!-- informations -->
+					<div class="col-lg-12 mb-4">
 
-					
-				<!-- End of Main Content -->
+						<!-- Project Card Example -->
+						<div class="card shadow mb-4">
+							<div class="card-header py-3">
+								<h6 class="m-0 font-weight-bold text-primary">Reports</h6>
+							</div>
+							<div class="card-body">
+								<div class="row">
 
-				<!-- Footer -->
-				<!-- <footer class="sticky-footer bg-white">
+									<ul class="list-group list-group-flush">
+										<li class="list-group-item"><a href="HealthWiseReport.jsp">Health Status wise Report</a></li>
+										<li class="list-group-item"><a href="">Date Wise Report</a></li>
+										<li class="list-group-item"><a href="">Age Wise Report</a></li>
+										<li class="list-group-item"><a href="">Zone Wise Report</a></li>
+										<li class="list-group-item"><a href="">Woreda  Wise Report</a></li>
+										<li class="list-group-item"><a href="">Region Wise Report</a></li>
+										<li class="list-group-item"><a href="">Gender Wise Report</a></li>
+
+
+									</ul>
+
+
+								</div>
+							</div>
+						</div>
+
+
+						<!-- informations -->
+
+
+						<!-- End of Main Content -->
+
+						<!-- Footer -->
+						<!-- <footer class="sticky-footer bg-white">
 					<div class="container my-auto">
 						<div class="copyright text-center my-auto">
 							<span>Developed and maintained by Mettu University, Ethiopia</span>
 						</div>
 					</div>
 				</footer> -->
-				<!-- End of Footer -->
+						<!-- End of Footer -->
 
-			</div>
-			<!-- End of Content Wrapper -->
+					</div>
+					<!-- End of Content Wrapper -->
 
-		</div>
-		<!-- End of Page Wrapper -->
+				</div>
+				<!-- End of Page Wrapper -->
 
-		<!-- Scroll to Top Button-->
-		<a class="scroll-to-top rounded" href="#page-top"> <i
-			class="fas fa-angle-up"></i>
-		</a>
+				<!-- Scroll to Top Button-->
+				<a class="scroll-to-top rounded" href="#page-top"> <i
+					class="fas fa-angle-up"></i>
+				</a>
 
-		
-		<!-- Bootstrap core JavaScript-->
-		<script src="vendor/jquery/jquery.min.js"></script>
-		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-		<!-- Core plugin JavaScript-->
-		<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+				<!-- Bootstrap core JavaScript-->
+				<script src="vendor/jquery/jquery.min.js"></script>
+				<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-		<!-- Custom scripts for all pages-->
-		<script src="js/sb-admin-2.min.js"></script>
+				<!-- Core plugin JavaScript-->
+				<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-		<!-- Page level plugins -->
-		<script src="vendor/chart.js/Chart.min.js"></script>
+				<!-- Custom scripts for all pages-->
+				<script src="js/sb-admin-2.min.js"></script>
 
-		<!-- Page level custom scripts -->
-		<script src="js/demo/chart-area-demo.js"></script>
-		<script src="js/demo/chart-pie-demo.js"></script>
+				<!-- Page level plugins -->
+				<script src="vendor/chart.js/Chart.min.js"></script>
+
+				<!-- Page level custom scripts -->
+				<script src="js/demo/chart-area-demo.js"></script>
+				<script src="js/demo/chart-pie-demo.js"></script>
 </body>
 
 </html>

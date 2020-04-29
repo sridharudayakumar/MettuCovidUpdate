@@ -132,15 +132,16 @@
 									<div class="invalid-feedback">Please enter address.</div>
 								</div>
 
+								
 								<div class="col-md-3 mb-3">
-									<label for="zone">Zone</label> <input type="text"
-										class="form-control" id="zone" name="zone"
+									<label for="woreda">Woreda</label> <input type="text"
+										class="form-control" id="woreda" name="woreda"
 										placeholder="" required="">
 									<div class="invalid-feedback">Please enter address.</div>
 								</div>
 								<div class="col-md-3 mb-3">
-									<label for="woreda">Woreda</label> <input type="text"
-										class="form-control" id="woreda" name="woreda"
+									<label for="zone">Zone</label> <input type="text"
+										class="form-control" id="zone" name="zone"
 										placeholder="" required="">
 									<div class="invalid-feedback">Please enter address.</div>
 								</div>
@@ -263,6 +264,7 @@
 										<option>Mother</option>
 										<option>Neighborhood</option>
 										<option>Sister</option>
+										<option>Spouse</option>
 														
 										
 

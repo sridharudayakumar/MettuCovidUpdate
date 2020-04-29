@@ -120,6 +120,7 @@
 										<option>Administrator</option>
 										<option>Police</option>
 										<option>Hospital Staff</option>
+										<option>Zone Health Bureau</option>
 
 									</select>
 

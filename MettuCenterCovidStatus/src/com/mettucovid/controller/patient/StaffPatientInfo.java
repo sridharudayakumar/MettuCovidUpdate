@@ -41,7 +41,7 @@ public class StaffPatientInfo extends HttpServlet {
 			request.setAttribute("id", patientId);
 			HttpSession session = request.getSession();
 			String role= (String) session.getAttribute("role");
-			if(role.equals("Police"))
+			if(role.equals("Police")||role.equals("Zone Health Bureau"))
 				request.getRequestDispatcher("PolicePatientInfo.jsp").forward(request, response);
 			else if(role.equals("Administrator"))
 			request.getRequestDispatcher("AdminPatientInfo.jsp").forward(request, response);

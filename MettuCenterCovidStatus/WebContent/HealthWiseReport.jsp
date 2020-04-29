@@ -58,7 +58,7 @@
 		<div class="container-fluid">
 
 			<!-- Page Heading -->
-			<h1 class="h3 mb-2 text-gray-800">Patient Details</h1>
+			<h1 class="h3 mb-2 text-gray-800">Patient Details - Health wise</h1>
 
 			<!-- DataTales Example -->
 			<div class="card shadow mb-4">
@@ -66,9 +66,37 @@
 					<h6 class="m-0 font-weight-bold text-primary">Patients List</h6>
 				</div>
 				<div class="card-body">
+					<form action="HealthwiseReports" method="get">
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<select class="custom-select d-block w-100"
+									id="presentStatus" name="presentStatus" required="">
+									<option value="">Select Status Type</option>
+									<option>Critical</option>
+									<option>Died</option>
+									<option>Normal</option>
+									<option>Quarantined</option>
+									<option>Recovered</option>
+									<option>Returned to their country</option>
+
+
+								</select>
+								<div class="invalid-feedback">Please provide a valid
+									Reason.</div>
+							</div>
+							<div class="col-md-3 mb-3">
+								<input type="submit" value="Submit">
+							</div>
+						</div>
+					</form>
+
 					<div class="table-responsive">
+
+
 						<table class="table table-bordered" id="dataTable" width="100%"
 							cellspacing="0">
+
+
 
 							<thead>
 								<tr>
@@ -106,15 +134,14 @@
 										<td><a
 											href="AdminPatientInfo?id=<c:out value="${patient.patientId}"/>"
 											class="btn btn-xs btn-real tooltips" style="size: 10px;"
-											data-original-title="Profile"><i class="fa fa-user-check"></i> </a> 
-											
-											<a href="UpdatePatientInfoController?id=<c:out value="${patient.patientId}"/>"
+											data-original-title="Profile"><i class="fa fa-user-check"></i>
+										</a> <%-- <a href="UpdatePatientInfoController?id=<c:out value="${patient.patientId}"/>"
 											class="btn btn-xs btn-real tooltips" style="size: 10px;"
 											data-original-title="Edit"><i class="fa fa-edit"></i> </a> <a
 											href="DeletePatientController?id=<c:out value="${patient.patientId}"/>"
 											class="btn btn-xs btn-real tooltips" style="size: 10px;"
 											data-original-title="Delete"><i
-												class="fa fa-times fa fa-white"></i></a></td>
+												class="fa fa-times fa fa-white"></i></a> --%></td>
 									</tr>
 
 								</c:forEach>
@@ -137,14 +164,14 @@
 
 	<!-- End of Main Content -->
 	<div class="row"></div>
-	 <!-- Footer -->
+	<!-- Footer -->
 	<footer class="sticky-footer bg-white">
 		<div class="container my-auto">
 			<div class="copyright text-center my-auto">
 				<span>Developed and maintained by Mettu University, Ethiopia</span>
 			</div>
 		</div>
-	</footer> 
+	</footer>
 	<!-- End of Footer -->
 
 

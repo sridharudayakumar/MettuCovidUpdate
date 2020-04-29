@@ -147,16 +147,17 @@
 									<div class="invalid-feedback">Please enter address.</div>
 								</div>
 
-								<div class="col-md-3 mb-3">
-									<label for="zone">Zone</label> <input type="text"
-										class="form-control" id="zone" name="zone" placeholder=""
-										value='<c:out value="${patient.zone}"></c:out>' disabled required="">
-									<div class="invalid-feedback">Please enter address.</div>
-								</div>
+								
 								<div class="col-md-3 mb-3">
 									<label for="woreda">Woreda</label> <input type="text"
 										class="form-control" id="woreda" name="woreda" placeholder=""
 										value='<c:out value="${patient.woreda}"></c:out>' disabled required="">
+									<div class="invalid-feedback">Please enter address.</div>
+								</div>
+								<div class="col-md-3 mb-3">
+									<label for="zone">Zone</label> <input type="text"
+										class="form-control" id="zone" name="zone" placeholder=""
+										value='<c:out value="${patient.zone}"></c:out>' disabled required="">
 									<div class="invalid-feedback">Please enter address.</div>
 								</div>
 							</div>

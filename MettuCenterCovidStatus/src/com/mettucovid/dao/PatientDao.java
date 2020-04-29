@@ -309,4 +309,65 @@ public class PatientDao {
 		int result = ps.executeUpdate();
 		return result;
 	}
+
+	public static ArrayList<Patient> listPatientsByStatus(String healthStatus) throws SQLException {
+		Connection conn = ConnectionUtil.getConnection();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String status = "active";
+
+		String sql = "SELECT * FROM patientinfo where status=? and presentStatus=?";
+
+		ps = conn.prepareStatement(sql);
+		ps.setString(1, status);
+		ps.setString(2, healthStatus);
+		rs = ps.executeQuery();
+
+		ArrayList<Patient> patientList = new ArrayList<Patient>();
+		while (rs.next()) {
+			Patient patient = new Patient();
+			patient.setPatientId(rs.getInt(1));
+			patient.setFirstName(rs.getString(2));
+			patient.setMiddleName(rs.getString(3));
+			patient.setLastName(rs.getString(4));
+			patient.setDob(rs.getString(5));
+			patient.setGender(rs.getString(6));
+			patient.setEmail(rs.getString(7));
+			patient.setPhoneNo(rs.getLong(8));
+			patient.setAddress(rs.getString(9));
+			patient.setZone(rs.getString(10));
+			patient.setWoreda(rs.getString(11));
+			patient.setRegion(rs.getString(12));
+			patient.setCountry(rs.getString(13));
+			patient.setNatureOfJob(rs.getString(14));
+			patient.setPreDisease(rs.getString(15));
+			patient.setAdmittedOn(rs.getString(16));
+			patient.setTravelHistory(rs.getString(17));
+			patient.setContactWithCases(rs.getString(18));
+			patient.setPresentStatus(rs.getString(19));
+			patient.setEcfirstName(rs.getString(20));
+			patient.setRelationShip(rs.getString(21));
+			patient.setEcAddress(rs.getString(22));
+			patient.setEcPhoneNo(rs.getLong(23));
+			patient.setEcEmail(rs.getString(24));
+			patient.setAllergies(rs.getString(25));
+			patient.setMedications(rs.getString(26));
+			patient.setOperation1(rs.getString(27));
+			patient.setDoo1(rs.getString(28));
+			patient.setOperation2(rs.getString(29));
+			patient.setDoo2(rs.getString(30));
+			patient.setOperation3(rs.getString(31));
+			patient.setDoo3(rs.getString(32));
+			patient.setFamilyHistory(rs.getString(33));
+			patient.setSmoke(rs.getString(34));
+			patient.setPregnantRisk(rs.getString(35));
+			patient.setSymptoms(rs.getString(36));
+		
+			
+			
+			patientList.add(patient);
+			
+		}
+		return patientList;
+	}
 }
