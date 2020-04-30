@@ -100,11 +100,11 @@
 										required.</div>
 								</div>
 								<div class="col-md-3 mb-3">
-									<label for="DOB">Date of Birth</label> <input type="date"
-										data-date-format="dd-mm-yyyy" class="form-control" id="dob"
-										name="dob" placeholder=""
-										value='<c:out value="${patient.dob}"></c:out>' disabled required="">
-									<div class="invalid-feedback">Valid Date.</div>
+									<label for="Age">Age</label> <input type="number"
+										data-date-format="age" class="form-control" id="age"
+										name="age" placeholder=""
+										value='<c:out value="${patient.age}"></c:out>' required="" disabled>
+									<div class="invalid-feedback">Valid Age.</div>
 								</div>
 								<div class="col-md-3 mb-3">
 									<label for="state">Gender</label> <select

@@ -92,10 +92,10 @@
 										required.</div>
 								</div>
 								<div class="col-md-3 mb-3">
-									<label for="DOB">Date of Birth</label> <input type="date"
-										data-date-format="dd-mm-yyyy" class="form-control" id="dob"
-										name="dob" placeholder="" value="" required="">
-									<div class="invalid-feedback">Valid Date.</div>
+									<label for="age">Age</label> <input type="number"
+										class="form-control" id="age" max="145"
+										name="age" placeholder="" value="" required="">
+									<div class="invalid-feedback">Valid Age.</div>
 								</div>
 								<div class="col-md-3 mb-3">
 									<label for="state">Gender</label> <select

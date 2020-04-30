@@ -21,12 +21,12 @@ public class PatientDao {
 		PreparedStatement ps = null;
 		
 
-		String sql = "INSERT INTO patientinfo(firstName,middleName,lastName,dob,gender,email,phoneNo,address,zone,woreda,region,country,natureOfJob,preDisease,admittedOn,travelHistory,contactWithCases,presentStatus,ecfirstName,relationShip,ecAddress,ecPhoneNo,ecEmail,allergies,medications,operation1,doo1,operation2,doo2,operation3,doo3,familyHistory,smoke,pregnantRisk,symptoms,status) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO patientinfo(firstName,middleName,lastName,age,gender,email,phoneNo,address,zone,woreda,region,country,natureOfJob,preDisease,admittedOn,travelHistory,contactWithCases,presentStatus,ecfirstName,relationShip,ecAddress,ecPhoneNo,ecEmail,allergies,medications,operation1,doo1,operation2,doo2,operation3,doo3,familyHistory,smoke,pregnantRisk,symptoms,status) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		ps = conn.prepareStatement(sql);
 		ps.setString(1, patient.getFirstName());
 		ps.setString(2, patient.getMiddleName());
 		ps.setString(3,patient.getLastName());
-		ps.setString(4, patient.getDob());
+		ps.setInt(4, patient.getAge());
 		ps.setString(5,patient.getGender());
 		ps.setString(6, patient.getEmail());
 		ps.setLong(7, patient.getPhoneNo());
@@ -86,7 +86,7 @@ public class PatientDao {
 			patient.setFirstName(rs.getString(2));
 			patient.setMiddleName(rs.getString(3));
 			patient.setLastName(rs.getString(4));
-			patient.setDob(rs.getString(5));
+			patient.setAge(rs.getInt(5));
 			patient.setGender(rs.getString(6));
 			patient.setEmail(rs.getString(7));
 			patient.setPhoneNo(rs.getLong(8));
@@ -227,7 +227,7 @@ public class PatientDao {
 			patient.setFirstName(rs.getString(2));
 			patient.setMiddleName(rs.getString(3));
 			patient.setLastName(rs.getString(4));
-			patient.setDob(rs.getString(5));
+			patient.setAge(rs.getInt(5));
 			patient.setGender(rs.getString(6));
 			patient.setEmail(rs.getString(7));
 			patient.setPhoneNo(rs.getLong(8));
@@ -268,12 +268,12 @@ public class PatientDao {
 	public static int updatePatient(Patient patient, int id) throws SQLException {
 		Connection conn = ConnectionUtil.getConnection();
 		PreparedStatement ps = null;
-		String sql = "UPDATE patientinfo SET firstName=?,middleName=?,lastName=?,dob=?,gender=?,email=?,phoneNo=?,address=?,zone=?,woreda=?,region=?,country=?,natureOfJob=?,preDisease=?,admittedOn=?,travelHistory=?,contactWithCases=?,presentStatus=?,ecfirstName=?,relationShip=?,ecAddress=?,ecPhoneNo=?,ecEmail=?,allergies=?,medications=?,operation1=?,doo1=?,operation2=?,doo2=?,operation3=?,doo3=?,familyHistory=?,smoke=?,pregnantRisk=?,symptoms=? WHERE patientId=?";
+		String sql = "UPDATE patientinfo SET firstName=?,middleName=?,lastName=?,age=?,gender=?,email=?,phoneNo=?,address=?,zone=?,woreda=?,region=?,country=?,natureOfJob=?,preDisease=?,admittedOn=?,travelHistory=?,contactWithCases=?,presentStatus=?,ecfirstName=?,relationShip=?,ecAddress=?,ecPhoneNo=?,ecEmail=?,allergies=?,medications=?,operation1=?,doo1=?,operation2=?,doo2=?,operation3=?,doo3=?,familyHistory=?,smoke=?,pregnantRisk=?,symptoms=? WHERE patientId=?";
 		ps = conn.prepareStatement(sql);
 		ps.setString(1, patient.getFirstName());
 		ps.setString(2, patient.getMiddleName());
 		ps.setString(3,patient.getLastName());
-		ps.setString(4, patient.getDob());
+		ps.setInt(4, patient.getAge());
 		ps.setString(5,patient.getGender());
 		ps.setString(6, patient.getEmail());
 		ps.setLong(7, patient.getPhoneNo());
@@ -330,7 +330,7 @@ public class PatientDao {
 			patient.setFirstName(rs.getString(2));
 			patient.setMiddleName(rs.getString(3));
 			patient.setLastName(rs.getString(4));
-			patient.setDob(rs.getString(5));
+			patient.setAge(rs.getInt(5));
 			patient.setGender(rs.getString(6));
 			patient.setEmail(rs.getString(7));
 			patient.setPhoneNo(rs.getLong(8));
@@ -365,6 +365,404 @@ public class PatientDao {
 		
 			
 			
+			patientList.add(patient);
+			
+		}
+		return patientList;
+	}
+
+	public static ArrayList<Patient> listPatientsByGender(String gender) throws SQLException {
+		Connection conn = ConnectionUtil.getConnection();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String status = "active";
+
+		String sql = "SELECT * FROM patientinfo where status=? and gender=?";
+
+		ps = conn.prepareStatement(sql);
+		ps.setString(1, status);
+		ps.setString(2, gender);
+		rs = ps.executeQuery();
+
+		ArrayList<Patient> patientList = new ArrayList<Patient>();
+		while (rs.next()) {
+			Patient patient = new Patient();
+			patient.setPatientId(rs.getInt(1));
+			patient.setFirstName(rs.getString(2));
+			patient.setMiddleName(rs.getString(3));
+			patient.setLastName(rs.getString(4));
+			patient.setAge(rs.getInt(5));
+			patient.setGender(rs.getString(6));
+			patient.setEmail(rs.getString(7));
+			patient.setPhoneNo(rs.getLong(8));
+			patient.setAddress(rs.getString(9));
+			patient.setZone(rs.getString(10));
+			patient.setWoreda(rs.getString(11));
+			patient.setRegion(rs.getString(12));
+			patient.setCountry(rs.getString(13));
+			patient.setNatureOfJob(rs.getString(14));
+			patient.setPreDisease(rs.getString(15));
+			patient.setAdmittedOn(rs.getString(16));
+			patient.setTravelHistory(rs.getString(17));
+			patient.setContactWithCases(rs.getString(18));
+			patient.setPresentStatus(rs.getString(19));
+			patient.setEcfirstName(rs.getString(20));
+			patient.setRelationShip(rs.getString(21));
+			patient.setEcAddress(rs.getString(22));
+			patient.setEcPhoneNo(rs.getLong(23));
+			patient.setEcEmail(rs.getString(24));
+			patient.setAllergies(rs.getString(25));
+			patient.setMedications(rs.getString(26));
+			patient.setOperation1(rs.getString(27));
+			patient.setDoo1(rs.getString(28));
+			patient.setOperation2(rs.getString(29));
+			patient.setDoo2(rs.getString(30));
+			patient.setOperation3(rs.getString(31));
+			patient.setDoo3(rs.getString(32));
+			patient.setFamilyHistory(rs.getString(33));
+			patient.setSmoke(rs.getString(34));
+			patient.setPregnantRisk(rs.getString(35));
+			patient.setSymptoms(rs.getString(36));
+		
+			
+			
+			patientList.add(patient);
+			
+		}
+		return patientList;
+	}
+
+	public static ArrayList<Patient> listPatientsByRegion(String region) throws SQLException {
+		Connection conn = ConnectionUtil.getConnection();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String status = "active";
+
+		String sql = "SELECT * FROM patientinfo where status=? and region=?";
+
+		ps = conn.prepareStatement(sql);
+		ps.setString(1, status);
+		ps.setString(2, region);
+		rs = ps.executeQuery();
+
+		ArrayList<Patient> patientList = new ArrayList<Patient>();
+		while (rs.next()) {
+			Patient patient = new Patient();
+			patient.setPatientId(rs.getInt(1));
+			patient.setFirstName(rs.getString(2));
+			patient.setMiddleName(rs.getString(3));
+			patient.setLastName(rs.getString(4));
+			patient.setAge(rs.getInt(5));
+			patient.setGender(rs.getString(6));
+			patient.setEmail(rs.getString(7));
+			patient.setPhoneNo(rs.getLong(8));
+			patient.setAddress(rs.getString(9));
+			patient.setZone(rs.getString(10));
+			patient.setWoreda(rs.getString(11));
+			patient.setRegion(rs.getString(12));
+			patient.setCountry(rs.getString(13));
+			patient.setNatureOfJob(rs.getString(14));
+			patient.setPreDisease(rs.getString(15));
+			patient.setAdmittedOn(rs.getString(16));
+			patient.setTravelHistory(rs.getString(17));
+			patient.setContactWithCases(rs.getString(18));
+			patient.setPresentStatus(rs.getString(19));
+			patient.setEcfirstName(rs.getString(20));
+			patient.setRelationShip(rs.getString(21));
+			patient.setEcAddress(rs.getString(22));
+			patient.setEcPhoneNo(rs.getLong(23));
+			patient.setEcEmail(rs.getString(24));
+			patient.setAllergies(rs.getString(25));
+			patient.setMedications(rs.getString(26));
+			patient.setOperation1(rs.getString(27));
+			patient.setDoo1(rs.getString(28));
+			patient.setOperation2(rs.getString(29));
+			patient.setDoo2(rs.getString(30));
+			patient.setOperation3(rs.getString(31));
+			patient.setDoo3(rs.getString(32));
+			patient.setFamilyHistory(rs.getString(33));
+			patient.setSmoke(rs.getString(34));
+			patient.setPregnantRisk(rs.getString(35));
+			patient.setSymptoms(rs.getString(36));
+		
+			
+			
+			patientList.add(patient);
+			
+		}
+		return patientList;
+	}
+
+	public static ArrayList<Patient> listPatientsByAge(String ageRange) throws SQLException {
+		Connection conn = ConnectionUtil.getConnection();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String status = "active";
+		String sql="";
+		int start = 0,end=0;
+		if(ageRange.equals("1 Months to 1 year"))
+		{
+			start = 0;
+			end = 1;
+			 sql = "SELECT * FROM patientinfo WHERE age BETWEEN ? AND ? and status=?";
+		}
+		else if(ageRange.equals("1 to 10 Year"))
+		{
+			start = 1;
+			end = 10;
+			 sql = "SELECT * FROM patientinfo WHERE age BETWEEN ? AND ? and status=?";
+		}
+		else if(ageRange.equals("11 to 20 Year"))
+		{
+			start = 11;
+			end = 20;
+			 sql = "SELECT * FROM patientinfo WHERE age BETWEEN ? AND ? and status=?";
+		}
+		else if(ageRange.equals("21 to 30 Year"))
+		{
+			start = 21;
+			end = 30;
+			 sql = "SELECT * FROM patientinfo WHERE age BETWEEN ? AND ? and status=?";
+		}
+		else if(ageRange.equals("31 to 50 Year"))
+		{
+			start = 31;
+			end = 50;
+			 sql = "SELECT * FROM patientinfo WHERE age BETWEEN ? AND ? and status=?";
+		}
+		else if(ageRange.equals("Above 50"))
+		{
+			start = 21;
+			end = 30;
+			 sql = "SELECT * FROM patientinfo WHERE age> ? AND ? and status=?";
+		}
+		ps = conn.prepareStatement(sql);
+		ps.setInt(1, start);
+		ps.setInt(2,end);
+		ps.setString(3, status);
+		rs = ps.executeQuery();
+
+		ArrayList<Patient> patientList = new ArrayList<Patient>();
+		while (rs.next()) {
+			Patient patient = new Patient();
+			patient.setPatientId(rs.getInt(1));
+			patient.setFirstName(rs.getString(2));
+			patient.setMiddleName(rs.getString(3));
+			patient.setLastName(rs.getString(4));
+			patient.setAge(rs.getInt(5));
+			patient.setGender(rs.getString(6));
+			patient.setEmail(rs.getString(7));
+			patient.setPhoneNo(rs.getLong(8));
+			patient.setAddress(rs.getString(9));
+			patient.setZone(rs.getString(10));
+			patient.setWoreda(rs.getString(11));
+			patient.setRegion(rs.getString(12));
+			patient.setCountry(rs.getString(13));
+			patient.setNatureOfJob(rs.getString(14));
+			patient.setPreDisease(rs.getString(15));
+			patient.setAdmittedOn(rs.getString(16));
+			patient.setTravelHistory(rs.getString(17));
+			patient.setContactWithCases(rs.getString(18));
+			patient.setPresentStatus(rs.getString(19));
+			patient.setEcfirstName(rs.getString(20));
+			patient.setRelationShip(rs.getString(21));
+			patient.setEcAddress(rs.getString(22));
+			patient.setEcPhoneNo(rs.getLong(23));
+			patient.setEcEmail(rs.getString(24));
+			patient.setAllergies(rs.getString(25));
+			patient.setMedications(rs.getString(26));
+			patient.setOperation1(rs.getString(27));
+			patient.setDoo1(rs.getString(28));
+			patient.setOperation2(rs.getString(29));
+			patient.setDoo2(rs.getString(30));
+			patient.setOperation3(rs.getString(31));
+			patient.setDoo3(rs.getString(32));
+			patient.setFamilyHistory(rs.getString(33));
+			patient.setSmoke(rs.getString(34));
+			patient.setPregnantRisk(rs.getString(35));
+			patient.setSymptoms(rs.getString(36));
+		
+			
+			
+			patientList.add(patient);
+			
+		}
+		return patientList;
+	}
+
+	public static ArrayList<Patient> listPatientsByDate(String admittedOn) throws SQLException {
+		Connection conn = ConnectionUtil.getConnection();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String status = "active";
+
+		String sql = "SELECT * FROM patientinfo where status=? and admittedOn=?";
+
+		ps = conn.prepareStatement(sql);
+		ps.setString(1, status);
+		ps.setString(2, admittedOn);
+		rs = ps.executeQuery();
+
+		ArrayList<Patient> patientList = new ArrayList<Patient>();
+		while (rs.next()) {
+			Patient patient = new Patient();
+			patient.setPatientId(rs.getInt(1));
+			patient.setFirstName(rs.getString(2));
+			patient.setMiddleName(rs.getString(3));
+			patient.setLastName(rs.getString(4));
+			patient.setAge(rs.getInt(5));
+			patient.setGender(rs.getString(6));
+			patient.setEmail(rs.getString(7));
+			patient.setPhoneNo(rs.getLong(8));
+			patient.setAddress(rs.getString(9));
+			patient.setZone(rs.getString(10));
+			patient.setWoreda(rs.getString(11));
+			patient.setRegion(rs.getString(12));
+			patient.setCountry(rs.getString(13));
+			patient.setNatureOfJob(rs.getString(14));
+			patient.setPreDisease(rs.getString(15));
+			patient.setAdmittedOn(rs.getString(16));
+			patient.setTravelHistory(rs.getString(17));
+			patient.setContactWithCases(rs.getString(18));
+			patient.setPresentStatus(rs.getString(19));
+			patient.setEcfirstName(rs.getString(20));
+			patient.setRelationShip(rs.getString(21));
+			patient.setEcAddress(rs.getString(22));
+			patient.setEcPhoneNo(rs.getLong(23));
+			patient.setEcEmail(rs.getString(24));
+			patient.setAllergies(rs.getString(25));
+			patient.setMedications(rs.getString(26));
+			patient.setOperation1(rs.getString(27));
+			patient.setDoo1(rs.getString(28));
+			patient.setOperation2(rs.getString(29));
+			patient.setDoo2(rs.getString(30));
+			patient.setOperation3(rs.getString(31));
+			patient.setDoo3(rs.getString(32));
+			patient.setFamilyHistory(rs.getString(33));
+			patient.setSmoke(rs.getString(34));
+			patient.setPregnantRisk(rs.getString(35));
+			patient.setSymptoms(rs.getString(36));
+		
+			patientList.add(patient);
+			
+		}
+		return patientList;
+	}
+
+	public static ArrayList<Patient> listPatientsByZone(String zone) throws SQLException {
+		Connection conn = ConnectionUtil.getConnection();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String status = "active";
+		String tempZone = zone;
+
+		String sql = "SELECT * FROM patientinfo where status=? and zone=?";
+
+		ps = conn.prepareStatement(sql);
+		ps.setString(1, status);
+		ps.setString(2, tempZone);
+		rs = ps.executeQuery();
+
+		ArrayList<Patient> patientList = new ArrayList<Patient>();
+		while (rs.next()) {
+			Patient patient = new Patient();
+			patient.setPatientId(rs.getInt(1));
+			patient.setFirstName(rs.getString(2));
+			patient.setMiddleName(rs.getString(3));
+			patient.setLastName(rs.getString(4));
+			patient.setAge(rs.getInt(5));
+			patient.setGender(rs.getString(6));
+			patient.setEmail(rs.getString(7));
+			patient.setPhoneNo(rs.getLong(8));
+			patient.setAddress(rs.getString(9));
+			patient.setZone(rs.getString(10));
+			patient.setWoreda(rs.getString(11));
+			patient.setRegion(rs.getString(12));
+			patient.setCountry(rs.getString(13));
+			patient.setNatureOfJob(rs.getString(14));
+			patient.setPreDisease(rs.getString(15));
+			patient.setAdmittedOn(rs.getString(16));
+			patient.setTravelHistory(rs.getString(17));
+			patient.setContactWithCases(rs.getString(18));
+			patient.setPresentStatus(rs.getString(19));
+			patient.setEcfirstName(rs.getString(20));
+			patient.setRelationShip(rs.getString(21));
+			patient.setEcAddress(rs.getString(22));
+			patient.setEcPhoneNo(rs.getLong(23));
+			patient.setEcEmail(rs.getString(24));
+			patient.setAllergies(rs.getString(25));
+			patient.setMedications(rs.getString(26));
+			patient.setOperation1(rs.getString(27));
+			patient.setDoo1(rs.getString(28));
+			patient.setOperation2(rs.getString(29));
+			patient.setDoo2(rs.getString(30));
+			patient.setOperation3(rs.getString(31));
+			patient.setDoo3(rs.getString(32));
+			patient.setFamilyHistory(rs.getString(33));
+			patient.setSmoke(rs.getString(34));
+			patient.setPregnantRisk(rs.getString(35));
+			patient.setSymptoms(rs.getString(36));
+		
+			patientList.add(patient);
+			
+		}
+		return patientList;
+	}
+
+	public static ArrayList<Patient> listPatientsByWoreda(String woreda) throws SQLException {
+		Connection conn = ConnectionUtil.getConnection();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String status = "active";
+		
+
+		String sql = "SELECT * FROM patientinfo where status=? and woreda=?";
+
+		ps = conn.prepareStatement(sql);
+		ps.setString(1, status);
+		ps.setString(2, woreda);
+		rs = ps.executeQuery();
+
+		ArrayList<Patient> patientList = new ArrayList<Patient>();
+		while (rs.next()) {
+			Patient patient = new Patient();
+			patient.setPatientId(rs.getInt(1));
+			patient.setFirstName(rs.getString(2));
+			patient.setMiddleName(rs.getString(3));
+			patient.setLastName(rs.getString(4));
+			patient.setAge(rs.getInt(5));
+			patient.setGender(rs.getString(6));
+			patient.setEmail(rs.getString(7));
+			patient.setPhoneNo(rs.getLong(8));
+			patient.setAddress(rs.getString(9));
+			patient.setZone(rs.getString(10));
+			patient.setWoreda(rs.getString(11));
+			patient.setRegion(rs.getString(12));
+			patient.setCountry(rs.getString(13));
+			patient.setNatureOfJob(rs.getString(14));
+			patient.setPreDisease(rs.getString(15));
+			patient.setAdmittedOn(rs.getString(16));
+			patient.setTravelHistory(rs.getString(17));
+			patient.setContactWithCases(rs.getString(18));
+			patient.setPresentStatus(rs.getString(19));
+			patient.setEcfirstName(rs.getString(20));
+			patient.setRelationShip(rs.getString(21));
+			patient.setEcAddress(rs.getString(22));
+			patient.setEcPhoneNo(rs.getLong(23));
+			patient.setEcEmail(rs.getString(24));
+			patient.setAllergies(rs.getString(25));
+			patient.setMedications(rs.getString(26));
+			patient.setOperation1(rs.getString(27));
+			patient.setDoo1(rs.getString(28));
+			patient.setOperation2(rs.getString(29));
+			patient.setDoo2(rs.getString(30));
+			patient.setOperation3(rs.getString(31));
+			patient.setDoo3(rs.getString(32));
+			patient.setFamilyHistory(rs.getString(33));
+			patient.setSmoke(rs.getString(34));
+			patient.setPregnantRisk(rs.getString(35));
+			patient.setSymptoms(rs.getString(36));
+		
 			patientList.add(patient);
 			
 		}

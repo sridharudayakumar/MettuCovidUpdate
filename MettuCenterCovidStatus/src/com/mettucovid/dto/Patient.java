@@ -4,7 +4,7 @@ public class Patient {
 	private String firstName;
 	private String middleName;
 	private String lastName;
-	private String dob;
+	private int age;
 	private String gender;
 	private String email;
 	private long phoneNo;
@@ -52,8 +52,8 @@ public class Patient {
 	public String getMiddleName() {
 		return middleName;
 	}
-	public void setMiddleName(String middileName) {
-		this.middleName = middileName;
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
 	}
 	public String getLastName() {
 		return lastName;
@@ -61,11 +61,11 @@ public class Patient {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getDob() {
-		return dob;
+	public int getAge() {
+		return age;
 	}
-	public void setDob(String dob) {
-		this.dob = dob;
+	public void setAge(int age) {
+		this.age = age;
 	}
 	public String getGender() {
 		return gender;
@@ -262,7 +262,7 @@ public class Patient {
 	@Override
 	public String toString() {
 		return "Patient [patientId=" + patientId + ", firstName=" + firstName + ", middleName=" + middleName
-				+ ", lastName=" + lastName + ", dob=" + dob + ", gender=" + gender + ", email=" + email + ", phoneNo="
+				+ ", lastName=" + lastName + ", age=" + age + ", gender=" + gender + ", email=" + email + ", phoneNo="
 				+ phoneNo + ", address=" + address + ", zone=" + zone + ", woreda=" + woreda + ", region=" + region
 				+ ", country=" + country + ", natureOfJob=" + natureOfJob + ", preDisease=" + preDisease
 				+ ", admittedOn=" + admittedOn + ", travelHistory=" + travelHistory + ", contactWithCases="
@@ -273,6 +273,7 @@ public class Patient {
 				+ operation3 + ", doo3=" + doo3 + ", familyHistory=" + familyHistory + ", smoke=" + smoke
 				+ ", pregnantRisk=" + pregnantRisk + ", symptoms=" + symptoms + ", status=" + status + "]";
 	}
+	
 	
 	
 	

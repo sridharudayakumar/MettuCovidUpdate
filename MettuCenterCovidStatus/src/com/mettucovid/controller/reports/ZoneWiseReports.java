@@ -14,16 +14,16 @@ import com.mettucovid.dao.PatientDao;
 import com.mettucovid.dto.Patient;
 
 /**
- * Servlet implementation class HealthwiseReports
+ * Servlet implementation class ZoneWiseReports
  */
-@WebServlet("/HealthwiseReports")
-public class HealthwiseReports extends HttpServlet {
+@WebServlet("/ZoneWiseReports")
+public class ZoneWiseReports extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HealthwiseReports() {
+    public ZoneWiseReports() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,11 +33,11 @@ public class HealthwiseReports extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<Patient> patientList = new ArrayList<Patient>();
-		String healthStatus= request.getParameter("presentStatus");
+		String zone= request.getParameter("zone");
 		try {
-			patientList = PatientDao.listPatientsByStatus(healthStatus);
+			patientList = PatientDao.listPatientsByZone(zone);
 			request.setAttribute("patientList", patientList);
-			request.getRequestDispatcher("ReportHealthWise.jsp").forward(request, response);
+			request.getRequestDispatcher("ReportZoneWise.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

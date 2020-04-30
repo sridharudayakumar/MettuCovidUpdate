@@ -52,7 +52,7 @@ public class AddPatientInfoController extends HttpServlet {
 			patient.setFirstName(request.getParameter("firstName"));
 			patient.setMiddleName(request.getParameter("middleName"));
 			patient.setLastName(request.getParameter("lastName"));
-			patient.setDob(request.getParameter("dob"));
+			patient.setAge(Integer.parseInt(request.getParameter("age")));
 			patient.setGender(request.getParameter("gender"));
 			patient.setEmail(request.getParameter("email"));
 			patient.setPhoneNo(Long.parseLong(request.getParameter("phoneNo")));

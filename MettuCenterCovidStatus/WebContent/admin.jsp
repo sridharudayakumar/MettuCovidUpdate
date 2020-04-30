@@ -130,7 +130,7 @@
 
 					<div class="col-lg-12 mb-4">
 
-						<!-- Project Card Example -->
+
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
 								<h6 class="m-0 font-weight-bold text-primary">Reports</h6>
@@ -139,13 +139,20 @@
 								<div class="row">
 
 									<ul class="list-group list-group-flush">
-										<li class="list-group-item"><a href="HealthWiseReport.jsp">Health Status wise Report</a></li>
-										<li class="list-group-item"><a href="">Date Wise Report</a></li>
-										<li class="list-group-item"><a href="">Age Wise Report</a></li>
-										<li class="list-group-item"><a href="">Zone Wise Report</a></li>
-										<li class="list-group-item"><a href="">Woreda  Wise Report</a></li>
-										<li class="list-group-item"><a href="">Region Wise Report</a></li>
-										<li class="list-group-item"><a href="">Gender Wise Report</a></li>
+										<li class="list-group-item"><a
+											href="ReportHealthWise.jsp">Health Status wise Report</a></li>
+										<li class="list-group-item"><a href="ReportDateWise.jsp">Date
+												Wise Report</a></li>
+										<li class="list-group-item"><a href="ReportAgeWise.jsp">Age
+												Wise Report</a></li>
+										<li class="list-group-item"><a href="ReportZoneWise.jsp">Zone
+												Wise Report</a></li>
+										<li class="list-group-item"><a
+											href="ReportWoredaWise.jsp">Woreda Wise Report</a></li>
+										<li class="list-group-item"><a
+											href="ReportRegionWise.jsp">Region Wise Report</a></li>
+										<li class="list-group-item"><a
+											href="ReportGenderWise.jsp">Gender Wise Report</a></li>
 
 
 									</ul>
