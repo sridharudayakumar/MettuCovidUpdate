@@ -140,19 +140,19 @@
 
 									<ul class="list-group list-group-flush">
 										<li class="list-group-item"><a
-											href="ReportHealthWise.jsp">Health Status wise Report</a></li>
-										<li class="list-group-item"><a href="ReportDateWise.jsp">Date
+											href="HealthwiseReports">Health Status wise Report</a></li>
+										<li class="list-group-item"><a href="DateWiseReports">Date
 												Wise Report</a></li>
-										<li class="list-group-item"><a href="ReportAgeWise.jsp">Age
+										<li class="list-group-item"><a href="AgeWiseReports">Age
 												Wise Report</a></li>
-										<li class="list-group-item"><a href="ReportZoneWise.jsp">Zone
+										<li class="list-group-item"><a href="ZoneWiseReports">Zone
 												Wise Report</a></li>
 										<li class="list-group-item"><a
-											href="ReportWoredaWise.jsp">Woreda Wise Report</a></li>
+											href="WoredaWiseReports">Woreda Wise Report</a></li>
 										<li class="list-group-item"><a
-											href="ReportRegionWise.jsp">Region Wise Report</a></li>
+											href="RegionWiseReports">Region Wise Report</a></li>
 										<li class="list-group-item"><a
-											href="ReportGenderWise.jsp">Gender Wise Report</a></li>
+											href="GenderWiseReports">Gender Wise Report</a></li>
 
 
 									</ul>

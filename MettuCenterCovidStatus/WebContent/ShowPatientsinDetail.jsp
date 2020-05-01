@@ -74,9 +74,8 @@
 								<tr>
 									<th>S.No</th>
 									<th>Patient ID</th>
-									<th>First Name</th>
-									<th>Middle Name</th>
-									<th>Last Name</th>
+									<th>Name</th>
+									
 									<th>Gender</th>
 									<th>Region</th>
 									<th>Country</th>
@@ -93,9 +92,7 @@
 									<tr>
 										<td>${status.index + 1}</td>
 										<td>${patient.patientId}</td>
-										<td style="text-transform: capitalize">${patient.firstName}</td>
-										<td style="text-transform: capitalize">${patient.middleName}</td>
-										<td style="text-transform: capitalize">${patient.lastName}</td>
+										<td style="text-transform: capitalize">${patient.firstName } ${patient.middleName} ${patient.lastName}</td>
 										<td>${patient.gender}</td>
 										<td>${patient.region}</td>
 										<td>${patient.country}</td>

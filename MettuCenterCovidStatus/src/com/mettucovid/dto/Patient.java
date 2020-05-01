@@ -9,10 +9,24 @@ public class Patient {
 	private String email;
 	private long phoneNo;
 	private String address;
+	private String kebele;
 	private String zone; 
 	private String woreda;
 	private String region;
 	private String country; 
+	public String getKebele() {
+		return kebele;
+	}
+	public void setKebele(String kebele) {
+		this.kebele = kebele;
+	}
+	public String getCitizenship() {
+		return citizenship;
+	}
+	public void setCitizenship(String citizenship) {
+		this.citizenship = citizenship;
+	}
+	private String citizenship;
 	private String natureOfJob; 
 	private String preDisease; 
 	private String admittedOn;
@@ -263,16 +277,34 @@ public class Patient {
 	public String toString() {
 		return "Patient [patientId=" + patientId + ", firstName=" + firstName + ", middleName=" + middleName
 				+ ", lastName=" + lastName + ", age=" + age + ", gender=" + gender + ", email=" + email + ", phoneNo="
-				+ phoneNo + ", address=" + address + ", zone=" + zone + ", woreda=" + woreda + ", region=" + region
-				+ ", country=" + country + ", natureOfJob=" + natureOfJob + ", preDisease=" + preDisease
-				+ ", admittedOn=" + admittedOn + ", travelHistory=" + travelHistory + ", contactWithCases="
-				+ contactWithCases + ", presentStatus=" + presentStatus + ", ecfirstName=" + ecfirstName
-				+ ", relationShip=" + relationShip + ", ecAddress=" + ecAddress + ", ecPhoneNo=" + ecPhoneNo
-				+ ", ecEmail=" + ecEmail + ", allergies=" + allergies + ", medications=" + medications + ", operation1="
-				+ operation1 + ", doo1=" + doo1 + ", operation2=" + operation2 + ", doo2=" + doo2 + ", operation3="
-				+ operation3 + ", doo3=" + doo3 + ", familyHistory=" + familyHistory + ", smoke=" + smoke
-				+ ", pregnantRisk=" + pregnantRisk + ", symptoms=" + symptoms + ", status=" + status + "]";
+				+ phoneNo + ", address=" + address + ", kebele=" + kebele + ", zone=" + zone + ", woreda=" + woreda
+				+ ", region=" + region + ", country=" + country + ", citizenship=" + citizenship + ", natureOfJob="
+				+ natureOfJob + ", preDisease=" + preDisease + ", admittedOn=" + admittedOn + ", travelHistory="
+				+ travelHistory + ", contactWithCases=" + contactWithCases + ", presentStatus=" + presentStatus
+				+ ", ecfirstName=" + ecfirstName + ", relationShip=" + relationShip + ", ecAddress=" + ecAddress
+				+ ", ecPhoneNo=" + ecPhoneNo + ", ecEmail=" + ecEmail + ", allergies=" + allergies + ", medications="
+				+ medications + ", operation1=" + operation1 + ", doo1=" + doo1 + ", operation2=" + operation2
+				+ ", doo2=" + doo2 + ", operation3=" + operation3 + ", doo3=" + doo3 + ", familyHistory="
+				+ familyHistory + ", smoke=" + smoke + ", pregnantRisk=" + pregnantRisk + ", symptoms=" + symptoms
+				+ ", status=" + status + ", getKebele()=" + getKebele() + ", getCitizenship()=" + getCitizenship()
+				+ ", getPatientId()=" + getPatientId() + ", getFirstName()=" + getFirstName() + ", getMiddleName()="
+				+ getMiddleName() + ", getLastName()=" + getLastName() + ", getAge()=" + getAge() + ", getGender()="
+				+ getGender() + ", getEmail()=" + getEmail() + ", getPhoneNo()=" + getPhoneNo() + ", getAddress()="
+				+ getAddress() + ", getZone()=" + getZone() + ", getWoreda()=" + getWoreda() + ", getRegion()="
+				+ getRegion() + ", getCountry()=" + getCountry() + ", getNatureOfJob()=" + getNatureOfJob()
+				+ ", getPreDisease()=" + getPreDisease() + ", getAdmittedOn()=" + getAdmittedOn()
+				+ ", getTravelHistory()=" + getTravelHistory() + ", getContactWithCases()=" + getContactWithCases()
+				+ ", getPresentStatus()=" + getPresentStatus() + ", getEcfirstName()=" + getEcfirstName()
+				+ ", getRelationShip()=" + getRelationShip() + ", getEcAddress()=" + getEcAddress()
+				+ ", getEcPhoneNo()=" + getEcPhoneNo() + ", getEcEmail()=" + getEcEmail() + ", getAllergies()="
+				+ getAllergies() + ", getMedications()=" + getMedications() + ", getOperation1()=" + getOperation1()
+				+ ", getDoo1()=" + getDoo1() + ", getOperation2()=" + getOperation2() + ", getDoo2()=" + getDoo2()
+				+ ", getOperation3()=" + getOperation3() + ", getDoo3()=" + getDoo3() + ", getFamilyHistory()="
+				+ getFamilyHistory() + ", getSmoke()=" + getSmoke() + ", getPregnantRisk()=" + getPregnantRisk()
+				+ ", getSymptoms()=" + getSymptoms() + ", getStatus()=" + getStatus() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
+	
 	
 	
 	

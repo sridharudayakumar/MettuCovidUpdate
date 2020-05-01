@@ -46,7 +46,7 @@ public class AdminPatientInfo extends HttpServlet {
 			else if(role.equals("Administrator"))
 			request.getRequestDispatcher("AdminPatientInfo.jsp").forward(request, response);
 			else
-				request.getRequestDispatcher("PatientInfo.jsp").forward(request, response);
+				request.getRequestDispatcher("StaffPatientInfo.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

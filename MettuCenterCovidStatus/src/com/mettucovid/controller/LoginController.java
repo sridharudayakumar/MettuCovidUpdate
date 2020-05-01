@@ -73,7 +73,7 @@ public class LoginController extends HttpServlet {
 				
 
 				request.getRequestDispatcher("admin.jsp").forward(request, response);
-			} else if (role.equals("Police")||role.equals("Zone Health Bureau")){
+			} else if (role.equals("Police")||role.equals("Zone Health Bureau")||role.equals("PRO")){
 				session.setAttribute("role", role);
 				session.setAttribute("counttempList", counttempList);
 				

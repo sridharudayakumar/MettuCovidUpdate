@@ -42,9 +42,9 @@
 
 	<!-- Page Wrapper -->
 	<div id="wrapper">
-
+		
 		<!-- Sidebar -->
-		<jsp:include page="include/sidebarmenu.jsp"></jsp:include>
+		<jsp:include page="${fileName}"></jsp:include>
 		<!-- End of Sidebar -->
 
 		<!-- Content Wrapper -->
@@ -66,7 +66,7 @@
 					<h6 class="m-0 font-weight-bold text-primary">Patients List</h6>
 				</div>
 				<div class="card-body">
-					<form action="DateWiseReports" method="get">
+					<form action="DateWiseReports" method="post">
 						<div class="row">
 							<div class="col-md-6 mb-3">
 								<input type="date"

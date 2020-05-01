@@ -44,7 +44,7 @@
 	<div id="wrapper">
 
 		<!-- Sidebar -->
-		<jsp:include page="${fileName}"></jsp:include>
+		<jsp:include page="include/policesidemenu.jsp"></jsp:include>
 		<!-- End of Sidebar -->
 
 		<!-- Content Wrapper -->
@@ -58,88 +58,9 @@
 		<div class="container-fluid">
 
 			<!-- Page Heading -->
-			<h1 class="h3 mb-2 text-gray-800">Patient Details - Woreda wise</h1>
+			<h1 class="h3 mb-2 text-gray-800">Reports Under Development</h1>
 
-			<!-- DataTales Example -->
-			<div class="card shadow mb-4">
-				<div class="card-header py-3">
-					<h6 class="m-0 font-weight-bold text-primary">Patients List</h6>
-				</div>
-				<div class="card-body">
-					<form action="WoredaWiseReports" method="post">
-						<div class="row">
-							<div class="col-md-6 mb-3"><input type="text"
-								class="form-control" id="zone" name="woreda" placeholder="Enter Woreda"
-								required=""></div>
-							<div class="col-md-3 mb-3">
-								<input type="submit" value="Submit">
-							</div>
-						</div>
-					</form>
-
-					<div class="table-responsive">
-
-
-						<table class="table table-bordered" id="dataTable" width="100%"
-							cellspacing="0">
-
-
-
-							<thead>
-								<tr>
-									<th>S.No</th>
-									<th>Patient ID</th>
-									<th>Name</th>
-									<th>Gender</th>
-									<th>Woreda</th>
-									<th>Region</th>
-									<th>Country</th>
-									<th>Health Status</th>
-									<th>Admitted On</th>
-									<th height="30px">Action</th>
-								</tr>
-							</thead>
-
-							<tbody>
-								<c:forEach var="patient" items="${patientList}"
-									varStatus="status">
-
-									<tr>
-										<td>${status.index + 1}</td>
-										<td>${patient.patientId}</td>
-										<td style="text-transform: capitalize">${patient.firstName }
-											${patient.middleName} ${patient.lastName}</td>
-										<td>${patient.gender}</td>
-										<td>${patient.woreda}</td>
-										<td>${patient.region}</td>
-										<td>${patient.country}</td>
-										<td>${patient.presentStatus}</td>
-										<td>${patient.admittedOn}</td>
-
-
-										<td><a
-											href="AdminPatientInfo?id=<c:out value="${patient.patientId}"/>"
-											class="btn btn-xs btn-real tooltips" style="size: 10px;"
-											data-original-title="Profile"><i class="fa fa-user-check"></i>
-										</a> <%-- <a href="UpdatePatientInfoController?id=<c:out value="${patient.patientId}"/>"
-											class="btn btn-xs btn-real tooltips" style="size: 10px;"
-											data-original-title="Edit"><i class="fa fa-edit"></i> </a> <a
-											href="DeletePatientController?id=<c:out value="${patient.patientId}"/>"
-											class="btn btn-xs btn-real tooltips" style="size: 10px;"
-											data-original-title="Delete"><i
-												class="fa fa-times fa fa-white"></i></a> --%></td>
-									</tr>
-
-								</c:forEach>
-
-
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-
-		</div>
+			
 		<!-- /.container-fluid -->
 
 	</div>
@@ -151,13 +72,13 @@
 	<!-- End of Main Content -->
 	<div class="row"></div>
 	<!-- Footer -->
-	<footer class="sticky-footer bg-white">
+	<!-- <footer class="sticky-footer bg-white">
 		<div class="container my-auto">
 			<div class="copyright text-center my-auto">
 				<span>Developed and maintained by Mettu University, Ethiopia</span>
 			</div>
 		</div>
-	</footer>
+	</footer> -->
 	<!-- End of Footer -->
 
 

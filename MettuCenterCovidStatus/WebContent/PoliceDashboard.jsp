@@ -109,6 +109,41 @@
 
 							</div>
 						</c:forEach>
+						
+						<div class="col-lg-12 mb-4">
+							<div class="card shadow mb-4">
+								<div class="card-header py-3">
+									<h6 class="m-0 font-weight-bold text-primary">Reports</h6>
+								</div>
+								<div class="card-body">
+									<div class="row">
+
+										<ul class="list-group list-group-flush">
+											<li class="list-group-item"><a href="HealthwiseReports">Health
+													Status wise Report</a></li>
+											<li class="list-group-item"><a href="DateWiseReports">Date
+													Wise Report</a></li>
+											<li class="list-group-item"><a href="AgeWiseReports">Age
+													Wise Report</a></li>
+											<li class="list-group-item"><a href="ZoneWiseReports">Zone
+													Wise Report</a></li>
+											<li class="list-group-item"><a href="WoredaWiseReports">Woreda
+													Wise Report</a></li>
+											<li class="list-group-item"><a href="RegionWiseReports">Region
+													Wise Report</a></li>
+											<li class="list-group-item"><a href="GenderWiseReports">Gender
+													Wise Report</a></li>
+
+
+										</ul>
+
+
+									</div>
+								</div>
+							</div>
+
+						</div>
+						
 					</div>
 
 

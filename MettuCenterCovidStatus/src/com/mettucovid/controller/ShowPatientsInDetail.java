@@ -39,7 +39,7 @@ public class ShowPatientsInDetail extends HttpServlet {
 			request.setAttribute("patientList", patientList);
 			HttpSession session = request.getSession();
 			String role= (String) session.getAttribute("role");
-			if(role.equals("Police")||role.equals("Zone Health Bureau"))
+			if(role.equals("Police")||role.equals("Zone Health Bureau")||role.equals("PRO"))
 
 				request.getRequestDispatcher("ShowPatientsinDetail.jsp").forward(request, response);
 			else

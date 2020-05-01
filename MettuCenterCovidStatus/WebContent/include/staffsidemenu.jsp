@@ -68,9 +68,9 @@
 			<div class="sidebar-heading">Others</div>
 
 			<!-- Nav Item - Pages Collapse Menu -->
-			<li class="nav-item"><a class="nav-link" href="StaffReports.jsp">
+			<!-- <li class="nav-item"><a class="nav-link" href="StaffReports.jsp">
 					<i class="fas fa-download"></i> <span>Reports</span>
-			</a></li>
+			</a></li> -->
 
 			<!-- Nav Item - Tables -->
 			<li class="nav-item"><a class="nav-link" href="LogoutController">

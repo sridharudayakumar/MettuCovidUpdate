@@ -131,22 +131,29 @@
 										placeholder="" required="">
 									<div class="invalid-feedback">Please enter address.</div>
 								</div>
+								<div class="col-md-3 mb-3">
+									<label for="kebele">Kebele</label> <input type="text"
+										class="form-control" id="kebele" name="kebele" placeholder=""
+										required="">
+									<div class="invalid-feedback">Please enter kebele.</div>
+								</div>
 
 								<div class="col-md-3 mb-3">
+									<label for="woreda">Woreda</label> <input type="text"
+										class="form-control" id="woreda" name="woreda" placeholder=""
+										required="">
+									<div class="invalid-feedback">Please enter address.</div>
+								</div>
+
+							</div>
+							<div class="row">
+								<div class="col-md-3 mb-3">
 									<label for="zone">Zone</label> <input type="text"
-										class="form-control" id="zone" name="zone"
-										placeholder="" required="">
+										class="form-control" id="zone" name="zone" placeholder=""
+										required="">
 									<div class="invalid-feedback">Please enter address.</div>
 								</div>
 								<div class="col-md-3 mb-3">
-									<label for="woreda">Woreda</label> <input type="text"
-										class="form-control" id="woreda" name="woreda"
-										placeholder="" required="">
-									<div class="invalid-feedback">Please enter address.</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-6 mb-3">
 									<label for="region">Region</label> <select
 										class="custom-select d-block w-100" id="region" name="region"
 										required="">
@@ -169,11 +176,17 @@
 
 
 
-								<div class="col-md-6 mb-3">
+								<div class="col-md-3 mb-3">
 									<label for="country">Country</label> <input type="text"
 										class="form-control" id="country" name="country"
 										placeholder="" required="">
 									<div class="invalid-feedback">Please enter address.</div>
+								</div>
+								<div class="col-md-3 mb-3">
+									<label for="citizenship">Citizenship</label> <input type="text"
+										class="form-control" id="citizenship" name="citizenship"
+										placeholder="" required="">
+									<div class="invalid-feedback">Please enter citizenship.</div>
 								</div>
 							</div>
 

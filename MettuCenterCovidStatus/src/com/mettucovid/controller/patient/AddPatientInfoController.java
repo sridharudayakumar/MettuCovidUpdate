@@ -58,9 +58,11 @@ public class AddPatientInfoController extends HttpServlet {
 			patient.setPhoneNo(Long.parseLong(request.getParameter("phoneNo")));
 			patient.setAddress(request.getParameter("address"));
 			patient.setZone(request.getParameter("zone"));
+			patient.setKebele(request.getParameter("kebele"));
 			patient.setWoreda(request.getParameter("woreda"));
 			patient.setRegion(request.getParameter("region"));
 			patient.setCountry(request.getParameter("country"));
+			patient.setCitizenship(request.getParameter("citizenship"));
 			patient.setNatureOfJob(request.getParameter("natureOfJob"));
 			patient.setPreDisease(request.getParameter("preDisease"));
 			patient.setAdmittedOn(request.getParameter("admittedOn"));

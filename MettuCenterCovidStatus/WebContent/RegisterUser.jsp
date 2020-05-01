@@ -120,8 +120,9 @@
 										required="">
 										<option value="">Choose...</option>
 										<option>Administrator</option>
-										<option>Police</option>
 										<option>Hospital Staff</option>
+										<option>Police</option>
+										<option>PRO</option>
 										<option>Zone Health Bureau</option>
 
 									</select>
