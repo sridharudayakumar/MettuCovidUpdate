@@ -53,9 +53,9 @@
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Dashboard -->
-			<li class="nav-item active"><a class="nav-link"
-				href="index.jsp"> <i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span></a>
-			</li>
+			<li class="nav-item active"><a class="nav-link" href="index.jsp">
+					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
+			</a></li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
@@ -203,10 +203,8 @@
 							<div class="col-xl-2 col-md-6 mb-4">
 
 								<div class="card  border-left-info bg-gray-200">
-									<div class="card-body text-center ">
-										Covid-19 Cases in Ethiopia 
-										
-									</div>
+									<div class="card-body text-center ">Covid-19 Cases in
+										Ethiopia</div>
 								</div>
 
 							</div>
@@ -215,7 +213,7 @@
 								<div class="card  border-bottom-info">
 									<div class="card-body text-center">
 										Total Cases
-										<div class="text-gray-900 text-center">111</div>
+										<div class="text-gray-900 text-center">${ethCases.total}</div>
 									</div>
 								</div>
 
@@ -225,7 +223,7 @@
 								<div class="card  border-bottom-primary">
 									<div class="card-body text-center">
 										Active Cases
-										<div class="text-gray-900 text-center">90</div>
+										<div class="text-gray-900 text-center">${ethCases.active}</div>
 									</div>
 								</div>
 							</div>
@@ -233,7 +231,7 @@
 								<div class="card  border-bottom-success">
 									<div class="card-body text-center">
 										Cured
-										<div class="text-gray-900 text-center">16</div>
+										<div class="text-gray-900 text-center">${ethCases.cured}</div>
 									</div>
 								</div>
 							</div>
@@ -242,7 +240,7 @@
 								<div class="card  border-bottom-warning">
 									<div class="card-body text-center">
 										Critical
-										<div class="text-gray-900 text-center">1</div>
+										<div class="text-gray-900 text-center">${ethCases.critical}</div>
 									</div>
 								</div>
 							</div>
@@ -250,7 +248,7 @@
 								<div class="card  border-bottom-danger">
 									<div class="card-body text-center">
 										Deaths
-										<div class="text-gray-900 text-center">3</div>
+										<div class="text-gray-900 text-center">${ethCases.death}</div>
 									</div>
 								</div>
 							</div>
@@ -315,9 +313,9 @@
 												</div>
 												<div class="card-body">
 													<strong>Federal Ministry of Health</strong> <a
-														href="http://www.facebook.com/EthiopiaFMoH/" target="_blank">
-														http://www.facebook.com/EthiopiaFMoH/</a> <a
-														href="https://twitter.com/FMoHealth" target="_blank">https://twitter.com/FMoHealth</a>
+														href="http://www.facebook.com/EthiopiaFMoH/"
+														target="_blank"> http://www.facebook.com/EthiopiaFMoH/</a>
+													<a href="https://twitter.com/FMoHealth" target="_blank">https://twitter.com/FMoHealth</a>
 												</div>
 											</div>
 										</div>
@@ -364,15 +362,12 @@
 								<div class="card-body">
 									<div class="row">
 
+
 										<ul class="list-group list-group-flush">
-											<li class="list-group-item"><a
-												href="https://news.cgtn.com/news/2020-04-17/Chinese-medical-team-arrives-in-Ethiopia-to-help-in-COVID-19-fight-PLym4IZOQ8/index.html"
-												target="_blank">Chinese medical team arrives in Ethiopia
-													to help in COVID-19 fight</a></li>
-											<li class="list-group-item"><a
-												href="https://www.bloomberg.com/news/articles/2020-04-16/fear-of-economic-shock-hampers-ethiopia-s-coronavirus-fight"
-												target="_blank">Ethiopias Nobel Laureate Is Hampering
-													the Virus Fight</a></li>
+											<c:forEach var="news" items="${newsList}">
+												<li class="list-group-item"><a href="${news.url}"
+													target="_blank">${news.description}</a></li>
+											</c:forEach>
 
 										</ul>
 

@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-
+import com.mettucovid.dto.News;
 import com.mettucovid.dto.User;
 import com.mettucovid.util.ConnectionUtil;
 
@@ -117,5 +117,6 @@ public class UserDao {
 		return result;
 	}
 
+	
 
 }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2020 at 09:23 PM
+-- Generation Time: May 02, 2020 at 11:03 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -19,6 +19,48 @@ SET time_zone = "+00:00";
 --
 -- Database: `mettucenter`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `covidcase`
+--
+
+CREATE TABLE `covidcase` (
+  `id` int(11) NOT NULL,
+  `total` int(11) NOT NULL,
+  `active` int(11) NOT NULL,
+  `cured` int(11) NOT NULL,
+  `critical` int(11) NOT NULL,
+  `deaths` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `covidcase`
+--
+
+INSERT INTO `covidcase` (`id`, `total`, `active`, `cured`, `critical`, `deaths`) VALUES
+(1, 133, 59, 69, 0, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `newsfeed`
+--
+
+CREATE TABLE `newsfeed` (
+  `id` bigint(11) NOT NULL,
+  `url` varchar(200) NOT NULL,
+  `description` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `newsfeed`
+--
+
+INSERT INTO `newsfeed` (`id`, `url`, `description`) VALUES
+(1, 'https://news.cgtn.com/news/2020-04-17/Chinese-medical-team-arrives-in-Ethiopia-to-help-in-COVID-19-fight-PLym4IZOQ8/index.html', 'Chinese medical team arrives in Ethiopia\r\n													to help in COVID-19 fight'),
+(5, 'https://www.bloomberg.com/news/articles/2020-04-16/fear-of-economic-shock-hampers-ethiopia-s-coronavirus-fight', 'Ethiopia''s Nobel Laureate Is Hampering the Virus Fight');
 
 -- --------------------------------------------------------
 
@@ -86,6 +128,38 @@ INSERT INTO `patientinfo` (`patientId`, `firstName`, `middleName`, `lastName`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `patientobservation`
+--
+
+CREATE TABLE `patientobservation` (
+  `id` int(10) NOT NULL,
+  `patientId` int(10) NOT NULL,
+  `doo` varchar(30) NOT NULL,
+  `temperature` int(11) NOT NULL,
+  `bp` varchar(30) NOT NULL,
+  `rbc` varchar(30) NOT NULL,
+  `wbc` varchar(30) NOT NULL,
+  `hb` varchar(30) NOT NULL,
+  `hct` varchar(30) NOT NULL,
+  `platelets` varchar(30) NOT NULL,
+  `spo2` varchar(30) NOT NULL,
+  `symptoms` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `patientobservation`
+--
+
+INSERT INTO `patientobservation` (`id`, `patientId`, `doo`, `temperature`, `bp`, `rbc`, `wbc`, `hb`, `hct`, `platelets`, `spo2`, `symptoms`) VALUES
+(1, 6, '2020-05-01', 30, '140/80', '', '', '', '', '', '', 'Cough,Body aches'),
+(2, 8, '2020-05-01', 28, '150/90', '', '', '', '', '', '', 'Difficulty in breathing,Body aches,Nasal Congestion'),
+(3, 6, '2020-05-02', 28, '145/90', '', '', '', '', '', '', 'Cough'),
+(4, 8, '2020-04-30', 30, '150/90', '10000', '', '', '', '', '', 'High Fever,Cough,Nasal Congestion,Running nose'),
+(5, 6, '2020-04-30', 38, '150/90', '10000', '', '', '', '', '', 'High Fever,Cough,Difficulty in breathing');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -117,10 +191,28 @@ INSERT INTO `users` (`userId`, `firstName`, `lastName`, `email`, `password`, `ro
 --
 
 --
+-- Indexes for table `covidcase`
+--
+ALTER TABLE `covidcase`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `newsfeed`
+--
+ALTER TABLE `newsfeed`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `patientinfo`
 --
 ALTER TABLE `patientinfo`
   ADD PRIMARY KEY (`patientId`);
+
+--
+-- Indexes for table `patientobservation`
+--
+ALTER TABLE `patientobservation`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -134,10 +226,20 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `newsfeed`
+--
+ALTER TABLE `newsfeed`
+  MODIFY `id` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
 -- AUTO_INCREMENT for table `patientinfo`
 --
 ALTER TABLE `patientinfo`
   MODIFY `patientId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+--
+-- AUTO_INCREMENT for table `patientobservation`
+--
+ALTER TABLE `patientobservation`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `users`
 --

@@ -89,12 +89,17 @@
         Others
       </div>
 
-      <!-- Nav Item - Pages Collapse Menu -->
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="GenerateReport">
-          <i class="fas fa-download"></i>
-          <span>Reports</span></a>
-      </li> -->
+      
+      <li class="nav-item">
+        <a class="nav-link" href="ShowNews">
+          <i class="fas fa-file-alt"></i>
+          <span>News Feed</span></a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="AddCases">
+          <i class="fas fa-ambulance"></i>
+          <span>Covid Cases</span></a>
+      </li>
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
