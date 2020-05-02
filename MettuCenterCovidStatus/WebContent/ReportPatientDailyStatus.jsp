@@ -44,7 +44,7 @@
 	<div id="wrapper">
 
 		<!-- Sidebar -->
-		<jsp:include page="include/sidebarmenu.jsp"></jsp:include>
+		<jsp:include page="${fileName}"></jsp:include>
 		<!-- End of Sidebar -->
 
 		<!-- Content Wrapper -->
@@ -58,30 +58,48 @@
 		<div class="container-fluid">
 
 			<!-- Page Heading -->
-			<h1 class="h3 mb-2 text-gray-800">Patient Details</h1>
+			<h1 class="h3 mb-2 text-gray-800">Patient Daily Status Details</h1>
 
 			<!-- DataTales Example -->
 			<div class="card shadow mb-4">
 				<div class="card-header py-3">
-					<h6 class="m-0 font-weight-bold text-primary">Patients List</h6>
+					<h6 class="m-0 font-weight-bold text-primary"></h6>
 				</div>
 				<div class="card-body">
+					<form action="DailyStatusReports" method="post">
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<input type="text" class="form-control" id="patientId"
+									name="patientId" placeholder="Enter Patient Id" required="">
+							</div>
+							<div class="col-md-3 mb-3">
+								<input type="submit" value="Submit">
+							</div>
+						</div>
+					</form>
+
 					<div class="table-responsive">
+
+
 						<table class="table table-bordered" id="dataTable" width="100%"
 							cellspacing="0">
+
+
 
 							<thead>
 								<tr>
 									<th>S.No</th>
-									<th>Patient ID</th>
-									<th>Name</th>
+									<th>Date</th>
+									<th>Temperature</th>
+									<th>BP</th>
+									<th>RBC</th>
+									<th>WBC</th>
+									<th>HB</th>
+									<th>HCT</th>
+									<th>Platelets</th>
+									<th>SpO2</th>
+									<th>Symptoms</th>
 									
-									<th>Gender</th>
-									<th>Region</th>
-									<th>Country</th>
-									<th>Health Status</th>
-									<th>Admitted On</th>
-									<th height="30px">Action</th>
 								</tr>
 							</thead>
 
@@ -91,33 +109,19 @@
 
 									<tr>
 										<td>${status.index + 1}</td>
-										<td>${patient.patientId}</td>
-										<td style="text-transform: capitalize">${patient.firstName } ${patient.middleName} ${patient.lastName}</td>
-										<td>${patient.gender}</td>
-										<td>${patient.region}</td>
-										<td>${patient.country}</td>
-										<td>${patient.presentStatus}</td>
-										<td>${patient.admittedOn}</td>
+										<td>${patient.doo}</td>
+										<td>${patient.temperature}</td>
+										<td>${patient.bp}</td>
+										<td>${patient.rbc}</td>
+										<td>${patient.wbc}</td>
+										<td>${patient.hb}</td>
+										<td>${patient.hct}</td>
+										<td>${patient.platelets}</td>
+										<td>${patient.spo2}</td>
+										<td>${patient.symptoms}</td>
 
 
-										<td><a
-											href="AdminPatientInfo?id=<c:out value="${patient.patientId}"/>"
-											class="btn btn-xs btn-real tooltips" style="size: 10px;"
-											data-original-title="Profile"><i class="fa fa-user-check"></i> </a> 
-											<a
-											href="AddPatientDailyStatus?id=<c:out value="${patient.patientId}"/>"
-											class="btn btn-xs btn-real tooltips" style="size: 10px;"
-											data-original-title="Profile"><i class="fa fa-user-md"></i> </a> 
-											
-											<a href="UpdatePatientInfoController?id=<c:out value="${patient.patientId}"/>"
-											class="btn btn-xs btn-real tooltips" style="size: 10px;"
-											data-original-title="Edit"><i class="fa fa-edit"></i> </a> <a
-											href="DeletePatientController?id=<c:out value="${patient.patientId}"/>"
-											class="btn btn-xs btn-real tooltips" style="size: 10px;"
-											data-original-title="Delete"><i
-												class="fa fa-times fa fa-white"></i></a></td>
 									</tr>
-
 								</c:forEach>
 
 
@@ -138,14 +142,14 @@
 
 	<!-- End of Main Content -->
 	<div class="row"></div>
-	 <!-- Footer -->
+	<!-- Footer -->
 	<footer class="sticky-footer bg-white">
 		<div class="container my-auto">
 			<div class="copyright text-center my-auto">
 				<span>Developed and maintained by Mettu University, Ethiopia</span>
 			</div>
 		</div>
-	</footer> 
+	</footer>
 	<!-- End of Footer -->
 
 

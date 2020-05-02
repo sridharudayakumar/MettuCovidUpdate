@@ -74,8 +74,8 @@
 								<tr>
 									<th>S.No</th>
 									<th>Patient ID</th>
-									<th>First Name</th>
-									
+									<th>Name</th>
+
 									<th>Gender</th>
 									<th>Region</th>
 									<th>Country</th>
@@ -92,7 +92,8 @@
 									<tr>
 										<td>${status.index + 1}</td>
 										<td>${patient.patientId}</td>
-										<td style="text-transform: capitalize">${patient.firstName } ${patient.middleName} ${patient.lastName}</td>
+										<td style="text-transform: capitalize">${patient.firstName }
+											${patient.middleName} ${patient.lastName}</td>
 										<td>${patient.gender}</td>
 										<td>${patient.region}</td>
 										<td>${patient.country}</td>
@@ -103,9 +104,13 @@
 										<td><a
 											href="StaffPatientInfo?id=<c:out value="${patient.patientId}"/>"
 											class="btn btn-xs btn-real tooltips" style="size: 10px;"
-											data-original-title="Profile"><i class="fa fa-user-check"></i> </a> 
-											
-											<a href="UpdatePatientInfoController?id=<c:out value="${patient.patientId}"/>"
+											data-original-title="Profile"><i class="fa fa-user-check"></i>
+										</a> <a
+											href="AddPatientDailyStatus?id=<c:out value="${patient.patientId}"/>"
+											class="btn btn-xs btn-real tooltips" style="size: 10px;"
+											data-original-title="Profile"><i class="fa fa-user-md"></i>
+										</a> <a
+											href="UpdatePatientInfoController?id=<c:out value="${patient.patientId}"/>"
 											class="btn btn-xs btn-real tooltips" style="size: 10px;"
 											data-original-title="Edit"><i class="fa fa-edit"></i> </a> <a
 											href="DeletePatientController?id=<c:out value="${patient.patientId}"/>"
@@ -134,14 +139,14 @@
 
 	<!-- End of Main Content -->
 	<div class="row"></div>
-	 <!-- Footer -->
+	<!-- Footer -->
 	<footer class="sticky-footer bg-white">
 		<div class="container my-auto">
 			<div class="copyright text-center my-auto">
 				<span>Developed and maintained by Mettu University, Ethiopia</span>
 			</div>
 		</div>
-	</footer> 
+	</footer>
 	<!-- End of Footer -->
 
 

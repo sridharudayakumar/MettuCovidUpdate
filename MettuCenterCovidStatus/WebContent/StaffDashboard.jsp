@@ -134,6 +134,8 @@
 									<div class="row">
 
 										<ul class="list-group list-group-flush">
+											<li class="list-group-item"><a href="DailyStatusReports">Patient
+													Daily Status Report</a></li>
 											<li class="list-group-item"><a href="HealthwiseReports">Health
 													Status wise Report</a></li>
 											<li class="list-group-item"><a href="DateWiseReports">Date

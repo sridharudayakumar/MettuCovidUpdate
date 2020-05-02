@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.mettucovid.dao.PatientDao;
 import com.mettucovid.dto.Patient;
@@ -37,7 +38,14 @@ public class ViewPatientController extends HttpServlet {
 		try {
 			patientList = PatientDao.listAllPatients();
 			request.setAttribute("patientList", patientList);
-			request.getRequestDispatcher("ShowPatients.jsp").forward(request, response);
+			HttpSession session = request.getSession();
+			
+			String role= (String) session.getAttribute("role");
+			if(role.equals("Administrator"))
+				request.getRequestDispatcher("ShowPatients.jsp").forward(request, response);
+				else
+					request.getRequestDispatcher("ShowPatientsStaff.jsp").forward(request, response);
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

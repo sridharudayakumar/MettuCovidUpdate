@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import com.mettucovid.dto.CaseNumbers;
 import com.mettucovid.dto.Patient;
+import com.mettucovid.dto.PatientDailyStatus;
 import com.mettucovid.util.ConnectionUtil;
 
 
@@ -788,4 +789,66 @@ public class PatientDao {
 		}
 		return patientList;
 	}
+
+	public static int insertDailyStatus(PatientDailyStatus patient) throws SQLException {
+		Connection conn = ConnectionUtil.getConnection();
+
+		PreparedStatement ps = null;
+		
+
+		String sql = "INSERT INTO patientobservation(patientId,doo,temperature,bp,rbc,wbc,hb,hct,platelets,spo2,symptoms) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+		ps = conn.prepareStatement(sql);
+		ps.setInt(1, patient.getPatientId());
+		ps.setString(2, patient.getDoo());
+		ps.setInt(3,patient.getTemperature());
+		ps.setString(4, patient.getBp());
+		ps.setString(5,patient.getRbc());
+		ps.setString(6, patient.getWbc());
+		ps.setString(7, patient.getHb());
+		ps.setString(8,patient.getHct());
+		ps.setString(9,patient.getPlatelets());
+		ps.setString(10, patient.getSpo2());
+		ps.setString(11,patient.getSymptoms());
+		
+		
+		int result = ps.executeUpdate();
+		System.out.println("Registered");
+		ConnectionUtil.closeConnection(ps, conn);
+		return result;
+	}
+
+	public static ArrayList<PatientDailyStatus> listPatientStaus(int patientId) throws SQLException   {
+		Connection conn = ConnectionUtil.getConnection();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		//String status = "active";
+		
+
+		String sql = "SELECT * FROM patientobservation where patientId=?";
+
+		ps = conn.prepareStatement(sql);
+		ps.setInt(1, patientId);
+		
+		rs = ps.executeQuery();
+
+		ArrayList<PatientDailyStatus> patientList = new ArrayList<PatientDailyStatus>();
+		while (rs.next()) {
+			PatientDailyStatus patient = new PatientDailyStatus();
+			patient.setDoo(rs.getString("doo"));
+			patient.setTemperature(rs.getInt("temperature"));
+			patient.setBp(rs.getString("bp"));
+			patient.setRbc(rs.getString("rbc"));
+			patient.setWbc(rs.getString("wbc"));
+			patient.setHb(rs.getString("hb"));
+			patient.setHct(rs.getString("hct"));
+			patient.setPlatelets(rs.getString("platelets"));
+			patient.setSpo2(rs.getString("spo2"));
+			patient.setSymptoms(rs.getString("symptoms"));
+			patientList.add(patient);
+			
+		}
+		return patientList;
+	}
+
+	
 }
