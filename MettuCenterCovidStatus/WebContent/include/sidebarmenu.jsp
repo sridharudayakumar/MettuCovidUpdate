@@ -100,7 +100,13 @@
           <i class="fas fa-ambulance"></i>
           <span>Covid Cases</span></a>
       </li>
-
+	
+	 <li class="nav-item">
+        <a class="nav-link" href="ChangePassword">
+          <i class="fas fa-user-lock"></i>
+          <span>Change Password</span></a>
+      </li>
+	
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="LogoutController">

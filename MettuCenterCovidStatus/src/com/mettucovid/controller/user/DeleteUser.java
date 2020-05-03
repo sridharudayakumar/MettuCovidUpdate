@@ -46,7 +46,7 @@ public class DeleteUser extends HttpServlet {
 
 				out.print("<script language='JavaScript'>alert('User Deleted Successfully  ');</script>");
 
-				out.println("<script> location.replace('ShowUsers'); </script>");
+				out.println("<script> location.replace('StaffHome'); </script>");
 
 				out.println("</head>");
 

@@ -112,11 +112,41 @@ public class UserDao {
 		ps.setString(4, user.getPassword());
 		ps.setString(5, user.getRole());
 		ps.setInt(6, id);
-		
+
 		int result = ps.executeUpdate();
 		return result;
 	}
 
-	
+	public static int changePassword(String username,String oldPassword, String newPassword) throws SQLException {
+		Connection conn = ConnectionUtil.getConnection();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		int status = 1;
+		String sql = "SELECT * FROM users WHERE email=? and password=?";
+		ps = conn.prepareStatement(sql);
+		ps.setString(1, username);
+		ps.setString(2, oldPassword);
+		rs = ps.executeQuery();
+
+		if (rs.next()) {
+
+			sql = "UPDATE users SET password=? WHERE email=?";
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, newPassword);
+			ps.setString(2, username);
+
+
+			status = ps.executeUpdate();
+
+		}
+		else
+		{
+			status=0;
+		}
+		return status;
+	}
+
+
 
 }

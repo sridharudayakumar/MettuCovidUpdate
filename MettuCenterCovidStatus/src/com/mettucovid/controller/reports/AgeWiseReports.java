@@ -38,6 +38,8 @@ public class AgeWiseReports extends HttpServlet {
 		HttpSession session = request.getSession();
 		System.out.println("inside doget");
 		String role= (String) session.getAttribute("role");
+		String username = (String) session.getAttribute("userName");
+		System.out.println(username);
 		if(role.equals("Administrator"))
 		{
 			request.setAttribute("fileName", "include/sidebarmenu.jsp");
@@ -45,6 +47,10 @@ public class AgeWiseReports extends HttpServlet {
 		else if(role.equals("Hospital Staff"))
 		{
 			request.setAttribute("fileName", "include/staffsidemenu.jsp");
+		}
+		else if(role.equals("PRO"))
+		{
+			request.setAttribute("fileName", "include/ProSideMenu.jsp");
 		}
 		else 
 		{
@@ -73,6 +79,10 @@ public class AgeWiseReports extends HttpServlet {
 			else if(role.equals("Hospital Staff"))
 			{
 				request.setAttribute("fileName", "include/staffsidemenu.jsp");
+			}
+			else if(role.equals("PRO"))
+			{
+				request.setAttribute("fileName", "include/ProSideMenu.jsp");
 			}
 			else 
 			{

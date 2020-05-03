@@ -35,7 +35,7 @@ public class LoginController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 	}
 
 	/**
@@ -54,7 +54,7 @@ public class LoginController extends HttpServlet {
 			session.setAttribute("userName", userName);
 			session.setAttribute("passWord", passWord);
 			System.out.println(session.getId());
-			
+
 			ArrayList<CaseNumbers> counttempList = new ArrayList<CaseNumbers>();
 			try {
 				counttempList= PatientDao.findCaseNumbers();
@@ -64,33 +64,37 @@ public class LoginController extends HttpServlet {
 			}
 			//request.setAttribute("counttempList", counttempList);
 			//request.getRequestDispatcher("admin.jsp").forward(request, response);
-			
+
 			//request.getRequestDispatcher("AdminHome").forward(request, response);
 			if (role.equals("Administrator"))
 			{
 				session.setAttribute("role", role);
+				System.out.println(userName);
+				session.setAttribute("userName", userName);
 				session.setAttribute("counttempList", counttempList);
-				
-
 				request.getRequestDispatcher("admin.jsp").forward(request, response);
-			} else if (role.equals("Police")||role.equals("Zone Health Bureau")||role.equals("PRO")){
+			} else if (role.equals("Police")||role.equals("Zone Health Bureau")){
 				session.setAttribute("role", role);
+				session.setAttribute("userName", userName);
 				session.setAttribute("counttempList", counttempList);
-				
-
 				request.getRequestDispatcher("PoliceDashboard.jsp").forward(request, response);
 
+			}else if (role.equals("PRO")){
+				session.setAttribute("role", role);
+				session.setAttribute("userName", userName);
+				session.setAttribute("counttempList", counttempList);
+				request.getRequestDispatcher("ProDashboard.jsp").forward(request, response);
 			}
+
 			else
 			{
 				session.setAttribute("role", role);
+				session.setAttribute("userName", userName);
 				session.setAttribute("counttempList", counttempList);
-				
-
 				request.getRequestDispatcher("StaffDashboard.jsp").forward(request, response);
 			}
-				
-			
+
+
 
 		} else {
 			String errortext = "Invalid Username or Password";

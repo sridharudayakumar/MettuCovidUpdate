@@ -54,8 +54,7 @@
 				aria-labelledby="headingPages" data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
 					<h6 class="collapse-header">Patient Control:</h6>
-					<a class="collapse-item" href="StaffRegisterpatients.jsp">Register
-						Patients</a> <a class="collapse-item" href="ShowPatientsInDetail">Show
+					<a class="collapse-item" href="ShowPatientsInDetail">Show
 						Patients</a>
 
 					<div class="collapse-divider"></div>
@@ -67,13 +66,14 @@
 
 		<div class="sidebar-heading">Others</div>
 
-		<!-- Nav Item - Pages Collapse Menu -->
-		<!-- <li class="nav-item"><a class="nav-link" href="StaffReports.jsp">
-					<i class="fas fa-download"></i> <span>Reports</span>
-			</a></li> -->
+		<li class="nav-item"><a class="nav-link" href="ShowNews"> <i
+				class="fas fa-file-alt"></i> <span>News Feed</span></a></li>
+		<li class="nav-item"><a class="nav-link" href="AddCases"> <i
+				class="fas fa-ambulance"></i> <span>Covid Cases</span></a></li>
 		<li class="nav-item"><a class="nav-link" href="ChangePassword">
 				<i class="fas fa-user-lock"></i> <span>Change Password</span>
 		</a></li>
+
 		<!-- Nav Item - Tables -->
 		<li class="nav-item"><a class="nav-link" href="LogoutController">
 				<i class="fas fa-sign-out-alt"></i> <span>Logout</span>

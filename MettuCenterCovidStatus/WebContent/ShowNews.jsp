@@ -44,7 +44,7 @@
 	<div id="wrapper">
 
 		<!-- Sidebar -->
-		<jsp:include page="include/sidebarmenu.jsp"></jsp:include>
+			<jsp:include page="${fileName}"></jsp:include>
 		<!-- End of Sidebar -->
 
 		<!-- Content Wrapper -->
@@ -64,9 +64,14 @@
 			<div class="card shadow mb-4">
 				<div class="card-header py-3">
 					<h6 class="m-0 font-weight-bold text-primary">News List</h6>
+					<a
+											href="AddNews"
+											class="btn btn-xs btn-real tooltips" style="size: 10px;"
+											data-original-title="Add"><i class="fas fa-newspaper"></i>Add News </a>
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
+					
 						<table class="table table-bordered" id="dataTable" width="100%"
 							cellspacing="0">
 
@@ -92,10 +97,7 @@
 										<td>${news.description}</td>
 
 
-										<td><a
-											href="AddNews.jsp"
-											class="btn btn-xs btn-real tooltips" style="size: 10px;"
-											data-original-title="Add"><i class="fas fa-newspaper"></i> </a> <a
+										<td> <a
 											href="DeleteNews?id=<c:out value="${news.id}"/>"
 											class="btn btn-xs btn-real tooltips" style="size: 10px;"
 											data-original-title="Delete"><i

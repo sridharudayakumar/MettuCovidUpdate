@@ -45,6 +45,10 @@ public class HealthwiseReports extends HttpServlet {
 		{
 			request.setAttribute("fileName", "include/staffsidemenu.jsp");
 		}
+		else if(role.equals("PRO"))
+		{
+			request.setAttribute("fileName", "include/ProSideMenu.jsp");
+		}
 		else 
 		{
 			System.out.println("inside else "+role);
@@ -71,6 +75,10 @@ public class HealthwiseReports extends HttpServlet {
 			else if(role.equals("Hospital Staff"))
 			{
 				request.setAttribute("fileName", "include/staffsidemenu.jsp");
+			}
+			else if(role.equals("PRO"))
+			{
+				request.setAttribute("fileName", "include/ProSideMenu.jsp");
 			}
 			else 
 			{

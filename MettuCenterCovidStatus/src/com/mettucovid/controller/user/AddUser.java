@@ -68,8 +68,20 @@ public class AddUser extends HttpServlet {
 				request.getRequestDispatcher("RegisterUser.jsp").forward(request, response);
 
 			} else {
-				session.setAttribute("FailureText", "Registration Failed");
-				request.getRequestDispatcher("RegisterUser.jsp").forward(request, response);
+				
+
+				out.println("<html>");
+
+				out.println("<head>");
+
+				out.print("<script language='JavaScript'>alert('Registration Failed due to duplicate email id  ');</script>");
+
+				out.println("<script> location.replace('RegisterUser.jsp'); </script>");
+
+				out.println("</head>");
+
+				out.println("</html>");
+				//request.getRequestDispatcher("RegisterUser.jsp").forward(request, response);
 			}
 		}catch (Exception  e) {
 			System.out.println(e);

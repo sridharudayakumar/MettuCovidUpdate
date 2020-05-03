@@ -43,8 +43,12 @@ public class StaffHome extends HttpServlet {
 		request.setAttribute("counttempList", counttempList);
 		HttpSession session = request.getSession();
 		String role= (String) session.getAttribute("role");
-		if(role.equals("Police")||role.equals("Zone Health Bureau")||role.equals("PRO"))
+		if(role.equals("Police")||role.equals("Zone Health Bureau"))
 			request.getRequestDispatcher("PoliceDashboard.jsp").forward(request, response);
+		else if(role.equals("PRO"))
+		{
+			request.getRequestDispatcher("ProDashboard.jsp").forward(request, response);
+		}
 		else
 			request.getRequestDispatcher("StaffDashboard.jsp").forward(request, response);
 	}

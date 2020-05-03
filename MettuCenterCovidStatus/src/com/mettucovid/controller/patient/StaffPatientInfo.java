@@ -42,7 +42,15 @@ public class StaffPatientInfo extends HttpServlet {
 			HttpSession session = request.getSession();
 			String role= (String) session.getAttribute("role");
 			if(role.equals("Police")||role.equals("Zone Health Bureau"))
+			{
+				request.setAttribute("fileName", "include/policesidemenu.jsp");
 				request.getRequestDispatcher("PolicePatientInfo.jsp").forward(request, response);
+			}
+			else if(role.equals("PRO"))
+			{
+				request.setAttribute("fileName", "include/ProSideMenu.jsp");
+				request.getRequestDispatcher("PolicePatientInfo.jsp").forward(request, response);
+			}
 			else if(role.equals("Administrator"))
 			request.getRequestDispatcher("AdminPatientInfo.jsp").forward(request, response);
 			else

@@ -35,11 +35,20 @@ public class AddCases extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		CaseNumbers ethCases = new CaseNumbers();
+		HttpSession session = request.getSession();
+		String role= (String) session.getAttribute("role");
 		int id=1;
 		try {
 			ethCases = CasesDao.findOne(id);
 			request.setAttribute("ethCases", ethCases);
-
+			if(role.equals("Administrator"))
+			{
+				request.setAttribute("fileName", "include/sidebarmenu.jsp");
+			}
+			else if(role.equals("PRO"))
+			{
+				request.setAttribute("fileName", "include/ProSideMenu.jsp");
+			}
 
 			request.getRequestDispatcher("AddCases.jsp").forward(request, response);
 		} catch (SQLException e) {
@@ -65,7 +74,20 @@ public class AddCases extends HttpServlet {
 		try {
 			int result = CasesDao.updateCases(ethCases, id);
 			System.out.println(result);
-			response.sendRedirect("AdminHome");
+			
+			HttpSession session = request.getSession();
+			String role= (String) session.getAttribute("role");
+			if(role.equals("Administrator"))
+			{
+				request.setAttribute("fileName", "include/sidebarmenu.jsp");
+				response.sendRedirect("AdminHome");
+			}
+			else if(role.equals("PRO"))
+			{
+				request.setAttribute("fileName", "include/ProSideMenu.jsp");
+				response.sendRedirect("StaffHome");
+			}
+			
 			//request.getRequestDispatcher("admin.jsp").forward(request, response);
 
 

@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.mettucovid.dao.NewsDao;
 
@@ -35,9 +36,19 @@ public class ShowNews extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<News> newsList = new ArrayList<News>();
+		HttpSession session = request.getSession();
+		String role= (String) session.getAttribute("role");
 		try {
 			newsList = NewsDao.listAllnews();
 			request.setAttribute("newsList", newsList);
+			if(role.equals("Administrator"))
+			{
+				request.setAttribute("fileName", "include/sidebarmenu.jsp");
+			}
+			else if(role.equals("PRO"))
+			{
+				request.setAttribute("fileName", "include/ProSideMenu.jsp");
+			}
 			request.getRequestDispatcher("ShowNews.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

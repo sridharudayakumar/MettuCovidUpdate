@@ -34,8 +34,17 @@ public class AddNews extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session = request.getSession();
+		String role= (String) session.getAttribute("role");
+		if(role.equals("Administrator"))
+		{
+			request.setAttribute("fileName", "include/sidebarmenu.jsp");
+		}
+		else if(role.equals("PRO"))
+		{
+			request.setAttribute("fileName", "include/ProSideMenu.jsp");
+		}
+		request.getRequestDispatcher("AddNews.jsp").forward(request, response);
 	}
 
 	/**
@@ -49,12 +58,20 @@ public class AddNews extends HttpServlet {
 
 			news.setUrl(request.getParameter("url"));
 			news.setDescription(request.getParameter("description"));
-			
+			String role= (String) session.getAttribute("role");
 
 			int result = NewsDao.AddNews(news);
 			System.out.println(result);
 			if (result > 0) {
 
+				if(role.equals("Administrator"))
+				{
+					request.setAttribute("fileName", "include/sidebarmenu.jsp");
+				}
+				else if(role.equals("PRO"))
+				{
+					request.setAttribute("fileName", "include/ProSideMenu.jsp");
+				}
 				String SuccessText = "News Registered";
 				session.setAttribute("SuccessText", SuccessText);
 				

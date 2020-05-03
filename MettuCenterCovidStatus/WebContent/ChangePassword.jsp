@@ -43,7 +43,7 @@
 	<div id="wrapper">
 
 		<!-- Sidebar -->
-			<jsp:include page="${fileName}"></jsp:include>
+		<jsp:include page="include/sidebarmenu.jsp"></jsp:include>
 		<!-- End of Sidebar -->
 
 		<!-- Content Wrapper -->
@@ -53,119 +53,104 @@
 			<!-- Registration form -->
 
 			<div class="container">
-				<div class="row no-gutters align-items-center">
-					<div class="col-md-12 ">
+				<!-- Outer Row -->
+				<div class="row justify-content-center">
 
-						<h2>Add News</h2>
-						<hr>
-					</div>
-					<hr>
-				</div>
+					<div class="col-xl-10 col-lg-12 col-md-9">
 
-				<div class="row">
+						<div class="card o-hidden border-0 shadow-lg my-5">
+							<div class="card-body p-0">
+								<!-- Nested Row within Card Body -->
+								<div class="row">
+									<div class="col-lg-6 d-none d-lg-block ">
+										<img class="img-fluid px-2 px-sm-1 mt-4 mb-2"
+											style="" src="img/password.jpg" alt="">
+									</div>
+									<div class="col-lg-6">
+										<div class="p-5">
+											<div class="text-center">
+												<h1 class="h4 text-gray-900 mb-2">Change Password?</h1>
 
-					<div class="col-lg-12 mb-4">
-						<form class="needs-validation" method="post" action="AddNews">
-						<%-- <div class="text-danger">
-									<label for="firstName"><c:out value="${FailureText}"></c:out></label>
-								</div>
-								<div class="text-success">
-									<label for="firstName"><c:out value="${SuccessText}"></c:out></label>
-								</div> --%>
-							<div class="row">
-								
-							
-								<div class="col-md-12 mb-3">
-									<label for="url">URL</label> <input type="url"
-										class="form-control" id="url" name="url"
-										placeholder="" value="" required="">
-									<div class="invalid-feedback">Valid url is
-										required.</div>
-								</div>
-								
-								<div class="col-md-12 mb-3">
-									<label for="lastName">Description</label> <input type="text"
-										class="form-control" id="description" name="description"
-										placeholder="" value="" required="">
-									<div class="invalid-feedback">Valid description is
-										required.</div>
-								</div>
-							</div>
-
-							<hr class="mb-4">
-							<div class="row">
-								<div class="col-md-6 mb-3">
-
-									<button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
-
-								</div>
-								<div class="col-md-6 mb-3">
+											</div>
+											<form class="needs-validation user" action="ChangePassword"
+												method="post">
+												<div class="form-group"><input type=password "
+													class="form-control" id="password" name="oldPassword"
+													placeholder="Enter Old Password.." value="" minlength="6" required=""></div>
+												<div class="form-group"><input type=password "
+													class="form-control" id="password" name="newPassword"
+													placeholder="Enter New Password.." value="" minlength="6" required=""></div>
+												<!-- <a href="ChangePassword" class="btn btn-primary btn-user btn-block">
+                      Change Password
+                    </a> -->
+												<button class="btn btn-primary btn-lg btn-block"
+													type="submit">Change Password</button>
+											</form>
 
 
-									<button class="btn btn-warning btn-lg btn-block" type="reset">Cancel</button>
+										</div>
+									</div>
 								</div>
 							</div>
-						</form>
+						</div>
+
 					</div>
+
 				</div>
 			</div>
+			<!-- end of registration -->
 
 
+			<!-- /.container-fluid -->
 
-		</div>
-		<!-- end of registration -->
+			<!-- End of Main Content -->
 
-
-		<!-- /.container-fluid -->
-
-		<!-- End of Main Content -->
-
-		<!-- End of Footer -->
+			<!-- End of Footer -->
 
 
-		<!-- End of Content Wrapper -->
+			<!-- End of Content Wrapper -->
 
 
-		<!-- End of Page Wrapper -->
+			<!-- End of Page Wrapper -->
 
-		<!-- Scroll to Top Button-->
-		<a class="scroll-to-top rounded" href="#page-top"> <i
-			class="fas fa-angle-up"></i>
-		</a>
+			<!-- Scroll to Top Button-->
+			<a class="scroll-to-top rounded" href="#page-top"> <i
+				class="fas fa-angle-up"></i>
+			</a>
 
 
-		<!-- Bootstrap core JavaScript-->
-		<script src="vendor/jquery/jquery.min.js"></script>
-		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+			<!-- Bootstrap core JavaScript-->
+			<script src="vendor/jquery/jquery.min.js"></script>
+			<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-		<!-- Core plugin JavaScript-->
-		<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+			<!-- Core plugin JavaScript-->
+			<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-		<!-- Custom scripts for all pages-->
-		<script src="js/sb-admin-2.min.js"></script>
+			<!-- Custom scripts for all pages-->
+			<script src="js/sb-admin-2.min.js"></script>
 
-		<!-- Page level plugins -->
-		<script src="vendor/chart.js/Chart.min.js"></script>
+			<!-- Page level plugins -->
+			<script src="vendor/chart.js/Chart.min.js"></script>
 
-		<!-- Page level custom scripts -->
-		<script src="js/demo/chart-area-demo.js"></script>
-		<script src="js/demo/chart-pie-demo.js"></script>
-		<!-- Bootstrap core JavaScript
+			<!-- Page level custom scripts -->
+			<script src="js/demo/chart-area-demo.js"></script>
+			<script src="js/demo/chart-pie-demo.js"></script>
+			<!-- Bootstrap core JavaScript
     ================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="js/jquery-3.2.1.slim.min.js.download"
-			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-			crossorigin="anonymous"></script>
-		<script>
+			<!-- Placed at the end of the document so the pages load faster -->
+			<script src="js/jquery-3.2.1.slim.min.js.download"
+				integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+				crossorigin="anonymous"></script>
+			<script>
 			window.jQuery
 					|| document
 							.write(
 									'<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
 		</script>
-		<script src="js/popper.min.js.download"></script>
-		<script src="js/bootstrap.min.js.download"></script>
-		<script src="js/holder.min.js.download"></script>
-		<script>
+			<script src="js/popper.min.js.download"></script>
+			<script src="js/bootstrap.min.js.download"></script>
+			<script src="js/holder.min.js.download"></script>
+			<script>
 			// Example starter JavaScript for disabling form submissions if there are invalid fields
 							(
 									function() {

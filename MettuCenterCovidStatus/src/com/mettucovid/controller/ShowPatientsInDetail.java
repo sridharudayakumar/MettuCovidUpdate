@@ -39,9 +39,16 @@ public class ShowPatientsInDetail extends HttpServlet {
 			request.setAttribute("patientList", patientList);
 			HttpSession session = request.getSession();
 			String role= (String) session.getAttribute("role");
-			if(role.equals("Police")||role.equals("Zone Health Bureau")||role.equals("PRO"))
-
+			if(role.equals("Police")||role.equals("Zone Health Bureau"))
+			{
+				request.setAttribute("fileName", "include/policesidemenu.jsp");
 				request.getRequestDispatcher("ShowPatientsinDetail.jsp").forward(request, response);
+			}
+			else if(role.equals("PRO"))
+			{
+				request.setAttribute("fileName", "include/ProSideMenu.jsp");
+				request.getRequestDispatcher("ShowPatientsinDetail.jsp").forward(request, response);
+			}
 			else
 				request.getRequestDispatcher("ShowPatientsStaff.jsp").forward(request, response);
 

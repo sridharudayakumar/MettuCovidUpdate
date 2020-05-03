@@ -44,6 +44,10 @@ public class WoredaWiseReports extends HttpServlet {
 		{
 			request.setAttribute("fileName", "include/staffsidemenu.jsp");
 		}
+		else if(role.equals("PRO"))
+		{
+			request.setAttribute("fileName", "include/ProSideMenu.jsp");
+		}
 		else 
 		{
 			request.setAttribute("fileName", "include/policesidemenu.jsp");
@@ -69,6 +73,10 @@ public class WoredaWiseReports extends HttpServlet {
 			else if(role.equals("Hospital Staff"))
 			{
 				request.setAttribute("fileName", "include/staffsidemenu.jsp");
+			}
+			else if(role.equals("PRO"))
+			{
+				request.setAttribute("fileName", "include/ProSideMenu.jsp");
 			}
 			else 
 			{
