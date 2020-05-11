@@ -29,6 +29,14 @@
 
 <body id="page-top">
 
+	<%
+		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+		response.setHeader("Pragma", "no-cache");
+		response.setHeader("Expires", "0");
+		if (session.getAttribute("role") == null) {
+			response.sendRedirect("login.jsp");
+		}
+	%>
 	<!-- Page Wrapper -->
 	<div id="wrapper">
 
@@ -139,22 +147,22 @@
 								<div class="row">
 
 									<ul class="list-group list-group-flush">
-										<li class="list-group-item"><a
-											href="DailyStatusReports">Patient Daily Status Report</a></li>
-										<li class="list-group-item"><a
-											href="HealthwiseReports">Health Status wise Report</a></li>
+										<li class="list-group-item"><a href="DailyStatusReports">Patient
+												Daily Status Report</a></li>
+										<li class="list-group-item"><a href="HealthwiseReports">Health
+												Status wise Report</a></li>
 										<li class="list-group-item"><a href="DateWiseReports">Date
 												Wise Report</a></li>
 										<li class="list-group-item"><a href="AgeWiseReports">Age
 												Wise Report</a></li>
 										<li class="list-group-item"><a href="ZoneWiseReports">Zone
 												Wise Report</a></li>
-										<li class="list-group-item"><a
-											href="WoredaWiseReports">Woreda Wise Report</a></li>
-										<li class="list-group-item"><a
-											href="RegionWiseReports">Region Wise Report</a></li>
-										<li class="list-group-item"><a
-											href="GenderWiseReports">Gender Wise Report</a></li>
+										<li class="list-group-item"><a href="WoredaWiseReports">Woreda
+												Wise Report</a></li>
+										<li class="list-group-item"><a href="RegionWiseReports">Region
+												Wise Report</a></li>
+										<li class="list-group-item"><a href="GenderWiseReports">Gender
+												Wise Report</a></li>
 
 
 									</ul>

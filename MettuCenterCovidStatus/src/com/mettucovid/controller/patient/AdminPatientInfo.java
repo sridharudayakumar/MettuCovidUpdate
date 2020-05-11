@@ -19,14 +19,14 @@ import com.mettucovid.dto.Patient;
 @WebServlet("/AdminPatientInfo")
 public class AdminPatientInfo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AdminPatientInfo() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public AdminPatientInfo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -42,23 +42,26 @@ public class AdminPatientInfo extends HttpServlet {
 			HttpSession session = request.getSession();
 			String role= (String) session.getAttribute("role");
 			if(role.equals("Police")||role.equals("Zone Health Bureau")){
-				
+
 				request.setAttribute("fileName", "include/policesidemenu.jsp");
 				request.getRequestDispatcher("PolicePatientInfo.jsp").forward(request, response);
 			}
 			if(role.equals("PRO")){
 				request.setAttribute("fileName", "include/ProSideMenu.jsp");
 				request.getRequestDispatcher("PolicePatientInfo.jsp").forward(request, response);
-				
+
 			}
-			
+
 			else if(role.equals("Administrator"))
-			request.getRequestDispatcher("AdminPatientInfo.jsp").forward(request, response);
+				request.getRequestDispatcher("AdminPatientInfo.jsp").forward(request, response);
 			else
 				request.getRequestDispatcher("StaffPatientInfo.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		catch (NullPointerException e) {
+			response.sendRedirect("login.jsp");
 		}
 	}
 

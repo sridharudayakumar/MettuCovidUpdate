@@ -39,11 +39,19 @@
 
 <body id="page-top">
 
+	<%
+		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+		response.setHeader("Pragma", "no-cache");
+		response.setHeader("Expires", "0");
+		if (session.getAttribute("role") == null) {
+			response.sendRedirect("login.jsp");
+		}
+	%>
 	<!-- Page Wrapper -->
 	<div id="wrapper">
 
 		<!-- Sidebar -->
-			<jsp:include page="${fileName}"></jsp:include>
+		<jsp:include page="${fileName}"></jsp:include>
 		<!-- End of Sidebar -->
 
 		<!-- Content Wrapper -->
@@ -65,332 +73,329 @@
 				<div class="row">
 
 					<div class="col-lg-12 mb-4">
-						
-							<input type="text"
-										class="form-control" id="patientId" name="patientId"
-										placeholder=""  value='<c:out value="${id}"></c:out>' hidden="true">
-							<div class="row">
-								<div class="col-md-6 mb-3">
-									<label for="firstName">First name</label> <input type="text"
-										class="form-control" id="firstName" name="firstName"
-										placeholder=""
-										value='<c:out value="${patient.firstName}"></c:out>'
-										required="" disabled>
-									<div class="invalid-feedback">Valid first name is
-										required.</div>
-								</div>
-								<div class="col-md-6 mb-3">
-									<label for="middleName">Middle name</label> <input type="text"
-										class="form-control" id="middileName" name="middleName"
-										placeholder="" disabled
-										value='<c:out value="${patient.middleName}"></c:out>' required="">
-									<div class="invalid-feedback">Valid last name is
-										required.</div>
-								</div>
+
+						<input type="text" class="form-control" id="patientId"
+							name="patientId" placeholder=""
+							value='<c:out value="${id}"></c:out>' hidden="true">
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label for="firstName">First name</label> <input type="text"
+									class="form-control" id="firstName" name="firstName"
+									placeholder=""
+									value='<c:out value="${patient.firstName}"></c:out>'
+									required="" disabled>
+								<div class="invalid-feedback">Valid first name is
+									required.</div>
 							</div>
-
-							<div class="row">
-								<div class="col-md-6 mb-3">
-									<label for="lastName">Last name</label> <input type="text"
-										class="form-control" id="lastName" name="lastName"
-										placeholder="" disabled
-										value='<c:out value="${patient.lastName}"></c:out>'
-										required="">
-									<div class="invalid-feedback">Valid last name is
-										required.</div>
-								</div>
-								<div class="col-md-3 mb-3">
-									<label for="Age">Age</label> <input type="number"
-										data-date-format="age" class="form-control" id="age"
-										name="age" placeholder=""
-										value='<c:out value="${patient.age}"></c:out>' required="" disabled>
-									<div class="invalid-feedback">Valid Age.</div>
-								</div>
-								<div class="col-md-3 mb-3">
-									<label for="state">Gender</label> <select
-										class="custom-select d-block w-100" id="gender" name="gender"
-										required="" disabled>
-										<option value="${patient.gender}" selected="selected"><c:out
-												value="${patient.gender}"></c:out></option>
-										<option value="">Choose...</option>
-										<option>Male</option>
-										<option>Female</option>
-
-
-									</select>
-									<div class="invalid-feedback">Please provide a valid
-										Gender.</div>
-								</div>
-								<div class="col-md-6 mb-3">
-									<label for="email">Email</label> <input type="email"
-										class="form-control" id="email" name="email" disabled
-										value='<c:out value="${patient.email}"></c:out>'>
-									<div class="invalid-feedback">Please enter email .</div>
-								</div>
-								<div class="col-md-6 mb-3">
-									<label for="phoneNo">Phone Number</label> <input type="tel"
-										class="form-control" id="phoneNo" name="phoneNo"
-										placeholder="" disabled
-										value='<c:out value="${patient.phoneNo}"></c:out>'
-										maxlength="10" required="">
-									<div class="invalid-feedback">Valid phone no is required.</div>
-								</div>
-
-							</div>
-
-							<div class="row">
-								<div class="col-md-6 mb-3">
-									<label for="address">Address</label> <input type="text"
-										class="form-control" id="address" name="address"
-										placeholder="" disabled
-										value='<c:out value="${patient.address}"></c:out>' required="">
-									<div class="invalid-feedback">Please enter address.</div>
-								</div>
-
-								
-								<div class="col-md-3 mb-3">
-									<label for="kebele">Kebele</label> <input type="text"
-										class="form-control" id="kebele" name="kebele" placeholder=""
-										value='<c:out value="${patient.kebele}"></c:out>' disabled required="">
-									<div class="invalid-feedback">Please enter address.</div>
-								</div>
-								<div class="col-md-3 mb-3">
-									<label for="woreda">Woreda</label> <input type="text"
-										class="form-control" id="woreda" name="woreda" placeholder=""
-										value='<c:out value="${patient.woreda}"></c:out>' disabled required="">
-									<div class="invalid-feedback">Please enter address.</div>
-								</div>
-								
-							</div>
-							<div class="row">
-							<div class="col-md-3 mb-3">
-									<label for="zone">Zone</label> <input type="text"
-										class="form-control" id="zone" name="zone" placeholder=""
-										value='<c:out value="${patient.zone}"></c:out>' disabled required="">
-									<div class="invalid-feedback">Please enter address.</div>
-								</div>
-								<div class="col-md-3 mb-3">
-									<label for="region">Region</label> <select
-										class="custom-select d-block w-100" id="region" name="region"
-										required="" disabled>
-										<option value="${patient.region}" selected="selected"><c:out
-												value="${patient.region}"></c:out></option>
-										<option value="">Choose...</option>
-										<option>Addis Ababa</option>
-										<option>Afar</option>
-										<option>Amhara</option>
-										<option>Benishangul Gumuz</option>
-										<option>Dire Dawa</option>
-										<option>Gambela</option>
-										<option>Harari</option>
-										<option>Oromia</option>
-										<option>Somali</option>
-										<option>Southern National</option>
-										<option>Tigray</option>
-									</select>
-									<div class="invalid-feedback">Please provide a valid
-										Region.</div>
-								</div>
-
-
-
-								<div class="col-md-3 mb-3">
-									<label for="country">Country</label> <input type="text"
-										class="form-control" id="country" name="country"
-										placeholder="" disabled
-										value='<c:out value="${patient.country}"></c:out>' required="">
-									<div class="invalid-feedback">Please enter address.</div>
-								</div>
-								<div class="col-md-3 mb-3">
-									<label for="citizenship">Citizenship</label> <input type="text"
-										class="form-control" id="citizenship" name="citizenship"
-										placeholder="" disabled
-										value='<c:out value="${patient.citizenship}"></c:out>' required="">
-									<div class="invalid-feedback">Please enter address.</div>
-								</div>
-							</div>
-
-
-
-
-							<div class="row">
-								<div class="col-md-6 mb-3">
-									<label for="natureOfJob">Nature of Job</label> <input
-										type="text" class="form-control" id="natureOfJob"
-										name="natureOfJob" placeholder=""
-										value='<c:out value="${patient.natureOfJob}"></c:out>'
-										required="" disabled>
-									<div class="invalid-feedback">Valid Nature of job is
-										required.</div>
-								</div>
-								<div class="col-md-6 mb-3">
-									<label for="admittedOn">Admitted On</label> <input type="date"
-										data-date-format="dd-mm-yyyy" class="form-control"
-										id="admittedOn" name="admittedOn" placeholder=""
-										value='<c:out value="${patient.admittedOn}"></c:out>'
-										required="" disabled>
-									<div class="invalid-feedback">Valid Date.</div>
-								</div>
-								
-							</div>
-
-							<div class="row">
-								
-								<div class="col-md-6 mb-3">
-									<label for="travelHistory">Travel History from Abroad</label> <input
-										type="text" class="form-control" id="travelHistory"
-										name="travelHistory" placeholder=""
-										value='<c:out value="${patient.travelHistory}"></c:out>'
-										required="" disabled>
-									<div class="invalid-feedback">Valid Travel History is
-										required.</div>
-								</div>
-								<div class="col-md-3 mb-3">
-									<label for="contactwithcase">Contact with confirmed
-										cases</label> <select class="custom-select d-block w-100"
-										id="contactWithCases" name="contactWithCases" disabled
-										>
-										<option value="${patient.contactWithCases}" selected="selected"><c:out
-												value="${patient.contactWithCases}"></c:out></option>
-										<option value="">Choose...</option>
-										<option>Yes</option>
-										<option>No</option>
-									</select>
-									<div class="invalid-feedback">Please provide a valid
-										Reason.</div>
-								</div>
-								<div class="col-md-3 mb-3">
-									<label for="presentStatus">Present Status of Patient
-										cases</label> <select class="custom-select d-block w-100"
-										id="presentStatus" name="presentStatus" required="" disabled>
-										<option value="${patient.presentStatus}" selected="selected"><c:out
-												value="${patient.presentStatus}"></c:out></option>
-										<option value="">Choose...</option>
-										<option>Critical</option>
-										<option>Died</option>
-										<option>Normal</option>
-										<option>Quarantined</option>
-										<option>Recovered</option>
-										<option>Returned to their country</option>
-
-
-									</select>
-									<div class="invalid-feedback">Please provide a valid
-										Reason.</div>
-								</div>
-							</div>
-
-							<div class="row">
-								
-							</div>
-							<hr class="mb-4">
-							<div class="row">Emergency Contact</div>
-							<div class="row">
-								<div class="col-md-6 mb-3">
-									<label for="emergencyName">Name</label> <input type="text"
-										class="form-control" id="ecfirstName" name="ecfirstName"
-										placeholder="" disabled
-										value='<c:out value="${patient.ecfirstName}"></c:out>'
-										required="">
-									<div class="invalid-feedback">Valid name is required.</div>
-								</div>
-								<div class="col-md-6 mb-3">
-									<label for="relationShip">Relationship</label> <select
-										class="custom-select d-block w-100" id="relationShip"
-										name="relationShip" required="" disabled>
-										<option value="${patient.relationShip}" selected="selected"><c:out
-												value="${patient.relationShip}"></c:out></option>
-										<option value="">Choose...</option>
-										<option>Brother</option>
-										<option>Colleague</option>
-										<option>Father</option>
-										<option>Friend</option>
-										<option>Mother</option>
-										<option>Neighborhood</option>
-										<option>Sister</option>
-
-
-
-
-									</select>
-									<div class="invalid-feedback">Valid relationship is
-										required.</div>
-								</div>
-
-							</div>
-
-							<div class="mb-3">
-								<label for="ecAddress">Address</label> <input type="text"
-									class="form-control" id="ecAddress" name="ecAddress"
+							<div class="col-md-6 mb-3">
+								<label for="middleName">Middle name</label> <input type="text"
+									class="form-control" id="middileName" name="middleName"
 									placeholder="" disabled
-									value='<c:out value="${patient.ecAddress}"></c:out>'
+									value='<c:out value="${patient.middleName}"></c:out>'
+									required="">
+								<div class="invalid-feedback">Valid last name is required.</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label for="lastName">Last name</label> <input type="text"
+									class="form-control" id="lastName" name="lastName"
+									placeholder="" disabled
+									value='<c:out value="${patient.lastName}"></c:out>' required="">
+								<div class="invalid-feedback">Valid last name is required.</div>
+							</div>
+							<div class="col-md-3 mb-3">
+								<label for="Age">Age</label> <input type="number"
+									data-date-format="age" class="form-control" id="age" name="age"
+									placeholder="" value='<c:out value="${patient.age}"></c:out>'
+									required="" disabled>
+								<div class="invalid-feedback">Valid Age.</div>
+							</div>
+							<div class="col-md-3 mb-3">
+								<label for="state">Gender</label> <select
+									class="custom-select d-block w-100" id="gender" name="gender"
+									required="" disabled>
+									<option value="${patient.gender}" selected="selected"><c:out
+											value="${patient.gender}"></c:out></option>
+									<option value="">Choose...</option>
+									<option>Male</option>
+									<option>Female</option>
+
+
+								</select>
+								<div class="invalid-feedback">Please provide a valid
+									Gender.</div>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label for="email">Email</label> <input type="email"
+									class="form-control" id="email" name="email" disabled
+									value='<c:out value="${patient.email}"></c:out>'>
+								<div class="invalid-feedback">Please enter email .</div>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label for="phoneNo">Phone Number</label> <input type="tel"
+									class="form-control" id="phoneNo" name="phoneNo" placeholder=""
+									disabled value='<c:out value="${patient.phoneNo}"></c:out>'
+									maxlength="10" required="">
+								<div class="invalid-feedback">Valid phone no is required.</div>
+							</div>
+
+						</div>
+
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label for="address">Address</label> <input type="text"
+									class="form-control" id="address" name="address" placeholder=""
+									disabled value='<c:out value="${patient.address}"></c:out>'
 									required="">
 								<div class="invalid-feedback">Please enter address.</div>
 							</div>
 
-							<div class="row">
-								<div class="col-md-6 mb-3">
-									<label for="ecPhoneNo">Phone Number</label> <input type="tel"
-										class="form-control" id="ecPhoneNo" name="ecPhoneNo"
-										placeholder="" disabled
-										value='<c:out value="${patient.ecPhoneNo}"></c:out>'
-										maxlength="10" required="">
-									<div class="invalid-feedback">Valid phone no is required.</div>
-								</div>
-								<div class="col-md-6 mb-3">
-									<label for="ecEmail">Email</label> <input type="email"
-										class="form-control" id="ecEmail" name="ecEmail" disabled
-										value='<c:out value="${patient.ecEmail}"></c:out>'
-										placeholder="">
-									<div class="invalid-feedback">Please enter valid email.</div>
-								</div>
+
+							<div class="col-md-3 mb-3">
+								<label for="kebele">Kebele</label> <input type="text"
+									class="form-control" id="kebele" name="kebele" placeholder=""
+									value='<c:out value="${patient.kebele}"></c:out>' disabled
+									required="">
+								<div class="invalid-feedback">Please enter address.</div>
+							</div>
+							<div class="col-md-3 mb-3">
+								<label for="woreda">Woreda</label> <input type="text"
+									class="form-control" id="woreda" name="woreda" placeholder=""
+									value='<c:out value="${patient.woreda}"></c:out>' disabled
+									required="">
+								<div class="invalid-feedback">Please enter address.</div>
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col-md-3 mb-3">
+								<label for="zone">Zone</label> <input type="text"
+									class="form-control" id="zone" name="zone" placeholder=""
+									value='<c:out value="${patient.zone}"></c:out>' disabled
+									required="">
+								<div class="invalid-feedback">Please enter address.</div>
+							</div>
+							<div class="col-md-3 mb-3">
+								<label for="region">Region</label> <select
+									class="custom-select d-block w-100" id="region" name="region"
+									required="" disabled>
+									<option value="${patient.region}" selected="selected"><c:out
+											value="${patient.region}"></c:out></option>
+									<option value="">Choose...</option>
+									<option>Addis Ababa</option>
+									<option>Afar</option>
+									<option>Amhara</option>
+									<option>Benishangul Gumuz</option>
+									<option>Dire Dawa</option>
+									<option>Gambela</option>
+									<option>Harari</option>
+									<option>Oromia</option>
+									<option>Somali</option>
+									<option>Southern National</option>
+									<option>Tigray</option>
+								</select>
+								<div class="invalid-feedback">Please provide a valid
+									Region.</div>
+							</div>
+
+
+
+							<div class="col-md-3 mb-3">
+								<label for="country">Country</label> <input type="text"
+									class="form-control" id="country" name="country" placeholder=""
+									disabled value='<c:out value="${patient.country}"></c:out>'
+									required="">
+								<div class="invalid-feedback">Please enter address.</div>
+							</div>
+							<div class="col-md-3 mb-3">
+								<label for="citizenship">Citizenship</label> <input type="text"
+									class="form-control" id="citizenship" name="citizenship"
+									placeholder="" disabled
+									value='<c:out value="${patient.citizenship}"></c:out>'
+									required="">
+								<div class="invalid-feedback">Please enter address.</div>
+							</div>
+						</div>
+
+
+
+
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label for="natureOfJob">Nature of Job</label> <input
+									type="text" class="form-control" id="natureOfJob"
+									name="natureOfJob" placeholder=""
+									value='<c:out value="${patient.natureOfJob}"></c:out>'
+									required="" disabled>
+								<div class="invalid-feedback">Valid Nature of job is
+									required.</div>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label for="admittedOn">Admitted On</label> <input type="date"
+									data-date-format="dd-mm-yyyy" class="form-control"
+									id="admittedOn" name="admittedOn" placeholder=""
+									value='<c:out value="${patient.admittedOn}"></c:out>'
+									required="" disabled>
+								<div class="invalid-feedback">Valid Date.</div>
+							</div>
+
+						</div>
+
+						<div class="row">
+
+							<div class="col-md-6 mb-3">
+								<label for="travelHistory">Travel History from Abroad</label> <input
+									type="text" class="form-control" id="travelHistory"
+									name="travelHistory" placeholder=""
+									value='<c:out value="${patient.travelHistory}"></c:out>'
+									required="" disabled>
+								<div class="invalid-feedback">Valid Travel History is
+									required.</div>
+							</div>
+							<div class="col-md-3 mb-3">
+								<label for="contactwithcase">Contact with confirmed
+									cases</label> <select class="custom-select d-block w-100"
+									id="contactWithCases" name="contactWithCases" disabled>
+									<option value="${patient.contactWithCases}" selected="selected"><c:out
+											value="${patient.contactWithCases}"></c:out></option>
+									<option value="">Choose...</option>
+									<option>Yes</option>
+									<option>No</option>
+								</select>
+								<div class="invalid-feedback">Please provide a valid
+									Reason.</div>
+							</div>
+							<div class="col-md-3 mb-3">
+								<label for="presentStatus">Present Status of Patient
+									cases</label> <select class="custom-select d-block w-100"
+									id="presentStatus" name="presentStatus" required="" disabled>
+									<option value="${patient.presentStatus}" selected="selected"><c:out
+											value="${patient.presentStatus}"></c:out></option>
+									<option value="">Choose...</option>
+									<option>Critical</option>
+									<option>Died</option>
+									<option>Normal</option>
+									<option>Quarantined</option>
+									<option>Recovered</option>
+									<option>Returned to their country</option>
+
+
+								</select>
+								<div class="invalid-feedback">Please provide a valid
+									Reason.</div>
+							</div>
+						</div>
+
+						<div class="row"></div>
+						<hr class="mb-4">
+						<div class="row">Emergency Contact</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label for="emergencyName">Name</label> <input type="text"
+									class="form-control" id="ecfirstName" name="ecfirstName"
+									placeholder="" disabled
+									value='<c:out value="${patient.ecfirstName}"></c:out>'
+									required="">
+								<div class="invalid-feedback">Valid name is required.</div>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label for="relationShip">Relationship</label> <select
+									class="custom-select d-block w-100" id="relationShip"
+									name="relationShip" required="" disabled>
+									<option value="${patient.relationShip}" selected="selected"><c:out
+											value="${patient.relationShip}"></c:out></option>
+									<option value="">Choose...</option>
+									<option>Brother</option>
+									<option>Colleague</option>
+									<option>Father</option>
+									<option>Friend</option>
+									<option>Mother</option>
+									<option>Neighborhood</option>
+									<option>Sister</option>
+
+
+
+
+								</select>
+								<div class="invalid-feedback">Valid relationship is
+									required.</div>
+							</div>
+
+						</div>
+
+						<div class="mb-3">
+							<label for="ecAddress">Address</label> <input type="text"
+								class="form-control" id="ecAddress" name="ecAddress"
+								placeholder="" disabled
+								value='<c:out value="${patient.ecAddress}"></c:out>' required="">
+							<div class="invalid-feedback">Please enter address.</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label for="ecPhoneNo">Phone Number</label> <input type="tel"
+									class="form-control" id="ecPhoneNo" name="ecPhoneNo"
+									placeholder="" disabled
+									value='<c:out value="${patient.ecPhoneNo}"></c:out>'
+									maxlength="10" required="">
+								<div class="invalid-feedback">Valid phone no is required.</div>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label for="ecEmail">Email</label> <input type="email"
+									class="form-control" id="ecEmail" name="ecEmail" disabled
+									value='<c:out value="${patient.ecEmail}"></c:out>'
+									placeholder="">
+								<div class="invalid-feedback">Please enter valid email.</div>
+							</div>
 
 
 
 							<hr class="mb-4">
-							
-						
+
+
+						</div>
 					</div>
+
+
+
 				</div>
+				<!-- end of registration -->
 
 
+				<!-- /.container-fluid -->
 
-			</div>
-			<!-- end of registration -->
-
-
-			<!-- /.container-fluid -->
-
-			<!-- End of Main Content -->
-			<div class="row"></div>
-			<!-- Footer -->
-			<footer class="sticky-footer bg-white">
-				<div class="container my-auto">
-					<div class="copyright text-center my-auto">
-						<span>Developed and maintained by Mettu University,
-							Ethiopia</span>
+				<!-- End of Main Content -->
+				<div class="row"></div>
+				<!-- Footer -->
+				<footer class="sticky-footer bg-white">
+					<div class="container my-auto">
+						<div class="copyright text-center my-auto">
+							<span>Developed and maintained by Mettu University,
+								Ethiopia</span>
+						</div>
 					</div>
-				</div>
-			</footer>
-			<!-- End of Footer -->
+				</footer>
+				<!-- End of Footer -->
 
 
-			<!-- End of Content Wrapper -->
+				<!-- End of Content Wrapper -->
 
 
-			<!-- End of Page Wrapper -->
+				<!-- End of Page Wrapper -->
 
-			<!-- Scroll to Top Button-->
-			<a class="scroll-to-top rounded" href="#page-top"> <i
-				class="fas fa-angle-up"></i>
-			</a>
+				<!-- Scroll to Top Button-->
+				<a class="scroll-to-top rounded" href="#page-top"> <i
+					class="fas fa-angle-up"></i>
+				</a>
 
-			<!-- <!-- Logout Modal-->
-			 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
-				aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<!-- <div class="modal-header">
+				<!-- <!-- Logout Modal-->
+				<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+					aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<!-- <div class="modal-header">
 							<h5 class="modal-title" id="exampleModalLabel">Ready to
 								Leave?</h5>
 							<button class="close" type="button" data-dismiss="modal"
@@ -398,49 +403,49 @@
 								<span aria-hidden="true">×</span>
 							</button>
 						</div> -->
-						<div class="modal-body">Select "Logout" below if you are
-							ready to end your current session.</div>
-						<div class="modal-footer">
-							<button class="btn btn-secondary" type="button"
-								data-dismiss="modal">Cancel</button>
-							<a class="btn btn-primary" href="ViewPatientController">Logout</a>
+							<div class="modal-body">Select "Logout" below if you are
+								ready to end your current session.</div>
+							<div class="modal-footer">
+								<button class="btn btn-secondary" type="button"
+									data-dismiss="modal">Cancel</button>
+								<a class="btn btn-primary" href="ViewPatientController">Logout</a>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 
-			<!-- Bootstrap core JavaScript-->
-			<script src="vendor/jquery/jquery.min.js"></script>
-			<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+				<!-- Bootstrap core JavaScript-->
+				<script src="vendor/jquery/jquery.min.js"></script>
+				<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-			<!-- Core plugin JavaScript-->
-			<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+				<!-- Core plugin JavaScript-->
+				<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-			<!-- Custom scripts for all pages-->
-			<script src="js/sb-admin-2.min.js"></script>
+				<!-- Custom scripts for all pages-->
+				<script src="js/sb-admin-2.min.js"></script>
 
-			<!-- Page level plugins -->
-			<script src="vendor/chart.js/Chart.min.js"></script>
+				<!-- Page level plugins -->
+				<script src="vendor/chart.js/Chart.min.js"></script>
 
-			<!-- Page level custom scripts -->
-			<script src="js/demo/chart-area-demo.js"></script>
-			<script src="js/demo/chart-pie-demo.js"></script>
-			<!-- Bootstrap core JavaScript
+				<!-- Page level custom scripts -->
+				<script src="js/demo/chart-area-demo.js"></script>
+				<script src="js/demo/chart-pie-demo.js"></script>
+				<!-- Bootstrap core JavaScript
     ================================================== -->
-			<!-- Placed at the end of the document so the pages load faster -->
-			<script src="js/jquery-3.2.1.slim.min.js.download"
-				integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-				crossorigin="anonymous"></script>
-			<script>
+				<!-- Placed at the end of the document so the pages load faster -->
+				<script src="js/jquery-3.2.1.slim.min.js.download"
+					integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+					crossorigin="anonymous"></script>
+				<script>
 				window.jQuery
 						|| document
 								.write(
 										'<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
 			</script>
-			<script src="js/popper.min.js.download"></script>
-			<script src="js/bootstrap.min.js.download"></script>
-			<script src="js/holder.min.js.download"></script>
-			<script>
+				<script src="js/popper.min.js.download"></script>
+				<script src="js/bootstrap.min.js.download"></script>
+				<script src="js/holder.min.js.download"></script>
+				<script>
 				// Example starter JavaScript for disabling form submissions if there are invalid fields
 								(
 										function() {
@@ -480,7 +485,7 @@
 															}, false);
 										})();
 			</script>
-			<script>
+				<script>
 				/* $("#datepicker").datepicker(); */
 
 				$(document).ready(function() {
@@ -490,7 +495,6 @@
 
 				});
 			</script>
-			
 </body>
 
 </html>

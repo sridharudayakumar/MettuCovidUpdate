@@ -55,6 +55,9 @@ public class AddCases extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		catch (NullPointerException e) {
+			response.sendRedirect("login.jsp");
+		}
 	}
 
 	/**
@@ -74,7 +77,7 @@ public class AddCases extends HttpServlet {
 		try {
 			int result = CasesDao.updateCases(ethCases, id);
 			System.out.println(result);
-			
+
 			HttpSession session = request.getSession();
 			String role= (String) session.getAttribute("role");
 			if(role.equals("Administrator"))
@@ -87,7 +90,7 @@ public class AddCases extends HttpServlet {
 				request.setAttribute("fileName", "include/ProSideMenu.jsp");
 				response.sendRedirect("StaffHome");
 			}
-			
+
 			//request.getRequestDispatcher("admin.jsp").forward(request, response);
 
 

@@ -39,12 +39,19 @@
 </head>
 
 <body id="page-top">
-
+	<%
+		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+		response.setHeader("Pragma", "no-cache");
+		response.setHeader("Expires", "0");
+		if (session.getAttribute("role") == null) {
+			response.sendRedirect("login.jsp");
+		}
+	%>
 	<!-- Page Wrapper -->
 	<div id="wrapper">
 
 		<!-- Sidebar -->
-			<jsp:include page="${fileName}"></jsp:include>
+		<jsp:include page="${fileName}"></jsp:include>
 		<!-- End of Sidebar -->
 
 		<!-- Content Wrapper -->
@@ -75,7 +82,7 @@
 									<th>S.No</th>
 									<th>Patient ID</th>
 									<th>Name</th>
-									
+
 									<th>Gender</th>
 									<th>Region</th>
 									<th>Country</th>
@@ -92,7 +99,8 @@
 									<tr>
 										<td>${status.index + 1}</td>
 										<td>${patient.patientId}</td>
-										<td style="text-transform: capitalize">${patient.firstName } ${patient.middleName} ${patient.lastName}</td>
+										<td style="text-transform: capitalize">${patient.firstName }
+											${patient.middleName} ${patient.lastName}</td>
 										<td>${patient.gender}</td>
 										<td>${patient.region}</td>
 										<td>${patient.country}</td>
@@ -103,9 +111,8 @@
 										<td><a
 											href="StaffPatientInfo?id=<c:out value="${patient.patientId}"/>"
 											class="btn btn-xs btn-real tooltips" style="size: 10px;"
-											data-original-title="Profile"><i class="fa fa-user-check"></i> </a> 
-											
-											<%-- <a href="UpdatePatientController?id=<c:out value="${patient.patientId}"/>"
+											data-original-title="Profile"><i class="fa fa-user-check"></i>
+										</a> <%-- <a href="UpdatePatientController?id=<c:out value="${patient.patientId}"/>"
 											class="btn btn-xs btn-real tooltips" style="size: 10px;"
 											data-original-title="Edit"><i class="fa fa-edit"></i> </a> <a
 											href="DeletePatientController?id=<c:out value="${patient.patientId}"/>"

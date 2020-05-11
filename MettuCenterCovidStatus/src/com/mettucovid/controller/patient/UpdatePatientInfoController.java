@@ -50,6 +50,8 @@ public class UpdatePatientInfoController extends HttpServlet {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}catch (NullPointerException e) {
+			response.sendRedirect("login.jsp");
 		}
 
 	}
@@ -63,7 +65,7 @@ public class UpdatePatientInfoController extends HttpServlet {
 		patient.setFirstName(request.getParameter("firstName"));
 		patient.setMiddleName(request.getParameter("middleName"));
 		patient.setLastName(request.getParameter("lastName"));
-		
+
 		patient.setAge(Integer.parseInt(request.getParameter("age")));
 		patient.setGender(request.getParameter("gender"));
 		patient.setEmail(request.getParameter("email"));

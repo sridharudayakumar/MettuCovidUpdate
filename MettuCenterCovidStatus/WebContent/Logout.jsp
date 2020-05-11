@@ -6,9 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body onload="noBack();"
-    onpageshow="if (event.persisted) noBack();" onunload="">
-<jsp:forward page="IndexPage"></jsp:forward>
+<body>
+
 </body>
 <SCRIPT type="text/javascript">
     window.history.forward();

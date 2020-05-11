@@ -21,14 +21,14 @@ import com.mettucovid.dto.Patient;
 @WebServlet("/ViewPatientController")
 public class ViewPatientController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ViewPatientController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public ViewPatientController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -39,16 +39,18 @@ public class ViewPatientController extends HttpServlet {
 			patientList = PatientDao.listAllPatients();
 			request.setAttribute("patientList", patientList);
 			HttpSession session = request.getSession();
-			
+
 			String role= (String) session.getAttribute("role");
 			if(role.equals("Administrator"))
 				request.getRequestDispatcher("ShowPatients.jsp").forward(request, response);
-				else
-					request.getRequestDispatcher("ShowPatientsStaff.jsp").forward(request, response);
-			
+			else
+				request.getRequestDispatcher("ShowPatientsStaff.jsp").forward(request, response);
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}catch (NullPointerException e) {
+			response.sendRedirect("login.jsp");
 		}
 	}
 

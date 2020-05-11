@@ -42,6 +42,8 @@ public class ShowUsers extends HttpServlet {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}catch (NullPointerException e) {
+			response.sendRedirect("login.jsp");
 		}
 	}
 

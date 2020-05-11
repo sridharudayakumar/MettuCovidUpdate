@@ -64,11 +64,11 @@ public class AddUser extends HttpServlet {
 
 				String SuccessText = "User Registered";
 				session.setAttribute("SuccessText", SuccessText);
-				
+
 				request.getRequestDispatcher("RegisterUser.jsp").forward(request, response);
 
 			} else {
-				
+
 
 				out.println("<html>");
 

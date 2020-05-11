@@ -39,6 +39,14 @@
 
 <body id="page-top">
 
+	<%
+		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+		response.setHeader("Pragma", "no-cache");
+		response.setHeader("Expires", "0");
+		if (session.getAttribute("role") == null) {
+			response.sendRedirect("login.jsp");
+		}
+	%>
 	<!-- Page Wrapper -->
 	<div id="wrapper">
 
@@ -66,14 +74,14 @@
 
 					<div class="col-lg-12 mb-4">
 						<form class="needs-validation" method="post" action="AddUser">
-						<%-- <div class="text-danger">
+							<%-- <div class="text-danger">
 									<label for="firstName"><c:out value="${FailureText}"></c:out></label>
 								</div>
 								<div class="text-success">
 									<label for="firstName"><c:out value="${SuccessText}"></c:out></label>
 								</div> --%>
 							<div class="row">
-								
+
 								<div class="col-md-3 mb-3"></div>
 								<div class="col-md-6 mb-3">
 									<label for="firstName">First name</label> <input type="text"

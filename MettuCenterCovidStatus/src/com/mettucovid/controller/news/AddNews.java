@@ -33,9 +33,10 @@ public class AddNews extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws  IOException {
 		HttpSession session = request.getSession();
 		String role= (String) session.getAttribute("role");
+		try {
 		if(role.equals("Administrator"))
 		{
 			request.setAttribute("fileName", "include/sidebarmenu.jsp");
@@ -44,7 +45,14 @@ public class AddNews extends HttpServlet {
 		{
 			request.setAttribute("fileName", "include/ProSideMenu.jsp");
 		}
-		request.getRequestDispatcher("AddNews.jsp").forward(request, response);
+		
+			request.getRequestDispatcher("AddNews.jsp").forward(request, response);
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}catch (NullPointerException e) {
+			response.sendRedirect("login.jsp");
+		}
 	}
 
 	/**

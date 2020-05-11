@@ -40,6 +40,15 @@
 
 <body id="page-top">
 
+	<%
+		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+		response.setHeader("Pragma", "no-cache");
+		response.setHeader("Expires", "0");
+		if (session.getAttribute("role") == null) {
+			response.sendRedirect("login.jsp");
+		}
+	%>
+
 	<!-- Page Wrapper -->
 	<div id="wrapper">
 
@@ -69,12 +78,12 @@
 					<form action="GenderWiseReports" method="post">
 						<div class="row">
 							<div class="col-md-6 mb-3">
-								<select class="custom-select d-block w-100"
-									id="gender" name="gender" required="">
+								<select class="custom-select d-block w-100" id="gender"
+									name="gender" required="">
 									<option value="">Select Gender..</option>
 									<option>Male</option>
 									<option>Female</option>
-									
+
 
 
 								</select>

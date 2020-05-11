@@ -20,14 +20,14 @@ import com.mettucovid.dto.CaseNumbers;
 @WebServlet("/StaffHome")
 public class StaffHome extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public StaffHome() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public StaffHome() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -36,21 +36,23 @@ public class StaffHome extends HttpServlet {
 		ArrayList<CaseNumbers> counttempList = new ArrayList<CaseNumbers>();
 		try {
 			counttempList= PatientDao.findCaseNumbers();
+
+			request.setAttribute("counttempList", counttempList);
+			HttpSession session = request.getSession();
+			String role= (String) session.getAttribute("role");
+			if(role.equals("Police")||role.equals("Zone Health Bureau"))
+				request.getRequestDispatcher("PoliceDashboard.jsp").forward(request, response);
+			else if(role.equals("PRO"))
+			{
+				request.getRequestDispatcher("ProDashboard.jsp").forward(request, response);
+			}
+			else
+				request.getRequestDispatcher("StaffDashboard.jsp").forward(request, response);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			response.sendRedirect("login.jsp");
+		}catch (NullPointerException e) {
+			response.sendRedirect("login.jsp");
 		}
-		request.setAttribute("counttempList", counttempList);
-		HttpSession session = request.getSession();
-		String role= (String) session.getAttribute("role");
-		if(role.equals("Police")||role.equals("Zone Health Bureau"))
-			request.getRequestDispatcher("PoliceDashboard.jsp").forward(request, response);
-		else if(role.equals("PRO"))
-		{
-			request.getRequestDispatcher("ProDashboard.jsp").forward(request, response);
-		}
-		else
-			request.getRequestDispatcher("StaffDashboard.jsp").forward(request, response);
 	}
 
 	/**

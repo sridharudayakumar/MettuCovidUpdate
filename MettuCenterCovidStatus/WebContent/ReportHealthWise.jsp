@@ -40,6 +40,14 @@
 
 <body id="page-top">
 
+	<%
+		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+		response.setHeader("Pragma", "no-cache");
+		response.setHeader("Expires", "0");
+		if (session.getAttribute("role") == null) {
+			response.sendRedirect("login.jsp");
+		}
+	%>
 	<!-- Page Wrapper -->
 	<div id="wrapper">
 
@@ -69,8 +77,8 @@
 					<form action="HealthwiseReports" method="post">
 						<div class="row">
 							<div class="col-md-6 mb-3">
-								<select class="custom-select d-block w-100"
-									id="presentStatus" name="presentStatus" required="">
+								<select class="custom-select d-block w-100" id="presentStatus"
+									name="presentStatus" required="">
 									<option value="">Select Status Type</option>
 									<option>Critical</option>
 									<option>Died</option>

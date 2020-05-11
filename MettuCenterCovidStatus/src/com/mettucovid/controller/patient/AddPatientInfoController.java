@@ -95,9 +95,9 @@ public class AddPatientInfoController extends HttpServlet {
 					symptoms+=tempString[i];
 			}
 			System.out.println(symptoms);
-			
+
 			patient.setSymptoms(symptoms);
-			
+
 
 			patient.setStatus("active");
 

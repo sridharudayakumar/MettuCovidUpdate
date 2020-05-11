@@ -39,11 +39,19 @@
 
 <body id="page-top">
 
+	<%
+		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+		response.setHeader("Pragma", "no-cache");
+		response.setHeader("Expires", "0");
+		if (session.getAttribute("role") == null) {
+			response.sendRedirect("login.jsp");
+		}
+	%>
 	<!-- Page Wrapper -->
 	<div id="wrapper">
 
 		<!-- Sidebar -->
-			<jsp:include page="${fileName}"></jsp:include>
+		<jsp:include page="${fileName}"></jsp:include>
 		<!-- End of Sidebar -->
 
 		<!-- Content Wrapper -->
@@ -66,23 +74,22 @@
 
 					<div class="col-lg-12 mb-4">
 						<form class="needs-validation" method="post" action="AddNews">
-						<%-- <div class="text-danger">
+							<%-- <div class="text-danger">
 									<label for="firstName"><c:out value="${FailureText}"></c:out></label>
 								</div>
 								<div class="text-success">
 									<label for="firstName"><c:out value="${SuccessText}"></c:out></label>
 								</div> --%>
 							<div class="row">
-								
-							
+
+
 								<div class="col-md-12 mb-3">
 									<label for="url">URL</label> <input type="url"
-										class="form-control" id="url" name="url"
-										placeholder="" value="" required="">
-									<div class="invalid-feedback">Valid url is
-										required.</div>
+										class="form-control" id="url" name="url" placeholder=""
+										value="" required="">
+									<div class="invalid-feedback">Valid url is required.</div>
 								</div>
-								
+
 								<div class="col-md-12 mb-3">
 									<label for="lastName">Description</label> <input type="text"
 										class="form-control" id="description" name="description"

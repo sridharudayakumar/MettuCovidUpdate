@@ -38,6 +38,15 @@
 
 <body id="page-top">
 
+
+	<%
+		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+		response.setHeader("Pragma", "no-cache");
+		response.setHeader("Expires", "0");
+		if (session.getAttribute("role") == null) {
+			response.sendRedirect("login.jsp");
+		}
+	%>
 	<!-- Page Wrapper -->
 	<div id="wrapper">
 
@@ -77,7 +86,7 @@
 								<div class="col-md-6 mb-3">
 									<label for="middleName">Middle name</label> <input type="text"
 										class="form-control" id="middileName" name="middleName"
-										placeholder="" value="" >
+										placeholder="" value="">
 									<div class="invalid-feedback">Valid last name is
 										required.</div>
 								</div>
@@ -93,8 +102,8 @@
 								</div>
 								<div class="col-md-3 mb-3">
 									<label for="age">Age</label> <input type="number"
-										class="form-control" id="age" max="145"
-										name="age" placeholder="" value="" required="">
+										class="form-control" id="age" max="145" name="age"
+										placeholder="" value="" required="">
 									<div class="invalid-feedback">Valid Age.</div>
 								</div>
 								<div class="col-md-3 mb-3">
@@ -104,7 +113,7 @@
 										<option value="">Choose...</option>
 										<option>Male</option>
 										<option>Female</option>
-										
+
 
 									</select>
 									<div class="invalid-feedback">Please provide a valid
@@ -276,8 +285,8 @@
 										<option>Mother</option>
 										<option>Neighborhood</option>
 										<option>Sister</option>
-														
-										
+
+
 
 
 									</select>
@@ -377,7 +386,8 @@
 								<label for="familyMedical">Family Medical History</label> <input
 									type="text" class="form-control" id="familyHistory"
 									name="familyHistory" placeholder="" required="">
-								<div class="invalid-feedback">Please enter medical history.</div>
+								<div class="invalid-feedback">Please enter medical
+									history.</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6 mb-3">
@@ -410,37 +420,41 @@
 									<label for="symptoms">Symptoms cases</label>
 
 									<div class="checkbox">
-										<label><input type="checkbox" name="symptoms" value="High Fever">High
-											Fever </label>
+										<label><input type="checkbox" name="symptoms"
+											value="High Fever">High Fever </label>
 									</div>
 									<div class="checkbox">
-										<label><input type="checkbox" name="symptoms" value="Cough">Cough
-										</label>
+										<label><input type="checkbox" name="symptoms"
+											value="Cough">Cough </label>
 									</div>
 									<div class="checkbox">
-										<label><input type="checkbox" name="symptoms" value="Difficulty in breathing">Difficulty
-											in breathing </label>
+										<label><input type="checkbox" name="symptoms"
+											value="Difficulty in breathing">Difficulty in
+											breathing </label>
 									</div>
 									<div class="checkbox">
-										<label><input type="checkbox" name="symptoms" value="Pressure in the chest">Pressure
-											in the chest </label>
+										<label><input type="checkbox" name="symptoms"
+											value="Pressure in the chest">Pressure in the chest </label>
 									</div>
 									<div class="checkbox">
-										<label><input type="checkbox" name="symptoms" value="Body aches">Body
-											aches </label>
+										<label><input type="checkbox" name="symptoms"
+											value="Body aches">Body aches </label>
 									</div>
 									<div class="checkbox">
-										<label><input type="checkbox" name="symptoms" value="Nasal Congestion">Nasal Congestion </label>
+										<label><input type="checkbox" name="symptoms"
+											value="Nasal Congestion">Nasal Congestion </label>
 									</div>
 									<div class="checkbox">
-										<label><input type="checkbox" name="symptoms" value="Running nose">Running nose </label>
+										<label><input type="checkbox" name="symptoms"
+											value="Running nose">Running nose </label>
 									</div>
 									<div class="checkbox">
-										<label><input type="checkbox" name="symptoms" value="Sore throat">Sore throat </label>
+										<label><input type="checkbox" name="symptoms"
+											value="Sore throat">Sore throat </label>
 									</div>
 									<div class="checkbox">
-										<label><input type="checkbox" name="symptoms" value="Diarrhea">Diarrhea
-										</label>
+										<label><input type="checkbox" name="symptoms"
+											value="Diarrhea">Diarrhea </label>
 									</div>
 								</div>
 							</div>

@@ -39,10 +39,18 @@
 </head>
 
 <body id="page-top">
+	<%
+		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+		response.setHeader("Pragma", "no-cache");
+		response.setHeader("Expires", "0");
+		if (session.getAttribute("role") == null) {
+			response.sendRedirect("login.jsp");
+		}
+	%>
 
 	<!-- Page Wrapper -->
 	<div id="wrapper">
-		
+
 		<!-- Sidebar -->
 		<jsp:include page="${fileName}"></jsp:include>
 		<!-- End of Sidebar -->
@@ -69,10 +77,9 @@
 					<form action="DateWiseReports" method="post">
 						<div class="row">
 							<div class="col-md-6 mb-3">
-								<input type="date"
-										data-date-format="dd-mm-yyyy" class="form-control"
-										id="admittedOn" name="admittedOn" placeholder="" value=""
-										required="">
+								<input type="date" data-date-format="dd-mm-yyyy"
+									class="form-control" id="admittedOn" name="admittedOn"
+									placeholder="" value="" required="">
 							</div>
 							<div class="col-md-3 mb-3">
 								<input type="submit" value="Submit">
@@ -109,7 +116,8 @@
 									<tr>
 										<td>${status.index + 1}</td>
 										<td>${patient.patientId}</td>
-										<td style="text-transform: capitalize">${patient.firstName } ${patient.middleName} ${patient.lastName}</td>
+										<td style="text-transform: capitalize">${patient.firstName }
+											${patient.middleName} ${patient.lastName}</td>
 										<td>${patient.gender}</td>
 										<td>${patient.region}</td>
 										<td>${patient.country}</td>

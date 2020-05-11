@@ -31,10 +31,16 @@ public class ChangePassword extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws  IOException {
 		HttpSession session = request.getSession();
 		System.out.println("inside doget");
 		String role= (String) session.getAttribute("role");
+		System.out.println(role);
+		try {
+		if(role.equals("null"))
+		{
+			response.sendRedirect("login.jsp");
+		}
 		if(role.equals("Administrator"))
 		{
 			request.setAttribute("fileName", "include/sidebarmenu.jsp");
@@ -51,7 +57,14 @@ public class ChangePassword extends HttpServlet {
 		{
 			request.setAttribute("fileName", "include/policesidemenu.jsp");
 		}
-		request.getRequestDispatcher("ChangePassword.jsp").forward(request, response);
+		
+			request.getRequestDispatcher("ChangePassword.jsp").forward(request, response);
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}catch (NullPointerException e) {
+			response.sendRedirect("login.jsp");
+		}
 	}
 
 	/**

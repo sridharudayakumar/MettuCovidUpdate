@@ -21,32 +21,40 @@ import com.mettucovid.dto.PatientDailyStatus;
 @WebServlet("/DailyStatusReports")
 public class DailyStatusReports extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public DailyStatusReports() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public DailyStatusReports() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws  IOException {
 		HttpSession session = request.getSession();
-		
+
 		String role= (String) session.getAttribute("role");
-		if(role.equals("Administrator"))
-		{
-			request.setAttribute("fileName", "include/sidebarmenu.jsp");
+		try {
+			if(role.equals("Administrator"))
+			{
+				request.setAttribute("fileName", "include/sidebarmenu.jsp");
+			}
+			else if(role.equals("Hospital Staff"))
+			{
+				request.setAttribute("fileName", "include/staffsidemenu.jsp");
+			}
+
+
+			request.getRequestDispatcher("ReportPatientDailyStatus.jsp").forward(request, response);
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}catch (NullPointerException e) {
+			response.sendRedirect("login.jsp");
 		}
-		else if(role.equals("Hospital Staff"))
-		{
-			request.setAttribute("fileName", "include/staffsidemenu.jsp");
-		}
-		
-		request.getRequestDispatcher("ReportPatientDailyStatus.jsp").forward(request, response);
 	}
 
 	/**
@@ -58,7 +66,7 @@ public class DailyStatusReports extends HttpServlet {
 		int patientId= Integer.parseInt(request.getParameter("patientId"));
 		try {
 			patientList = PatientDao.listPatientStaus(patientId);
-			
+
 			String role= (String) session.getAttribute("role");
 			if(role.equals("Administrator"))
 			{
@@ -68,7 +76,7 @@ public class DailyStatusReports extends HttpServlet {
 			{
 				request.setAttribute("fileName", "include/staffsidemenu.jsp");
 			}
-			
+
 			request.setAttribute("patientList", patientList);
 			request.getRequestDispatcher("ReportPatientDailyStatus.jsp").forward(request, response);
 		} catch (SQLException e) {

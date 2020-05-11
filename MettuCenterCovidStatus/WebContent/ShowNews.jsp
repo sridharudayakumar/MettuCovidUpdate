@@ -40,11 +40,19 @@
 
 <body id="page-top">
 
+	<%
+		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+		response.setHeader("Pragma", "no-cache");
+		response.setHeader("Expires", "0");
+		if (session.getAttribute("role") == null) {
+			response.sendRedirect("login.jsp");
+		}
+	%>
 	<!-- Page Wrapper -->
 	<div id="wrapper">
 
 		<!-- Sidebar -->
-			<jsp:include page="${fileName}"></jsp:include>
+		<jsp:include page="${fileName}"></jsp:include>
 		<!-- End of Sidebar -->
 
 		<!-- Content Wrapper -->
@@ -64,14 +72,13 @@
 			<div class="card shadow mb-4">
 				<div class="card-header py-3">
 					<h6 class="m-0 font-weight-bold text-primary">News List</h6>
-					<a
-											href="AddNews"
-											class="btn btn-xs btn-real tooltips" style="size: 10px;"
-											data-original-title="Add"><i class="fas fa-newspaper"></i>Add News </a>
+					<a href="AddNews" class="btn btn-xs btn-real tooltips"
+						style="size: 10px;" data-original-title="Add"><i
+						class="fas fa-newspaper"></i>Add News </a>
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-					
+
 						<table class="table table-bordered" id="dataTable" width="100%"
 							cellspacing="0">
 
@@ -97,8 +104,7 @@
 										<td>${news.description}</td>
 
 
-										<td> <a
-											href="DeleteNews?id=<c:out value="${news.id}"/>"
+										<td><a href="DeleteNews?id=<c:out value="${news.id}"/>"
 											class="btn btn-xs btn-real tooltips" style="size: 10px;"
 											data-original-title="Delete"><i
 												class="fa fa-times fa fa-white"></i></a></td>

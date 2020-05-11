@@ -19,14 +19,14 @@ import com.mettucovid.dto.Patient;
 @WebServlet("/StaffPatientInfo")
 public class StaffPatientInfo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public StaffPatientInfo() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public StaffPatientInfo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -52,12 +52,14 @@ public class StaffPatientInfo extends HttpServlet {
 				request.getRequestDispatcher("PolicePatientInfo.jsp").forward(request, response);
 			}
 			else if(role.equals("Administrator"))
-			request.getRequestDispatcher("AdminPatientInfo.jsp").forward(request, response);
+				request.getRequestDispatcher("AdminPatientInfo.jsp").forward(request, response);
 			else
 				request.getRequestDispatcher("StaffPatientInfo.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}catch (NullPointerException e) {
+			response.sendRedirect("login.jsp");
 		}
 	}
 

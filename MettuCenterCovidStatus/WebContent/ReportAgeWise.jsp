@@ -40,6 +40,14 @@
 
 <body id="page-top">
 
+	<%
+		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+		response.setHeader("Pragma", "no-cache");
+		response.setHeader("Expires", "0");
+		if (session.getAttribute("role") == null) {
+			response.sendRedirect("login.jsp");
+		}
+	%>
 	<!-- Page Wrapper -->
 	<div id="wrapper">
 
@@ -69,8 +77,8 @@
 					<form action="AgeWiseReports" method="post">
 						<div class="row">
 							<div class="col-md-6 mb-3">
-								<select class="custom-select d-block w-100"
-									id="gender" name="ageRange" required="">
+								<select class="custom-select d-block w-100" id="gender"
+									name="ageRange" required="">
 									<option value="">Select Age Range..</option>
 									<option>1 Months to 1 year</option>
 									<option>1 to 10 Year</option>
@@ -78,7 +86,7 @@
 									<option>21 to 30 Year</option>
 									<option>31 to 50 Year</option>
 									<option>Above 50</option>
-	
+
 								</select>
 								<div class="invalid-feedback">Please provide a valid
 									Reason.</div>
@@ -102,7 +110,7 @@
 									<th>S.No</th>
 									<th>Patient ID</th>
 									<th>Name</th>
-									
+
 									<th>Age</th>
 									<th>Gender</th>
 									<th>Region</th>
@@ -120,8 +128,9 @@
 									<tr>
 										<td>${status.index + 1}</td>
 										<td>${patient.patientId}</td>
-										<td style="text-transform: capitalize">${patient.firstName } ${patient.middleName} ${patient.lastName}</td>
-									
+										<td style="text-transform: capitalize">${patient.firstName }
+											${patient.middleName} ${patient.lastName}</td>
+
 										<td>${patient.age}</td>
 										<td>${patient.gender}</td>
 										<td>${patient.region}</td>

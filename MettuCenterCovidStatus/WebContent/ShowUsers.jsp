@@ -39,6 +39,14 @@
 </head>
 
 <body id="page-top">
+	<%
+		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+		response.setHeader("Pragma", "no-cache");
+		response.setHeader("Expires", "0");
+		if (session.getAttribute("role") == null) {
+			response.sendRedirect("login.jsp");
+		}
+	%>
 
 	<!-- Page Wrapper -->
 	<div id="wrapper">
@@ -81,10 +89,9 @@
 									<th height="30px">Action</th>
 								</tr>
 							</thead>
-							
+
 							<tbody>
-								<c:forEach var="user" items="${userList}"
-									varStatus="status">
+								<c:forEach var="user" items="${userList}" varStatus="status">
 
 									<tr>
 										<td>${status.index + 1}</td>
@@ -93,7 +100,7 @@
 										<td style="text-transform: capitalize">${user.lastName}</td>
 										<td>${user.email}</td>
 										<td>${user.role}</td>
-										
+
 
 										<td><a
 											href="UpdateUser?id=<c:out value="${user.userId}"/>"

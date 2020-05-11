@@ -34,24 +34,32 @@ public class AddPatientDailyStatus extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws  IOException {
 		HttpSession session = request.getSession();
 
 		String patientId = request.getParameter("id");
 
 		session.setAttribute("patientId", patientId);
 		String role=(String) session.getAttribute("role");
-		if(role.equals("Administrator"))
-		{
-			request.setAttribute("fileName", "include/sidebarmenu.jsp");
-		}
-		else if(role.equals("Hospital Staff"))
-		{
-			request.setAttribute("fileName", "include/staffsidemenu.jsp");
-		}
+		try {
+			if(role.equals("Administrator"))
+			{
+				request.setAttribute("fileName", "include/sidebarmenu.jsp");
+			}
+			else if(role.equals("Hospital Staff"))
+			{
+				request.setAttribute("fileName", "include/staffsidemenu.jsp");
+			}
 
 
-		request.getRequestDispatcher("PatientDailyObservation.jsp").forward(request, response);
+
+			request.getRequestDispatcher("PatientDailyObservation.jsp").forward(request, response);
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}catch (NullPointerException e) {
+			response.sendRedirect("login.jsp");
+		}
 	}
 
 	/**

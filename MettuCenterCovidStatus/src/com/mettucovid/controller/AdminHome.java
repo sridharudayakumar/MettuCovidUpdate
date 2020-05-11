@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.mettucovid.dao.PatientDao;
 import com.mettucovid.dto.CaseNumbers;
@@ -32,12 +33,14 @@ public class AdminHome extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		ArrayList<CaseNumbers> counttempList = new ArrayList<CaseNumbers>();
 		try {
 			counttempList= PatientDao.findCaseNumbers();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			response.sendRedirect("login.jsp");
+		}catch (NullPointerException e) {
+			response.sendRedirect("login.jsp");
 		}
 		request.setAttribute("counttempList", counttempList);
 		request.getRequestDispatcher("admin.jsp").forward(request, response);

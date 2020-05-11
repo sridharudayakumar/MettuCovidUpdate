@@ -53,8 +53,9 @@ public class ShowPatientsInDetail extends HttpServlet {
 				request.getRequestDispatcher("ShowPatientsStaff.jsp").forward(request, response);
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			response.sendRedirect("login.jsp");
+		}catch (NullPointerException e) {
+			response.sendRedirect("login.jsp");
 		}
 	}
 

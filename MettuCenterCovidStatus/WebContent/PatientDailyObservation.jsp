@@ -38,6 +38,14 @@
 </head>
 
 <body id="page-top">
+	<%
+		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+		response.setHeader("Pragma", "no-cache");
+		response.setHeader("Expires", "0");
+		if (session.getAttribute("role") == null) {
+			response.sendRedirect("login.jsp");
+		}
+	%>
 
 	<!-- Page Wrapper -->
 	<div id="wrapper">
@@ -78,7 +86,8 @@
 								<div class="col-md-6 mb-3">
 									<label for="patientId">PatientId</label> <input type="text"
 										class="form-control" id="patientId" name="patientId"
-										placeholder="" value='<c:out value="${patientId}"></c:out>' required="" >
+										placeholder="" value='<c:out value="${patientId}"></c:out>'
+										required="">
 									<div class="invalid-feedback">Valid patient id is
 										required.</div>
 								</div>
@@ -101,8 +110,7 @@
 								</div>
 								<div class="col-md-6 mb-3">
 									<label for="bp">Blood Pressure</label> <input type="text"
-										class="form-control" id="bp" name="bp" placeholder="" value=""
-										>
+										class="form-control" id="bp" name="bp" placeholder="" value="">
 									<div class="invalid-feedback">Valid Bp required.</div>
 								</div>
 							</div>

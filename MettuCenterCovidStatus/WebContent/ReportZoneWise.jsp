@@ -39,7 +39,14 @@
 </head>
 
 <body id="page-top">
-
+	<%
+		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+		response.setHeader("Pragma", "no-cache");
+		response.setHeader("Expires", "0");
+		if (session.getAttribute("role") == null) {
+			response.sendRedirect("login.jsp");
+		}
+	%>
 	<!-- Page Wrapper -->
 	<div id="wrapper">
 
@@ -68,9 +75,10 @@
 				<div class="card-body">
 					<form action="ZoneWiseReports" method="post">
 						<div class="row">
-							<div class="col-md-6 mb-3"><input type="text"
-								class="form-control" id="zone" name="zone" placeholder="Enter Zone"
-								required=""></div>
+							<div class="col-md-6 mb-3">
+								<input type="text" class="form-control" id="zone" name="zone"
+									placeholder="Enter Zone" required="">
+							</div>
 							<div class="col-md-3 mb-3">
 								<input type="submit" value="Submit">
 							</div>
