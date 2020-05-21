@@ -1,7 +1,7 @@
 package com.mettucovid.controller.user;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -79,42 +79,38 @@ public class ChangePassword extends HttpServlet {
 		System.out.println(username);
 		try {
 			int status = UserDao.changePassword(username,oldPassword,newPassword);
+			if(role.equals("null"))
+			{
+				response.sendRedirect("login.jsp");
+			}
+			if(role.equals("Administrator"))
+			{
+				request.setAttribute("fileName", "include/sidebarmenu.jsp");
+			}
+			else if(role.equals("Hospital Staff"))
+			{
+				request.setAttribute("fileName", "include/staffsidemenu.jsp");
+			}
+			else if(role.equals("PRO"))
+			{
+				request.setAttribute("fileName", "include/ProSideMenu.jsp");
+			}
+			else 
+			{
+				request.setAttribute("fileName", "include/policesidemenu.jsp");
+			}
 			if(status>0)
 			{
-				PrintWriter out = response.getWriter();
-
-				out.println("<html>");
-
-				out.println("<head>");
-
-				out.print("<script language='JavaScript'>alert('Password Changed Successfully  ');</script>");
-
-				if(role.equals("Administrator"))
-					out.println("<script> location.replace('AdminHome'); </script>");
-				else
-					out.println("<script> location.replace('StaffHome'); </script>");
-
-				out.println("</head>");
-
-				out.println("</html>");
+				
+				
+					request.setAttribute("message", "Password Changed Successfully");
+					request.getRequestDispatcher("ChangePassword.jsp").forward(request, response);
 			}
 			else
 			{
-				PrintWriter out = response.getWriter();
-
-				out.println("<html>");
-
-				out.println("<head>");
-
-				out.print("<script language='JavaScript'>alert('Old Password Not Matched. Try Again..');</script>");
-
-
-				out.println("<script> location.replace('ChangePassword'); </script>");
-
-
-				out.println("</head>");
-
-				out.println("</html>");
+				
+				request.setAttribute("message", "Old Password Not Matched. Try Again..");
+				request.getRequestDispatcher("ChangePassword.jsp").forward(request, response);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

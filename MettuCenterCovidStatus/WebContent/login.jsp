@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,6 +52,18 @@
 									<div class="text-center">
 										<h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
 									</div>
+									<%
+												if (session.getAttribute("message") == null) {
+											%>
+											<div class="text-center">
+												<h1 class="h6 text-gray-900 mb-2">
+													<c:out value="${message}"></c:out>
+												</h1>
+
+											</div>
+											<%
+												}
+											%>
 										<form class="needs-validation" method="post" action="LoginController">
 										<div class="form-group">
 											<input type="email" name="username"

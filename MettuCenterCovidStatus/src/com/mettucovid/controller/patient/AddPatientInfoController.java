@@ -106,7 +106,7 @@ public class AddPatientInfoController extends HttpServlet {
 			System.out.println(result);
 			if (result > 0) {
 
-				String SuccessText = "Record Inserted";
+				String SuccessText = "Patient Registered";
 				session.setAttribute("SuccessText", SuccessText);
 
 				String role= (String) session.getAttribute("role");

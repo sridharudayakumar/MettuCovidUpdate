@@ -66,6 +66,7 @@ public class LoginController extends HttpServlet {
 			//request.getRequestDispatcher("admin.jsp").forward(request, response);
 
 			//request.getRequestDispatcher("AdminHome").forward(request, response);
+			request.setAttribute("message", "");
 			if (role.equals("Administrator"))
 			{
 				session.setAttribute("role", role);
@@ -98,9 +99,10 @@ public class LoginController extends HttpServlet {
 
 		} else {
 			String errortext = "Invalid Username or Password";
-			request.setAttribute("errortext", errortext);
-			out.print("<script language='JavaScript'>alert('User Account is Invalid ');</script>");
-			response.sendRedirect("login.jsp");
+			request.setAttribute("message", errortext);
+
+			request.getRequestDispatcher("login.jsp").forward(request, response);
+			//response.sendRedirect("login.jsp");
 		}
 	}
 }

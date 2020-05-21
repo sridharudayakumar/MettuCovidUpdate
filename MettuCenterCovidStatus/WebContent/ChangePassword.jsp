@@ -76,6 +76,19 @@
 									</div>
 									<div class="col-lg-6">
 										<div class="p-5">
+											<%
+												if (session.getAttribute("message") == null) {
+											%>
+											<div class="text-center">
+												<h1 class="h6 text-gray-900 mb-2">
+													<c:out value="${message}"></c:out>
+												</h1>
+
+											</div>
+											<%
+												}
+											%>
+
 											<div class="text-center">
 												<h1 class="h4 text-gray-900 mb-2">Change Password?</h1>
 

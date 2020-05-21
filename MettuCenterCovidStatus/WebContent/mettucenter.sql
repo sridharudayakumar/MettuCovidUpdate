@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2020 at 11:03 PM
+-- Generation Time: May 15, 2020 at 11:31 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -40,7 +40,7 @@ CREATE TABLE `covidcase` (
 --
 
 INSERT INTO `covidcase` (`id`, `total`, `active`, `cured`, `critical`, `deaths`) VALUES
-(1, 133, 59, 69, 0, 3);
+(1, 200, 86, 69, 0, 3);
 
 -- --------------------------------------------------------
 
@@ -60,7 +60,7 @@ CREATE TABLE `newsfeed` (
 
 INSERT INTO `newsfeed` (`id`, `url`, `description`) VALUES
 (1, 'https://news.cgtn.com/news/2020-04-17/Chinese-medical-team-arrives-in-Ethiopia-to-help-in-COVID-19-fight-PLym4IZOQ8/index.html', 'Chinese medical team arrives in Ethiopia\r\n													to help in COVID-19 fight'),
-(5, 'https://www.bloomberg.com/news/articles/2020-04-16/fear-of-economic-shock-hampers-ethiopia-s-coronavirus-fight', 'Ethiopia''s Nobel Laureate Is Hampering the Virus Fight');
+(8, 'https://www.bloomberg.com/news/articles/2020-04-16/fear-of-economic-shock-hampers-ethiopia-s-coronavirus-fight', 'Ethiopia''s Nobel Laureate Is Hampering the Virus Fight');
 
 -- --------------------------------------------------------
 
@@ -115,7 +115,7 @@ CREATE TABLE `patientinfo` (
 --
 
 INSERT INTO `patientinfo` (`patientId`, `firstName`, `middleName`, `lastName`, `age`, `gender`, `email`, `phoneNo`, `address`, `zone`, `kebele`, `woreda`, `region`, `country`, `citizenship`, `natureOfJob`, `preDisease`, `admittedOn`, `travelHistory`, `contactWithCases`, `presentStatus`, `ecfirstName`, `relationShip`, `ecAddress`, `ecPhoneNo`, `ecEmail`, `allergies`, `medications`, `operation1`, `doo1`, `operation2`, `doo2`, `operation3`, `doo3`, `familyHistory`, `smoke`, `pregnantRisk`, `symptoms`, `status`) VALUES
-(6, 'Yosuf', 'adsfasdf', 'YZW', 6, 'Male', 'asd@gmail.com', 2462346464, 'Mettu', 'IlluAbabore', '', 'Mettu', 'Oromia', 'Ethiopia', '', 'Teaching', 'Nil', '2020-04-24', 'Nil', 'Yes', 'Critical', 'Dawid', 'Father', 'adfasdfadssdf', 5673651352, '', 'Nil', 'Nil', 'Nil', '', '', '', '', '', 'NO', 'Yes', 'No', 'Cough,Difficulty in breathing', 'active'),
+(6, 'Yosuf', 'Teddesa', 'YZW', 6, 'Male', 'asd@gmail.com', 2462346464, 'Mettu', 'IlluAbabore', '', 'Mettu', 'Oromia', 'Ethiopia', '', 'Teaching', 'Nil', '2020-04-24', 'Nil', 'Yes', 'Critical', 'Dawid', 'Father', 'adfasdfadssdf', 5673651352, '', 'Nil', 'Nil', 'Nil', '', '', '', '', '', 'NO', 'Yes', 'No', 'Cough,Difficulty in breathing', 'active'),
 (7, 'Tedros', 'jjjfd', 'B', 15, 'Male', 'asd@gmail.com', 7585785686, 'Mettu', 'mettu', '', '01', 'Benishangul Gumuz', 'Ethiopia', '', 'Teaching', 'Nil', '2020-04-16', 'From Dubai', 'No', 'Normal', 'Vinay', 'Neighborhood', 'adgnjjdgjgjgdj', 5673651352, '', 'Nil', 'Nil', '', '', '', '', '', '', 'NO', 'Yes', 'No', 'Cough,Body aches,Running nose', 'InActive'),
 (8, 'Ramesh', 'Kumar', 'krishna', 46, 'Male', 'ramesh@gmail.com', 4262463473, 'Mettu', 'mettu', '', 'Mettu', 'Oromia', 'India', '', 'Teaching', 'Nil', '2020-04-27', 'From Dubai', 'No', 'Normal', 'Dawid', 'Friend', 'Mettu', 9787687513, '', 'Nil', '', 'Heart', '2020-06-02', '', '', '', '', 'Nil', 'Yes', 'No', 'Cough,Pressure in the chest', 'active'),
 (9, 'Demesa', '', 'Lema', 24, 'Male', 'demesa@gmail.com', 4262463473, 'Mettu', 'Addis ababa', '', 'Addis ababa', 'Addis Ababa', 'Ethiopia', '', 'Teaching', 'Nil', '2020-04-23', 'Nil', 'Yes', 'Quarantined', 'Lema', 'Father', 'Mettu', 5673651352, 'adsf@gmail.com', 'Nil', 'Nil', '', '', '', '', '', '', 'NO', 'No', 'No', 'Cough,Sore throat', 'active'),
@@ -180,11 +180,11 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`userId`, `firstName`, `lastName`, `email`, `password`, `role`, `status`) VALUES
 (1, 'Sridhar', 'U', 'sri123@gmail.com', '123456', 'Administrator', 'active'),
 (3, 'Abdi', 'M', 'hospital@gmail.com', '123456', 'Hospital Staff', 'active'),
-(4, 'Tedros', 'K', 'police@gmail.com', '123456', 'Police', 'active'),
+(4, 'Tedros', 'K', 'police@gmail.com', '654321', 'Police', 'active'),
 (5, 'Begna', 'B', 'admin@gmail.com', '123456', 'Administrator', 'active'),
 (12, 'Demesa', 'L', 'demesa@gmail.com', '13123123123', 'Police', 'InActive'),
-(13, 'Sara', 'Elan', 'sara@gmail.com', '123456', 'Zone Health Bureau', 'active'),
-(14, 'Wolkaba', 'A', 'pro@gmail.com', '123456', 'PRO', 'active');
+(13, 'Sara', 'Elan', 'sara@gmail.com', '654321', 'Zone Health Bureau', 'active'),
+(14, 'Wolkaba', 'A', 'pro@gmail.com', '654321', 'PRO', 'active');
 
 --
 -- Indexes for dumped tables
@@ -229,7 +229,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `newsfeed`
 --
 ALTER TABLE `newsfeed`
-  MODIFY `id` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `patientinfo`
 --
