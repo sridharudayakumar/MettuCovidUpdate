@@ -34,8 +34,13 @@ public class AddUser extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session = request.getSession();
+		String SuccessText = "";
+		session.setAttribute("SuccessText", SuccessText);
+		String FailureText = "";
+		session.setAttribute("FailureText", FailureText);
+		request.getRequestDispatcher("RegisterUser.jsp").forward(request, response);
+
 	}
 
 	/**
@@ -45,7 +50,10 @@ public class AddUser extends HttpServlet {
 		HttpSession session = request.getSession();
 		PrintWriter out = response.getWriter();
 
-
+		String SuccessText = "";
+		session.setAttribute("SuccessText", SuccessText);
+		String FailureText = "";
+		session.setAttribute("FailureText", FailureText);
 
 		try {
 			User user = new User();
@@ -62,7 +70,7 @@ public class AddUser extends HttpServlet {
 			System.out.println(result);
 			if (result > 0) {
 
-				String SuccessText = "User Registered";
+				 SuccessText = "User Registered";
 				session.setAttribute("SuccessText", SuccessText);
 
 				request.getRequestDispatcher("RegisterUser.jsp").forward(request, response);
@@ -70,23 +78,20 @@ public class AddUser extends HttpServlet {
 			} else {
 
 
-				out.println("<html>");
+				FailureText = "Registration Failed due to duplicate email id";
+				session.setAttribute("FailureText", FailureText);
 
-				out.println("<head>");
-
-				out.print("<script language='JavaScript'>alert('Registration Failed due to duplicate email id  ');</script>");
-
-				out.println("<script> location.replace('RegisterUser.jsp'); </script>");
-
-				out.println("</head>");
-
-				out.println("</html>");
+				request.getRequestDispatcher("RegisterUser.jsp").forward(request, response);
 				//request.getRequestDispatcher("RegisterUser.jsp").forward(request, response);
 			}
 		}catch (Exception  e) {
 			System.out.println(e);
-			session.setAttribute("FailureText", "Registration Failed due to duplicate email id");
-			request.getRequestDispatcher("ErrorPage.jsp").forward(request, response);
+			FailureText = "Registration Failed due to duplicate email id";
+			session.setAttribute("FailureText", FailureText);
+
+			request.getRequestDispatcher("RegisterUser.jsp").forward(request, response);
+			/*session.setAttribute("FailureText", "Registration Failed due to duplicate email id");
+			request.getRequestDispatcher("ErrorPage.jsp").forward(request, response);*/
 		}
 
 

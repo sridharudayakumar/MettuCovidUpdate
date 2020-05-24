@@ -22,5 +22,6 @@
 	<classpathentry kind="lib" path="E:/Programming/Java/Jar files/jar file for java application/Report Builder/dynamicreports-core-3.1.3.jar"/>
 	<classpathentry kind="lib" path="E:/Programming/Java/Jar files/jar file for java application/Report Builder/itext-2.1.7.jar"/>
 	<classpathentry kind="lib" path="E:/Programming/Java/Jar files/jar file for java application/Report Builder/jasperreports-5.0.4.jar"/>
+	<classpathentry kind="lib" path="E:/Programming/Java/Jar files/ux/javamail.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

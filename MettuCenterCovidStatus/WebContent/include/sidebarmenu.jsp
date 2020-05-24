@@ -77,7 +77,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">User Control:</h6>
-						<a class="collapse-item" href="RegisterUser.jsp">Register User</a>
+						<a class="collapse-item" href="AddUser">Register User</a>
 						<a class="collapse-item" href="ShowUsers">Show Users</a>
 					
           </div>

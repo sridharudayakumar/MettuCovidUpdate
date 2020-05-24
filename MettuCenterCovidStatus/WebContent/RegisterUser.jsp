@@ -69,7 +69,48 @@
 					</div>
 					<hr>
 				</div>
+<%
+					if (!(session.getAttribute("SuccessText") == null)) {
+				%>
+				<div class="text-success">
+					<strong>
+						<c:out value="${SuccessText}"></c:out>
+					</strong>
 
+				</div>
+				<%
+					}else
+					{
+						%>
+						<div class="row">
+						<strong>
+							
+						</strong>
+
+					</div><%
+					}
+				%>
+				<%
+					if (!(session.getAttribute("FailureText") == null)) {
+				%>
+				<div class="text-danger">
+					<strong>
+						<c:out value="${FailureText}"></c:out>
+					</strong>
+
+				</div>
+				<%
+					}else
+					{
+						%>
+						<div class="row">
+						<strong>
+							
+						</strong>
+
+					</div><%
+					}
+				%>
 				<div class="row">
 
 					<div class="col-lg-12 mb-4">

@@ -38,19 +38,8 @@ public class DeleteUser extends HttpServlet {
 		try {
 			result = UserDao.deleteUser(id);
 			if (result > 0) {
-				PrintWriter out = response.getWriter();
-
-				out.println("<html>");
-
-				out.println("<head>");
-
-				out.print("<script language='JavaScript'>alert('User Deleted Successfully  ');</script>");
-
-				out.println("<script> location.replace('StaffHome'); </script>");
-
-				out.println("</head>");
-
-				out.println("</html>");
+				
+				request.getRequestDispatcher("ShowUsers").forward(request, response);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

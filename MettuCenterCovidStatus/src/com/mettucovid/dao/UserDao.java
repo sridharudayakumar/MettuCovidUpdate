@@ -35,12 +35,10 @@ public class UserDao {
 	public static int deleteUser(int id) throws SQLException {
 		Connection conn = ConnectionUtil.getConnection();
 		PreparedStatement ps = null;
-		String sql = "UPDATE users SET STATUS=? WHERE USERID=?";
+		String sql = "delete from users WHERE USERID=?";
 		ps = conn.prepareStatement(sql);
 
-		String status = "InActive";
-		ps.setString(1, status);
-		ps.setInt(2, id);
+		ps.setInt(1, id);
 
 		int result = ps.executeUpdate();
 		return result;
@@ -145,6 +143,35 @@ public class UserDao {
 			status=0;
 		}
 		return status;
+	}
+
+	public static User checkEmailAvailability(String email) throws SQLException {
+		Connection conn = ConnectionUtil.getConnection();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		// int status = 1;
+		String sql = "SELECT * FROM users WHERE email=?";
+		ps = conn.prepareStatement(sql);
+		ps.setString(1, email);
+
+		rs = ps.executeQuery();
+		User user = new User();
+		if (rs.next()) {
+
+			user.setUserId(rs.getInt(1));
+			user.setFirstName(rs.getString(2));
+			user.setLastName(rs.getString(3));
+			user.setEmail(rs.getString(4));
+			user.setPassword(rs.getString(5));
+			user.setRole(rs.getString(6));
+
+
+		}else
+		{
+			user.setFirstName("");
+		}
+
+		return user;
 	}
 
 

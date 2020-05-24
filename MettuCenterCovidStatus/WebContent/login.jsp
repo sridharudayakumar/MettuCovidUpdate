@@ -91,7 +91,7 @@
 									</form>
 									<hr>
 									<div class="text-center">
-										<a class="small" href="">Forgot
+										<a class="small" href="forgetpassword.jsp">Forgot
 											Password?</a>
 									</div>
 
