@@ -8,7 +8,7 @@
 </head>
 <body>
 	<ul
-		class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+		class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion"
 		id="accordionSidebar">
 
 		<!-- Sidebar - Brand -->

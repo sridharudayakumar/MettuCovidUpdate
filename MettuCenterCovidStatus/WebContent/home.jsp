@@ -35,8 +35,7 @@
 	<div id="wrapper">
 
 		<!-- Sidebar -->
-		<ul
-			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+		<ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion"
 			id="accordionSidebar">
 
 			<!-- Sidebar - Brand -->
@@ -57,6 +56,7 @@
 			<li class="nav-item active"><a class="nav-link" href="index.jsp">
 					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
 			</a></li>
+			
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
@@ -85,6 +85,7 @@
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">Login Screens:</h6>
 						<a class="collapse-item" href="login.jsp">Login</a>
+						<a class="collapse-item" href="SuspectRegistration.jsp">Register Suspect</a>
 						<div class="collapse-divider"></div>
 					</div>
 				</div></li>

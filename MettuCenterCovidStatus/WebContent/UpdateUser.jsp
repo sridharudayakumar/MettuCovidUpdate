@@ -128,6 +128,7 @@
 										
 										<option>Administrator</option>
 										<option>Police</option>
+										<option>PRO</option>
 										<option>Hospital Staff</option>
 										<option>Zone Health Bureau</option>
 
