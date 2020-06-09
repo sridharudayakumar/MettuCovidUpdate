@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2020 at 11:31 AM
+-- Generation Time: Jun 09, 2020 at 04:52 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -123,7 +123,10 @@ INSERT INTO `patientinfo` (`patientId`, `firstName`, `middleName`, `lastName`, `
 (11, 'Senate', '', 'Abdi', 43, 'Female', 'senate@gmail.com', 9867646386, 'Mettu', 'Illu Aba bore', '', 'Mettu', 'Oromia', 'Ethiopia', '', 'Shop Owner', 'Nil', '2020-04-16', 'From Dubai', 'Yes', 'Recovered', 'Teddy', 'Neighborhood', 'adfsadfsdafdf', 9787687513, 'adsf@gmail.com', 'Nil', '', '', '', '', '', '', '', 'NO', 'No', 'No', 'Cough,Running nose', 'active'),
 (12, 'Lalitha', '', 'Paranthaman', 37, 'Female', 'lalitha@gmail.com', 9866435433, 'Some Street', 'Amhara', '', 'Amhara', 'Amhara', 'Ethiopia', '', 'Teaching', 'Nil', '2020-04-23', 'Nil', 'Yes', 'Normal', 'Dawid', 'Neighborhood', 'adfasdfadssdf', 5846723453, '', 'Nil', '', '', '', '', '', '', '', 'NO', 'No', 'No', 'High Fever,Cough', 'active'),
 (13, 'Javed', '', 'M', 56, 'Male', 'javed@gmail.com', 9867646333, 'Adama', 'adama', 'adama', 'adama', 'Addis Ababa', 'Ethiopia', 'India', 'Teaching', 'Nil', '2020-05-15', 'From India', 'Yes', 'Normal', 'Vinay', 'Friend', 'Adama', 8765665334, '', 'Nil', 'Nil', 'Nil', '', '', '', '', '', 'NO', 'Yes', 'No', 'High Fever,Cough', 'active'),
-(14, 'Vimala', '', 'Rani', 24, 'Female', 'vimala@gmail.com', 7878653334, 'Mettu', 'mettu', 'Mettu', 'Mettu', 'Oromia', 'Ethiopia', 'India', 'Teaching', 'Nil', '2020-05-20', 'Nil', 'Yes', 'Recovered', 'Raja', 'Father', 'India', 8766528773, '', 'Nil', 'Nil', '', '', '', '', '', '', 'NO', 'No', 'No', 'Cough,Body aches', 'active');
+(14, 'Vimala', '', 'Rani', 24, 'Female', 'vimala@gmail.com', 7878653334, 'Mettu', 'mettu', 'Mettu', 'Mettu', 'Oromia', 'Ethiopia', 'India', 'Teaching', 'Nil', '2020-05-20', 'Nil', 'Yes', 'Recovered', 'Raja', 'Father', 'India', 8766528773, '', 'Nil', 'Nil', '', '', '', '', '', '', 'NO', 'No', 'No', 'Cough,Body aches', 'InActive'),
+(15, 'Karthikeyan', '', 'Vimal', 35, 'Male', 'karthi@gmail.com', 8776756564, 'Adama', 'Amhara', 'adama', 'Amhara', 'Amhara', 'Ethiopia', 'India', 'Teaching', 'Nil', '2020-05-21', 'Nil', 'Yes', 'Normal', 'Vinay', 'Friend', 'Adama', 8766528773, 'adsf@gmail.com', 'Nil', 'Nil', '', '', '', '', '', '', 'Nil', 'No', 'No', 'Cough,Body aches', 'InActive'),
+(16, 'Karthikeyan', '', 'Vimal', 35, 'Male', 'karthi@gmail.com', 2462346464, 'Adama', 'Amhara', 'adama', 'amhara', 'Amhara', 'Ethiopia', 'India', 'Teaching', 'Nil', '2020-05-21', 'Nil', 'Yes', 'Normal', 'Raja', 'Friend', 'Adama', 9787687513, 'adsf@gmail.com', 'Nil', 'Nil', '', '', '', '', '', '', 'NO', 'No', 'No', 'Cough,Body aches', 'active'),
+(17, 'naren', '', 'karthi', 45, 'Male', 'naren@gmail.com', 7585785686, 'Adama', 'Amhara', 'adama', 'Amhara', 'Amhara', 'Ethiopia', 'India', 'Teaching', 'Nil', '2020-05-22', 'From Dubai', 'No', 'Normal', 'Raja', 'Friend', 'Adama', 8766528773, 'adsf@gmail.com', 'Asthma', 'Nil', '', '', '', '', '', '', 'NO', 'Yes', 'No', 'Cough,Body aches', 'active');
 
 -- --------------------------------------------------------
 
@@ -160,6 +163,39 @@ INSERT INTO `patientobservation` (`id`, `patientId`, `doo`, `temperature`, `bp`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `suspect`
+--
+
+CREATE TABLE `suspect` (
+  `id` bigint(20) NOT NULL,
+  `name` varchar(40) NOT NULL,
+  `age` int(3) NOT NULL,
+  `gender` varchar(20) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `phoneNo` bigint(10) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `kebele` varchar(30) NOT NULL,
+  `woreda` varchar(30) NOT NULL,
+  `zone` varchar(30) NOT NULL,
+  `region` varchar(30) NOT NULL,
+  `country` varchar(30) NOT NULL,
+  `citizenship` varchar(40) NOT NULL,
+  `caseType` varchar(30) NOT NULL,
+  `message` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `suspect`
+--
+
+INSERT INTO `suspect` (`id`, `name`, `age`, `gender`, `email`, `phoneNo`, `address`, `kebele`, `woreda`, `zone`, `region`, `country`, `citizenship`, `caseType`, `message`) VALUES
+(1, 'Karthik', 25, 'Male', 'asd@gmail.com', 7585785686, 'Mettu', 'Mettu', 'Mettu', 'Mettu', 'Oromia', 'Ethiopia', 'Ethiopia', 'Unauthorized', 'afaf'),
+(2, 'Tedros', 34, 'Male', 'tedros@gmail.com', 4262463473, 'Some Street', 'adama', 'amhara', 'Amhara', 'Amhara', 'Ethiopia', 'Ethiopia', 'Unauthorized', 'asdf'),
+(3, 'Sage Antony', 25, 'Female', '', 6764362462, 'xyz', 'Addis ababa', 'Amhara', 'Amhara', 'Addis Ababa', 'Ethiopia', 'India', 'Suspect', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -180,11 +216,10 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`userId`, `firstName`, `lastName`, `email`, `password`, `role`, `status`) VALUES
 (1, 'Sridhar', 'U', 'sri123@gmail.com', '123456', 'Administrator', 'active'),
 (3, 'Abdi', 'M', 'hospital@gmail.com', '123456', 'Hospital Staff', 'active'),
-(4, 'Tedros', 'K', 'police@gmail.com', '654321', 'Police', 'active'),
-(5, 'Begna', 'B', 'admin@gmail.com', '123456', 'Administrator', 'active'),
-(12, 'Demesa', 'L', 'demesa@gmail.com', '13123123123', 'Police', 'InActive'),
+(4, 'Tedros', 'kara', 'police@gmail.com', '123456', 'Police', 'active'),
+(5, 'Begna', 'Dejene', 'ibmbegna@gmail.com', '123456', 'Administrator', 'active'),
 (13, 'Sara', 'Elan', 'sara@gmail.com', '654321', 'Zone Health Bureau', 'active'),
-(14, 'Wolkaba', 'A', 'pro@gmail.com', '654321', 'PRO', 'active');
+(20, 'Vimal', 'B', 'vimal@gmail.com', '123456', 'PRO', 'active');
 
 --
 -- Indexes for dumped tables
@@ -215,6 +250,12 @@ ALTER TABLE `patientobservation`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `suspect`
+--
+ALTER TABLE `suspect`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -234,17 +275,22 @@ ALTER TABLE `newsfeed`
 -- AUTO_INCREMENT for table `patientinfo`
 --
 ALTER TABLE `patientinfo`
-  MODIFY `patientId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `patientId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `patientobservation`
 --
 ALTER TABLE `patientobservation`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
+-- AUTO_INCREMENT for table `suspect`
+--
+ALTER TABLE `suspect`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

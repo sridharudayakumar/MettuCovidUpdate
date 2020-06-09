@@ -158,6 +158,8 @@
 													Wise Report</a></li>
 											<li class="list-group-item"><a href="GenderWiseReports">Gender
 													Wise Report</a></li>
+											<li class="list-group-item"><a href="SuspectCaseReports">Suspect
+													Case Report</a></li>
 
 
 										</ul>

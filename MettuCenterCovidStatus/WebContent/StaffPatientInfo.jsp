@@ -13,7 +13,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Mettu Center - Update Patient</title>
+<title>Mettu Center - Patient Information</title>
 
 <!-- Custom fonts for this template-->
 

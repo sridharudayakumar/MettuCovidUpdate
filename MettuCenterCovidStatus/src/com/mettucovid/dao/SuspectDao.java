@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-
+import com.mettucovid.dto.Patient;
 import com.mettucovid.dto.Suspect;
 import com.mettucovid.util.ConnectionUtil;
 
@@ -80,6 +80,41 @@ public class SuspectDao {
 		}
 		return suspectList;
 	}
+
+	public static Suspect findOne(int suspectId) throws SQLException {
+		Connection conn = ConnectionUtil.getConnection();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		// int status = 1;
+		String sql = "SELECT * FROM suspect WHERE id=?";
+		ps = conn.prepareStatement(sql);
+		ps.setInt(1, suspectId);
+
+		rs = ps.executeQuery();
+		Suspect suspect = new Suspect();
+		if (rs.next()) {
+
+			suspect.setId(rs.getInt("id"));
+			suspect.setName(rs.getString("name"));
+			suspect.setAge(rs.getInt("age"));
+			suspect.setGender(rs.getString("gender"));
+			suspect.setEmail(rs.getString("email"));
+			suspect.setPhoneNo(rs.getLong("phoneNo"));
+			suspect.setAddress(rs.getString("address"));
+			suspect.setZone(rs.getString("zone"));
+			suspect.setKebele(rs.getString("kebele"));
+			suspect.setWoreda(rs.getString("woreda"));
+			suspect.setRegion(rs.getString("region"));
+			suspect.setCountry(rs.getString("country"));
+			suspect.setCitizenship(rs.getString("citizenship"));
+			suspect.setCaseType(rs.getString("caseType"));
+			suspect.setMessage(rs.getString("message"));
+
+		}
+
+		return suspect;
+	}
+
 
 
 
